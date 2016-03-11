@@ -1,0 +1,36 @@
+{
+  "name": "node-honeypot-client",
+  "version": "1.0.0",
+  "description": "Honeypot Client",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rabbitfighter81/node-honeypot-client.git"
+  },
+  "keywords": [
+    "Honeypot",
+    "Node",
+    "ES6",
+    "Gulp",
+    "JavaScript"
+  ],
+  "author": " <rabbitfighter@cryptolab.net>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rabbitfighter81/node-honeypot-client/issues"
+  },
+  "homepage": "https://github.com/rabbitfighter81/node-honeypot-client#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2",
+    "gulp-concat": "^2.6.0",
+    "gulp-jshint": "^2.0.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.2.0",
+    "gulp-uglify": "^1.5.3",
+    "jshint": "^2.9.1"
+  }
+}
