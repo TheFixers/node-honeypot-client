@@ -9,7 +9,7 @@ var gulp   = require('gulp')
 var uglify = require('gulp-uglify')
 var concat = require('gulp-concat')
 var babel  = require('gulp-babel')
-var jshint = require('gulp-jshint');
+var jshint = require('gulp-jshint')
 var concat = require('gulp-concat')
 
 /**
@@ -25,7 +25,7 @@ gulp.task('babel', function() {
 /**
  * Place all JavaScripts in src in src/compiled
  */
-gulp.task('js', () => {
+gulp.task('js', function() {
   return gulp.src('src/*.js')
   .pipe(gulp.dest('src/compiled'))
 })
@@ -33,7 +33,7 @@ gulp.task('js', () => {
 /**
  * Runs Tasks 1-4
  */
- gulp.task('scripts', ['babel', 'js'], () => {
+ gulp.task('scripts', ['babel', 'js'], function() {
   return gulp.src(['src/compiled/*.js', ])
   .pipe(concat('all.min.js'))
   .pipe(uglify())
@@ -44,6 +44,6 @@ gulp.task('js', () => {
  * Translates any change to EC3 with gulp and place 
  * in src/compiled and all.min.js
  */
-gulp.task('watch', () => {
+gulp.task('watch', function() {
   gulp.watch('src/*.{js,babel}', ['scripts'])
 })
