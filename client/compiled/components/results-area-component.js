@@ -31,12 +31,3 @@ exports.default = _react2.default.createClass({
 		);
 	}
 });
-
-/*for (var key in data) {
-// skip loop if the property is from prototype
-    if (!data.hasOwnProperty(key)) continue;
-
-    console.log(key + " = " + JSON.parse(data[key])._id.$oid);
-
-   
-}*/

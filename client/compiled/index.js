@@ -19,4 +19,4 @@ var _sourceUrl2 = _interopRequireDefault(_sourceUrl);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 // Use ReactDOM to render App component
-_reactDom2.default.render(_react2.default.createElement(_appComponent2.default, { source: 'http://54.200.61.193/clientInfoData.json' }), document.getElementById('root'));
+_reactDom2.default.render(_react2.default.createElement(_appComponent2.default, { source: _sourceUrl2.default }), document.getElementById('root'));

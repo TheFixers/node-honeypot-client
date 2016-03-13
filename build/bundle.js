@@ -288,7 +288,6 @@ var _react2 = _interopRequireDefault(_react);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = _react2.default.createClass({
-
   displayName: 'Header Component',
 
   componentDidMount: function componentDidMount() {
@@ -351,15 +350,6 @@ exports.default = _react2.default.createClass({
 	}
 });
 
-/*for (var key in data) {
-// skip loop if the property is from prototype
-    if (!data.hasOwnProperty(key)) continue;
-
-    console.log(key + " = " + JSON.parse(data[key])._id.$oid);
-
-   
-}*/
-
 },{"./data-table-component.js":2,"react":168}],6:[function(require,module,exports){
 'use strict';
 
@@ -382,7 +372,7 @@ var _sourceUrl2 = _interopRequireDefault(_sourceUrl);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 // Use ReactDOM to render App component
-_reactDom2.default.render(_react2.default.createElement(_appComponent2.default, { source: 'http://54.200.61.193/clientInfoData.json' }), document.getElementById('root'));
+_reactDom2.default.render(_react2.default.createElement(_appComponent2.default, { source: _sourceUrl2.default }), document.getElementById('root'));
 
 },{"./components/app-component.js":1,"./static/source-url.js":9,"react":168,"react-dom":39}],7:[function(require,module,exports){
 "use strict";
