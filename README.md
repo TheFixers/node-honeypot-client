@@ -3,7 +3,7 @@ Honeypot Client using NodeJS, NPM, Gulp, and custom modules to parse JSON respon
 
 ##Installation
 
-To package, compile, and bundle the application, use the following commands...
+To package, compile, and bundle the application, use the following commands from the root directory...
 
 ### Installing node dependencies
 * `npm install` - installs all node dependancies from `package.json`
