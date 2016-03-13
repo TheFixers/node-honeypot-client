@@ -1,6 +1,7 @@
 import React from 'react'
 import Header from './header-component.js'
-import jQuery from 'jquery'
+import Results from './results-area-component.js'
+import Footer from './footer-component.js'
 import fetch from '../scripts/promise-fetch-server-data.js'
 
 
@@ -9,20 +10,20 @@ export default React.createClass({
   displayName: 'App',
 
   getInitialState() {
-    return {
-      clientData: null,
-      openIndex: null,
-      error: null
-    }
+      return {
+          clientData: [],
+          openIndex: null,
+          error: null
+      }
   },
 
   componentDidMount() {
-  	  console.log("App un-mounted")
+  	  console.log("App mounted")
   	  
       var promise = fetch(this.props.source)
 
       promise.then((data) => {
-      	  let clientData = data
+      	  let clientData = data.trim().split('\n') // Split into array
           this.setState({
 	      	  clientData: clientData,
 	      	  error: null
@@ -31,7 +32,7 @@ export default React.createClass({
       })
       .catch((err) => {
       	  this.setState({
-          	  clientData: null,
+          	  clientData: [],
           	  error: err
           })
           console.error(err)
@@ -45,13 +46,13 @@ export default React.createClass({
   },
 
   render() {
-    return (
-      <div>
-        <Header text={this.props.source} />
-        <p>{this.state.clientData}</p>
-        <a href={this.props.source}>{this.props.source}</a>.
-      </div>
-    )
+      return (
+          <div>
+              <Header className='header center' text={this.props.source} />
+        	  <Results className='results' data={this.state.clientData} />
+        	  <Footer className='footer center' source={this.props.source} />
+      	  </div>
+      )
   }
-  
+
 })
