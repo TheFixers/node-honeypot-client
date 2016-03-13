@@ -3,14 +3,13 @@
 
 body {
 	text-align: center;
-	font-family: 'Open Sans'
+	font-family: 'Open Sans';
+	background-color: #555;
 }
 
 h1 {
-	padding: 20px;
-	background-color: #333;
-	color: #FFF;
-    font-color: #FFF;
+    font-size: 3em;
+    text-transform: 'UPPERCASE';
 }
 
 table.center {
@@ -61,3 +60,12 @@ tr:nth-child(even) td { background: #F1F1F1; }
 tr:nth-child(odd) td { background: #FEFEFE; }  
 
 tr td:hover { background: #666; color: #FFF; } /* Hover cell effect! */
+
+.header, .footer {
+	padding: 20px;
+	margin: 20px;
+	background-color: #333;
+	color: #FFF;
+    font-color: #FFF;
+    border-radius: 5px;
+}

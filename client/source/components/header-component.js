@@ -13,7 +13,7 @@ export default React.createClass({
 
   render() {
     return (
-      <div>
+      <div className='header center'>
         <h1>Honeypot Client</h1>
         <h2>Server data from {this.props.text}</h2>
       </div>

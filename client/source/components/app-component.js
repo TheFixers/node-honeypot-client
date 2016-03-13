@@ -48,9 +48,9 @@ export default React.createClass({
   render() {
       return (
           <div>
-              <Header className='header center' text={this.props.source} />
-        	  <Results className='results' data={this.state.clientData} />
-        	  <Footer className='footer center' source={this.props.source} />
+              <Header text={this.props.source} />
+        	  <Results data={this.state.clientData} />
+        	  <Footer source={this.props.source} />
       	  </div>
       )
   }
