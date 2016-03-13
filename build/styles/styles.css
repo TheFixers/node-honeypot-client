@@ -7,7 +7,11 @@ body {
 h1 {
   font-size: 3em;
   text-transform: UPPERCASE;
-  text-shadow: 2px 2px #333; }
+  text-shadow: 2px 2px #333;
+  color: #ffff00; }
+
+h2 {
+  color: white; }
 
 table.center {
   width: 70%;
@@ -64,7 +68,5 @@ tr td:hover {
 .header, .footer {
   padding: 20px;
   margin: 20px;
-  background-color: #990099;
-  color: #FFF;
-  font-color: #FFF;
+  background-color: #777;
   border-radius: 5px; }
