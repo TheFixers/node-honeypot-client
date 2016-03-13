@@ -1,5 +1,5 @@
 /**
- * Gulpfile
+ * Gulpfile for Honeypot Client
  * Author: Joshua Michael Waggoner
  * Email: <rabbitfighter@cryptolab.net>
  * Usage: 'gulp [option]' i.e. 'gulp watch'

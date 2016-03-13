@@ -1,6 +1,7 @@
 // Sass file
 
-@import url(http://fonts.googleapis.com/css?family=Bangers|Roboto|Oswald|Lato|Roboto+Slab|Open+Sans);
+@import url(http://fonts.googleapis.com/css?family=Sigmar+One|Special+Elite|Bangers|Roboto|Oswald|Lato|Roboto+Slab|Open+Sans);
+
 
 $color-yellow: #ffff00;
 $color-med-dark: #333;
@@ -14,14 +15,14 @@ $color-td: #FAFAFA;
 $color-tr-even: #F1F1F1;
 $color-tr-odd: #FEFEFE;
 
-$font-header: 'Bangers';
-$font-subheader: 'Roboto Slab';
-$font-body: 'Open Sans';
+$font-header: 'Sigmar One';
+$font-subheader: 'Special Elite';
+$font-th: 'Roboto';
+$font-td: 'Open Sans';
 
 
 body {
 	text-align: center;
-	font-family: $font-body;
 	background-color: $color-bg;
 }
 
@@ -29,7 +30,7 @@ h1 {
 	font-family: $font-header;
     font-size: 3em;
     text-transform: UPPERCASE;
-    text-shadow: 2px 2px $color-med-dark;
+    text-shadow: 2px 2px black;
     letter-spacing: 0.3em;
     color: $color-yellow;
 }
@@ -37,6 +38,11 @@ h1 {
 h2 {
 	font-family: $font-subheader;
 	text-shadow: 2px 2px $color-med-dark;
+}
+
+footer{
+	font-family: $font-subheader;
+	color: white;
 }
 
 table.center {
@@ -49,22 +55,22 @@ table {
 	align: center;
 	margin: 25px;
 	color: #333;
-	font-family: $font-body;
 	width: 640px;
 	border-collapse:
 	collapse; border-spacing: 0;
-	border: solid 2px white;
+	border: solid 3px white;
 	border-radius: 5px;
 }
 
 td, th {
-	border: 1px solid transparent; /* No more visible border */
+	border: 3px solid transparent; /* No more visible border */
 	height: 30px;
 	transition: all 0.3s;  /* Simple transition for hover effect */
 	border: solid 2px white;
 }
 
 th {
+	font-family: $font-th;
 	padding: 10px;
 	background: $color-th;  /* Darken header a bit */
 	font-weight: bold;
@@ -74,6 +80,7 @@ th {
 }
 
 td {
+	font-family: $font-td;
 	padding: 10px;
 	background: $color-td;
 	text-align: left;
@@ -93,7 +100,9 @@ tr:nth-child(odd) td {
 
 tr td:hover { 
 	background: $color-bg; 
-	color: $color-yellow; 
+	color: white; 
+	transition: background 0.3s;
+	transition: color 0.3s;
 } /* Hover cell effect! */
 
 /* unvisited link */
@@ -109,6 +118,7 @@ a:visited {
 /* mouse over link */
 a:hover {
     color: $color-yellow;
+    transition: color 0.3s;
 }
 
 /* selected link */
@@ -116,12 +126,15 @@ a:active {
     color: white;
 }
 
-.header, .footer {
+.header{
 	h2 {
 		color: white;
+		text-shadow: 2px 2px black;
 	}
 	padding: 20px;
 	margin: 20px;
-	background-color: $color-dark;
+	background-color: $color-med-dark;
     border-radius: 5px;
 }
+
+
