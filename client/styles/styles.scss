@@ -9,7 +9,8 @@ body {
 
 h1 {
     font-size: 3em;
-    text-transform: 'UPPERCASE';
+    text-transform: UPPERCASE;
+    text-shadow: 2px 2px #333;
 }
 
 table.center {
@@ -64,7 +65,7 @@ tr td:hover { background: #666; color: #FFF; } /* Hover cell effect! */
 .header, .footer {
 	padding: 20px;
 	margin: 20px;
-	background-color: #333;
+	background-color: #990099;
 	color: #FFF;
     font-color: #FFF;
     border-radius: 5px;

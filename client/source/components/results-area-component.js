@@ -8,10 +8,11 @@ export default React.createClass({
 		let data = this.props.data
 		return (
 			<div>
-				{Object.keys(data).map(function(key) {
+				{Object.keys(data).map(function(key, index) {
 				    return (
 				    	<ClientDataTable 
-				    	    key={key} 
+				    	    key={index}
+				    	    index={index} 
 				    	    data={data[key]} />
 				    )
 				})}

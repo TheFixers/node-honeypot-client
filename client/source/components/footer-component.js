@@ -1,7 +1,8 @@
 import React from 'react'
 
 export default React.createClass({
-	displayName: 'results',
+	
+	displayName: 'Results Component',
 	
 	render() {
 		return (

@@ -1,7 +1,8 @@
 import React from 'react'
 
 export default React.createClass({
-  displayName: 'Header',
+  
+  displayName: 'Header Component',
 
   componentDidMount() {
       console.log("Header mounted...")

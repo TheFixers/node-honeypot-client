@@ -1,6 +1,8 @@
 const notFoundMsg = "No data found"
 
-var Item = function(data) {
+var Item = function(data, index) {
+	
+	this.index= index
 	this.ip = notFoundMsg
 	this.username = notFoundMsg
 	this.passwords = notFoundMsg
@@ -9,6 +11,7 @@ var Item = function(data) {
 	this.time = notFoundMsg
 	this.port = notFoundMsg
 	this.socket = notFoundMsg
+	
 	try {
 		this.ip = data.Client.IP
 	} catch (e) {
@@ -16,19 +19,19 @@ var Item = function(data) {
 	}
 
 	try {
-		this.username = data.Client.Data.Username
+		this.username = data.Client.Data.Username.toString()
 	} catch (e) {
 		console.error(e.message)
 	}
 
 	try {
-		this.id = data._id.$oid
+		this.id = data._id.$oid.toString()
 	} catch (e) {
 		console.error(e.message)
 	}
 
 	try {
-		this.key = data.Client.Data.Key
+		this.key = data.Client.Data.Key.toString()
 	} catch (e) {
 		console.error(e.message)
 	}
@@ -51,9 +54,9 @@ var Item = function(data) {
 	}
 }
 
-export default (data) => {
+export default (data, index) => {
 	if (data) {
-		return  new Item(data)
+		return  new Item(data, index)
 	}
 	
 }

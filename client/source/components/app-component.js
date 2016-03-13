@@ -28,7 +28,6 @@ export default React.createClass({
 	      	  clientData: clientData,
 	      	  error: null
 	      })
-	      console.log(data)
       })
       .catch((err) => {
       	  this.setState({
@@ -37,8 +36,6 @@ export default React.createClass({
           })
           console.error(err)
       })
-      // Just to display async   
-      console.log("Here" + this.state.clientData)
   },
 
   componentWillUnmount() {
