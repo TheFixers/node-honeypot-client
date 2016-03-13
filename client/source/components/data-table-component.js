@@ -2,9 +2,9 @@ import React from 'react'
 import itemCreator from '../scripts/item-object-creator.js'
 
 export default React.createClass({
-	
+
 	displayName: 'Data Table Component',
-	
+
 	render() {
 		let item = null
 		try {
@@ -16,8 +16,8 @@ export default React.createClass({
 
 		return (
 			<table className='table center'>
-			    <tbody>
-			    	<tr>
+				<tbody>
+					<tr>
 						<th>Server Item</th>
 						<td>{item.index}</td>
 					</tr>
