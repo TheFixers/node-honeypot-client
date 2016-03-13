@@ -9,49 +9,54 @@ var gulp   = require('gulp')
 var uglify = require('gulp-uglify')
 var concat = require('gulp-concat')
 var babel  = require('gulp-babel')
-var react  = require('gulp-react')
 var sass   = require('gulp-sass')
-var jshint = require('gulp-jshint')
-var concat = require('gulp-concat')
+var react  = require('gulp-react')
 
+var browserify = require('browserify');
+var source = require('vinyl-source-stream');
+ 
 
-// Compile Our Sass
-gulp.task('sass', function() {
+/**
+ * Runs SCSS task
+ */
+gulp.task('scss', function () {
     return gulp.src('scss/*.scss')
         .pipe(sass())
-        .pipe(gulp.dest('dist/css'));
+        .pipe(gulp.dest('dist/scss'))
+})
+
+/**
+ * Runs SCSS task
+ */
+gulp.task('babel', function () {
+    return gulp.src(['src/components/*.js', 'src/*.js'])
+        .pipe(babel())
+        .pipe(gulp.dest('src/compiled'))
+})
+
+/*gulp.task('compile', ['react', 'scss'], function() {
+    return gulp.src(['src/compiled/*.js'])
+        .pipe(concat('all.min.js'))
+        .pipe(uglify())
+        .pipe(gulp.dest('dist'))
+})*/
+
+gulp.task('browserify', ['babel'], function() {
+    return browserify('./src/compiled/index.js')
+        .bundle()
+
+        //Pass desired output filename to vinyl-source-stream
+        .pipe(source('bundle.js'))
+        // Start piping stream to tasks!
+        .pipe(gulp.dest('./build/'));
 });
 
-// Translate EReact to EC3 with gulp and place in src/compiled
-gulp.task('react', function() {
-  return gulp.src('src/*.jsx')
-      .pipe(react())
-      .pipe(gulp.dest('src/compiled'))
-})
 
-// Translate ES6/Babel to EC3 with gulp and place in src/compiled
-gulp.task('babel', function() {
-  return gulp.src('src/*.babel')
-      .pipe(babel())
-      .pipe(gulp.dest('src/compiled'))
-})
-
-
-// Place all JavaScripts in src in src/compiled
-gulp.task('js', function() {
-  return gulp.src('src/*.js')
-      .pipe(gulp.dest('src/compiled'))
-})
-
-// Run all scripts
- gulp.task('scripts', ['babel', 'react', 'sass', 'js'], function() {
-  return gulp.src(['src/compiled/*.js', ])
-      .pipe(concat('all.min.js'))
-      .pipe(uglify())
-      .pipe(gulp.dest('dist'))
-});
-
-// Translates any changes with gulp and compiles dist/all.min.js
+/**
+ * Watch task
+ */
 gulp.task('watch', function() {
-  gulp.watch('src/*.{js,babel,jsx}', ['scripts'])
+    gulp.watch('src/*.{js, jsx}', ['browserfy'])
+    gulp.watch('src/components/*.{js, jsx}', ['browserify'])
+    gulp.watch('scss/*.{scss}', ['scss'])
 })
