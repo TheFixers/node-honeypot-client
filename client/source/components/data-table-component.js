@@ -19,7 +19,7 @@ export default React.createClass({
 				<tbody>
 					<tr>
 						<th>Server Item</th>
-						<td>{item.index}</td>
+						<td><strong>{item.index}</strong></td>
 					</tr>
 					<tr>
 						<th>IP Adress</th>
