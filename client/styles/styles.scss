@@ -1,22 +1,42 @@
+// Sass file
 
 @import url(http://fonts.googleapis.com/css?family=Bangers|Roboto|Oswald|Lato|Roboto+Slab|Open+Sans);
 
+$color-yellow: #ffff00;
+$color-med-dark: #333;
+$color-dark: #111;
+$color-med: #777;
+$color-bg: #555;
+$color-text: white;
+
+$color-th: #DFDFDF;
+$color-td: #FAFAFA;
+$color-tr-even: #F1F1F1;
+$color-tr-odd: #FEFEFE;
+
+$font-header: 'Bangers';
+$font-subheader: 'Roboto Slab';
+$font-body: 'Open Sans';
+
+
 body {
 	text-align: center;
-	font-family: 'Open Sans';
-	background-color: #555;
+	font-family: $font-body;
+	background-color: $color-bg;
 }
 
 h1 {
-	font-family: 'Bangers';
+	font-family: $font-header;
     font-size: 3em;
     text-transform: UPPERCASE;
-    text-shadow: 2px 2px #333;
-    color: #ffff00;
+    text-shadow: 2px 2px $color-med-dark;
+    letter-spacing: 0.3em;
+    color: $color-yellow;
 }
 
 h2 {
-	color: white;
+	font-family: $font-subheader;
+	text-shadow: 2px 2px $color-med-dark;
 }
 
 table.center {
@@ -29,11 +49,12 @@ table {
 	align: center;
 	margin: 25px;
 	color: #333;
-	font-family: Helvetica, Arial, sans-serif;
+	font-family: $font-body;
 	width: 640px;
 	border-collapse:
 	collapse; border-spacing: 0;
 	border: solid 2px white;
+	border-radius: 5px;
 }
 
 td, th {
@@ -45,7 +66,7 @@ td, th {
 
 th {
 	padding: 10px;
-	background: #DFDFDF;  /* Darken header a bit */
+	background: $color-th;  /* Darken header a bit */
 	font-weight: bold;
 	text-align: left;
 	min-width: 40px;
@@ -54,23 +75,53 @@ th {
 
 td {
 	padding: 10px;
-	background: #FAFAFA;
+	background: $color-td;
 	text-align: left;
 	min-width: 150px;
 	max-width: 150px;
 }
 
 /* Cells in even rows (2,4,6...) are one color */
-tr:nth-child(even) td { background: #F1F1F1; }
+tr:nth-child(even) td { 
+	background: $color-tr-even 
+}
 
 /* Cells in odd rows (1,3,5...) are another (excludes header cells)  */
-tr:nth-child(odd) td { background: #FEFEFE; }
+tr:nth-child(odd) td { 
+	background: $color-tr-odd; 
+}
 
-tr td:hover { background: #666; color: #FFF; } /* Hover cell effect! */
+tr td:hover { 
+	background: $color-bg; 
+	color: $color-yellow; 
+} /* Hover cell effect! */
+
+/* unvisited link */
+a:link {
+    color: blue;
+}
+
+/* visited link */
+a:visited {
+    color: white;
+}
+
+/* mouse over link */
+a:hover {
+    color: $color-yellow;
+}
+
+/* selected link */
+a:active {
+    color: white;
+}
 
 .header, .footer {
+	h2 {
+		color: white;
+	}
 	padding: 20px;
 	margin: 20px;
-	background-color: #111;
+	background-color: $color-dark;
     border-radius: 5px;
 }

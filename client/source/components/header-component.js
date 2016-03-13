@@ -15,7 +15,7 @@ export default React.createClass({
 	return (
 	  <div className='header center'>
 		<h1>Honeypot Client</h1>
-		<h2>Server data from {this.props.text}</h2>
+		<h2>Server data @ <a href={this.props.source}>{this.props.source}</a></h2>
 	  </div>
 	)
   }

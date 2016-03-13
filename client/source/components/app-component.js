@@ -45,7 +45,7 @@ export default React.createClass({
   render() {
 	  return (
 		  <div>
-			  <Header text={this.props.source} />
+			  <Header source={this.props.source} />
 			  <Results data={this.state.clientData} />
 			  <Footer source={this.props.source} />
 		  </div>
