@@ -27,6 +27,7 @@ gulp.task('sass', function () {
 gulp.task('scripts', function () {
     return gulp.src(['client/source/scripts/*.js'])
         .pipe(babel())
+        .pipe(uglify())
         .pipe(gulp.dest('client/compiled/scripts'))
 })
 
@@ -34,6 +35,7 @@ gulp.task('scripts', function () {
 gulp.task('components', function () {
     return gulp.src(['client/source/components/*.js'])
         .pipe(babel())
+        .pipe(uglify())
         .pipe(gulp.dest('client/compiled/components'))
 })
 
@@ -41,6 +43,7 @@ gulp.task('components', function () {
 gulp.task('static', function () {
     return gulp.src(['client/source/static/*.js'])
         .pipe(babel())
+        .pipe(uglify())
         .pipe(gulp.dest('./client/compiled/static'))
 })
 
@@ -48,6 +51,7 @@ gulp.task('static', function () {
 gulp.task('entry', function () {
     return gulp.src(['client/source/*.js'])
         .pipe(babel())
+        .pipe(uglify())
         .pipe(gulp.dest('client/compiled'))
 })
 
