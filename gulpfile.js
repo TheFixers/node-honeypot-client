@@ -56,7 +56,7 @@ gulp.task('entry', function () {
 })
 
 // Compile all
-gulp.task('compile', ['scripts', 'components', 'static', 'entry', 'sass'], () => {
+gulp.task('compile', ['scripts', 'components', 'static', 'entry', 'sass'], function() {
     return true
 })
 
