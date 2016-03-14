@@ -1,7 +1,12 @@
 import React from 'react'
 
 export default React.createClass({
+  
   displayName: 'Header Component',
+
+  propTypes: {
+      source: React.PropTypes.string.isRequired
+  },
 
   componentDidMount() {
 	  console.log("Header mounted...")

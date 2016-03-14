@@ -9,6 +9,10 @@ export default React.createClass({
 
   displayName: 'App',
 
+  propTypes: {
+  	  source: React.PropTypes.string.isRequired
+  },
+
   getInitialState() {
 	  return {
 		  clientData: [],

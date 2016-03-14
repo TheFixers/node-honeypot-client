@@ -71,7 +71,7 @@ td, th {
 
 th {
 	font-family: $font-th;
-	padding: 10px;
+	padding: 3px;
 	background: $color-th;  /* Darken header a bit */
 	font-weight: bold;
 	text-align: left;
@@ -81,7 +81,7 @@ th {
 
 td {
 	font-family: $font-td;
-	padding: 10px;
+	padding: 3px;
 	background: $color-td;
 	text-align: left;
 	min-width: 150px;
