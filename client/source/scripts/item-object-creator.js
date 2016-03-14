@@ -1,4 +1,4 @@
-const notFoundMsg = "[no data]"
+const notFoundMsg = null
 
 var Item = function(data, index) {
 
