@@ -2,12 +2,22 @@ import React from 'react'
 
 export default React.createClass({
 
-	displayName: 'Results Component',
+	displayName: 'Footer Component',
+
+	componentDidMount() {
+	    console.log("Footer mounted...")
+    },
+
+    componentWillUnmount() {
+	    console.log("Footer un-mounted...")
+    },
 
 	render() {
 		return (
 			<div>
-				<footer>[rabbitfighter@cryptolab.net]</footer>
+				<footer>
+				    <a href='#'>[github.com/thefixers]</a>
+				</footer>
 			</div>
 		)
 	}

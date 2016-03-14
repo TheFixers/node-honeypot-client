@@ -13,7 +13,7 @@ var Item = function(data, index) {
     this.socket = notFoundMsg
 
     try {
-        this.ip = data.Client.IP
+        this.ip = data.Client.IP.toString()
     } catch (e) {
         console.error(e.message)
     }
@@ -37,13 +37,13 @@ var Item = function(data, index) {
     }
 
     try {
-        this.time = data.Client.Data.Time
+        this.time = data.Client.Data.Time.toString()
     } catch (e) {
         console.error(e.message)
     }
 
     try {
-        this.port = data.Client.Port
+        this.port = data.Client.Port.toString()
     } catch (e) {
         console.error(e.message)
     }
@@ -57,6 +57,8 @@ var Item = function(data, index) {
 export default (data, index) => {
     if (data) {
         return new Item(data, index)
+    } else {
+        return null
     }
 
 }

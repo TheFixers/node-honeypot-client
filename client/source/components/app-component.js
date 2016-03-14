@@ -18,7 +18,7 @@ export default React.createClass({
   },
 
   componentDidMount() {
-	  console.log("App mounted")
+	  console.log("App mounted...")
 
 	  var promise = fetch(this.props.source)
 
@@ -39,7 +39,7 @@ export default React.createClass({
   },
 
   componentWillUnmount() {
-	  console.log("App un-mounted")
+	  console.log("App un-mounted...")
   },
 
   render() {

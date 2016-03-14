@@ -5,6 +5,14 @@ export default React.createClass({
 
 	displayName: 'Data Table Component',
 
+	componentDidMount() {
+	    console.log("Table mounted...")
+    },
+
+    componentWillUnmount() {
+	    console.log("Table un-mounted...")
+    },
+
 	render() {
 		let item = null
 		try {

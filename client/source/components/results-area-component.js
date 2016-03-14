@@ -4,6 +4,14 @@ import ClientDataTable from './data-table-component.js'
 export default React.createClass({
 	displayName: 'Results Area',
 
+	componentDidMount() {
+	    console.log("Results mounted...")
+    },
+
+    componentWillUnmount() {
+	    console.log("Results un-mounted...")
+    },
+
 	render() {
 		let data = this.props.data
 		return (
