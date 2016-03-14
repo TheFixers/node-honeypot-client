@@ -4,7 +4,6 @@ import Results from './results-area-component.js'
 import Footer from './footer-component.js'
 import fetch from '../scripts/promise-fetch-server-data.js'
 
-
 export default React.createClass({
 
   displayName: 'App',

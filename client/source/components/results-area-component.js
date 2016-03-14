@@ -9,12 +9,12 @@ export default React.createClass({
     },
 
 	componentDidMount() {
-	    console.log("Results mounted...")
-    },
+		console.log("Results mounted...")
+	},
 
-    componentWillUnmount() {
-	    console.log("Results un-mounted...")
-    },
+	componentWillUnmount() {
+		console.log("Results un-mounted...")
+	},
 
 	render() {
 		let data = this.props.data

@@ -5,17 +5,17 @@ export default React.createClass({
 	displayName: 'Table Row Component',
 
 	propTypes: {
-  	    th: React.PropTypes.string.isRequired,
-  	    td: React.PropTypes.string.isRequired
-    },
+		th: React.PropTypes.string.isRequired,
+		td: React.PropTypes.string.isRequired
+	},
 
 	componentDidMount() {
-	    console.log("Table Row mounted...")
-    },
+		console.log("Table Row mounted...")
+	},
 
-    componentWillUnmount() {
-	    console.log("Table Row un-mounted...")
-    },
+	componentWillUnmount() {
+		console.log("Table Row un-mounted...")
+	},
 
 	render() {
 		let th = capitalizeFirstLetter(this.props.th)	
@@ -30,5 +30,5 @@ export default React.createClass({
 })
 
 function capitalizeFirstLetter(string) {
-    return string.charAt(0).toUpperCase() + string.slice(1)
+	return string.charAt(0).toUpperCase() + string.slice(1)
 }
