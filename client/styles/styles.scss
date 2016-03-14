@@ -2,7 +2,6 @@
 
 @import url(http://fonts.googleapis.com/css?family=Sigmar+One|Special+Elite|Bangers|Roboto|Oswald|Lato|Roboto+Slab|Open+Sans);
 
-
 $color-yellow: #ffff00;
 $color-med-dark: #333;
 $color-dark: #111;
@@ -15,11 +14,10 @@ $color-td: #FAFAFA;
 $color-tr-even: #F1F1F1;
 $color-tr-odd: #FEFEFE;
 
-$font-header: 'Bangers';
-$font-subheader: 'Special Elite';
-$font-th: 'Roboto';
+$font-header: 'Oswald';
+$font-subheader: 'Lato';
+$font-th: 'Open Sans';
 $font-td: 'Open Sans';
-
 
 body {
 	text-align: center;
@@ -31,11 +29,11 @@ h1 {
     font-size: 3em;
     text-transform: UPPERCASE;
     text-shadow: 2px 2px black;
-    letter-spacing: 0.3em;
-    color: $color-yellow;
+    color: white;
 }
 
 h2 {
+	margin-top: -20px;
 	font-family: $font-subheader;
 	text-shadow: 2px 2px $color-med-dark;
 }
@@ -46,16 +44,15 @@ footer{
 }
 
 table.center {
-    width:70%;
-    margin-left:15%;
-    margin-right:15%;
+    width:50%;
+    margin-left:25%;
+    margin-right:25%;
 }
 
 table {
 	align: center;
 	margin: 25px;
 	color: #333;
-	width: 640px;
 	border-collapse:
 	collapse; border-spacing: 0;
 	border: solid 3px white;
@@ -70,13 +67,12 @@ td, th {
 }
 
 th {
+	max-width: 100px;
 	font-family: $font-th;
 	padding: 3px;
 	background: $color-th;  /* Darken header a bit */
 	font-weight: bold;
 	text-align: left;
-	min-width: 40px;
-	max-width: 40px;
 }
 
 td {
@@ -84,8 +80,6 @@ td {
 	padding: 3px;
 	background: $color-td;
 	text-align: left;
-	min-width: 150px;
-	max-width: 150px;
 }
 
 /* Cells in even rows (2,4,6...) are one color */
