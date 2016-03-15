@@ -1,17 +1,17 @@
-const notFoundMsg = null
+const notFound = null
 
-var Item = function(data, index) {
+let ServerDataItem = function(data, index) {
 
     this.index = index
-    this.ip = notFoundMsg
-    this.username = notFoundMsg
-    this.passwords = notFoundMsg
-    this.data = notFoundMsg
-    this.id = notFoundMsg
-    this.key = notFoundMsg
-    this.time = notFoundMsg
-    this.port = notFoundMsg
-    this.socket = notFoundMsg
+    this.ip = notFound
+    this.username = notFound
+    this.passwords = notFound
+    this.data = notFound
+    this.id = notFound
+    this.key = notFound
+    this.time = notFound
+    this.port = notFound
+    this.socket = notFound
 
     if (data.Client && data.Client.IP) {
         this.ip = data.Client.IP
@@ -52,5 +52,5 @@ var Item = function(data, index) {
 }
 
 export default (data, index) => {
-    return new Item(data, index)
+    return new ServerDataItem(data, index)
 }

@@ -25,7 +25,8 @@ export default React.createClass({
 
 		var promise = fetch(this.props.source)
 
-		promise.then((data) => {
+		promise
+			.then((data) => {
 				let clientData = data.trim().split('\n') // Split into array
 				this.setState({
 					clientData: clientData,

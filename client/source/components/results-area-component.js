@@ -20,7 +20,7 @@ export default React.createClass({
 		let data = this.props.data
 		return (
 			<div>
-				{Object.keys(data).map(function(key, index) {
+				{Object.keys(data).map((key, index) => {
 					return (
 						<ClientDataTable
 							key={index}

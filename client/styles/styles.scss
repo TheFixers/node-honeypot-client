@@ -15,7 +15,7 @@ $color-tr-even: #F1F1F1;
 $color-tr-odd: #FEFEFE;
 
 $font-header: 'Oswald';
-$font-subheader: 'Special Elite';
+$font-subheader: 'Lato';
 $font-th: 'Roboto';
 $font-td: 'Open Sans';
 
@@ -25,6 +25,7 @@ body {
 }
 
 h1 {
+	margin-top: -5px;
 	font-family: $font-header;
     font-size: 3em;
     text-transform: UPPERCASE;
@@ -33,6 +34,7 @@ h1 {
 }
 
 h2 {
+	margin-top: -20px;
 	font-family: $font-subheader;
 	text-shadow: 2px 2px $color-med-dark;
 }
@@ -43,20 +45,24 @@ footer{
 }
 
 table.center {
-    width:60%;
-    margin-left:20%;
-    margin-right:20%;
+    width:50%;
+    margin-left:25%;
+    margin-right:25%;
 }
 
 table {
+	font-size: .8em;
 	align: center;
 	margin: 25px;
 	color: #333;
-	width: 640px;
 	border-collapse:
 	collapse; border-spacing: 0;
 	border: solid 3px white;
 	border-radius: 5px;
+}
+
+table:hover {
+	border-color: $color-med-dark;
 }
 
 td, th {
