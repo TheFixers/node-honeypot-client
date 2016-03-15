@@ -14,8 +14,9 @@ export default React.createClass({
 
     render() {
         return (
-            <select>
-                <option className='select-header' selected disabled>Search By</option>
+            <select className="search-select" defaultValue="title">
+                <option className='select-header' value="title" disabled>Search By</option>
+                <option className='select-option' value="all">Show All</option>
                 <option className='select-option' value="index">Index</option>
                 <option className='select-option' value="ip">IP Address</option>
                 <option className='select-option' value="passwords">Passwords</option>

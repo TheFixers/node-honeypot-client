@@ -7,6 +7,12 @@ export default React.createClass({
 
 	displayName: 'Search Area Component',
 
+	propTypes: {
+		placeholder: React.PropTypes.string.isRequired,
+		value: React.PropTypes.string,
+		updateSearch: React.PropTypes.func.isRequired
+	},
+
 	componentDidMount() {
 		console.log("Search Area mounted...")
 	},

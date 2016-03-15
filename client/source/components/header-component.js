@@ -8,12 +8,6 @@ export default React.createClass({
 		host: React.PropTypes.string.isRequired
 	},
 
-	getInitialState() {
-    	return {
-    		searchTerm: ""
-    	}
-  	},
-
 	componentDidMount() {
 		console.log("Header mounted...")
 	},

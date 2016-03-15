@@ -2,6 +2,7 @@ import React from 'react'
 import ClientDataTable from './data-table-component.js'
 
 export default React.createClass({
+	
 	displayName: 'Results Area',
 
 	propTypes: {

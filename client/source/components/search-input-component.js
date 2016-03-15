@@ -4,6 +4,12 @@ export default React.createClass({
 
 	displayName: 'Search Input Component',
 
+	propTypes: {
+		placeholder: React.PropTypes.string.isRequired,
+		value: React.PropTypes.string,
+		updateSearch: React.PropTypes.func.isRequired
+	},
+
 	componentDidMount() {
 		console.log("Search Input mounted...")
 	},

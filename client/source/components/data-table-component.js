@@ -19,8 +19,8 @@ export default React.createClass({
 	},
 
 	_mapObject(object, callback) {
-		return Object.keys(object).map((key) => {
-			return callback(key, object[key])
+		return Object.keys(object).map((key, index) => {
+			return callback(key, object[key], index)
 		})
 	},
 
@@ -35,10 +35,11 @@ export default React.createClass({
 			return ( 
 				<table className='table center'>
 					<tbody> 
-						{this._mapObject(item, (key, value) => {
+						{this._mapObject(item, (key, value, index) => {
 							if (value !== null) {
 								return ( 
 									<TableRow 
+										key={index}
 										th={key.toString()}
 										td={value.toString()} />
 								)

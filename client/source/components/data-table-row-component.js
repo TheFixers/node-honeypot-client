@@ -17,8 +17,12 @@ export default React.createClass({
 		//console.log("Table Row un-mounted...")
 	},
 
+	_capitalizeFirstLetter(string) {
+		return string.charAt(0).toUpperCase() + string.slice(1)
+	},
+
 	render() {
-		let th = capitalizeFirstLetter(this.props.th)
+		let th = this._capitalizeFirstLetter(this.props.th)
 		let td = this.props.td
 		return ( 
 			<tr>
@@ -28,7 +32,3 @@ export default React.createClass({
 		)
 	}
 })
-
-function capitalizeFirstLetter(string) {
-	return string.charAt(0).toUpperCase() + string.slice(1)
-}
