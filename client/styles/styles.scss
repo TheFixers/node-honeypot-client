@@ -24,20 +24,7 @@ body {
 	background-color: $color-bg;
 }
 
-h1 {
-	margin-top: -5px;
-	font-family: $font-header;
-    font-size: 3em;
-    text-transform: UPPERCASE;
-    text-shadow: 2px 2px black;
-    color: white;
-}
 
-h2 {
-	margin-top: -20px;
-	font-family: $font-subheader;
-	text-shadow: 2px 2px $color-med-dark;
-}
 
 footer{
 	font-family: $font-subheader;
@@ -110,34 +97,86 @@ tr td:hover {
 
 /* unvisited link */
 a:link {
-    color: $color-yellow;
+    color: white;
+    text-decoration: none;
 }
 
 /* visited link */
 a:visited {
     color: white;
+    text-decoration: none;
 }
 
 /* mouse over link */
 a:hover {
-    color: $color-yellow;
+    color: lightblue;
     transition: color 0.3s;
+    text-decoration: underline;
 }
 
 /* selected link */
 a:active {
     color: white;
+    text-decoration: none;
 }
 
 .header{
+	h1 {
+		margin-top: 25px;
+		font-family: $font-header;
+	    font-size: 3em;
+	    text-transform: UPPERCASE;
+	    text-shadow: 2px 2px black;
+	    color: white;
+	}
+
 	h2 {
+		margin-top: -20px;
+		font-family: $font-subheader;
+		text-shadow: 2px 2px $color-med-dark;
 		color: white;
-		text-shadow: 2px 2px black;
 	}
 	padding: 20px;
 	margin: 20px;
 	background-color: $color-med-dark;
     border-radius: 5px;
 }
+
+input {
+    margin: 10px;
+    border: 1px solid #111;
+    background: transparent;
+    width: 150px;
+    padding: 5px 35px 5px 5px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    height: 22px;
+    color: white;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button {  
+
+   opacity: 1;
+
+}
+select{
+    margin: 10px;
+    border: 1px solid #111;
+    background: transparent;
+    width: 150px;
+    padding: 5px 35px 5px 5px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    height: 34px;
+    color: white;
+}
+
+.select-child {
+	color: black;
+}
+
+
+
 
 

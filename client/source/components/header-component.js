@@ -5,8 +5,14 @@ export default React.createClass({
 	displayName: 'Header Component',
 
 	propTypes: {
-		source: React.PropTypes.string.isRequired
+		host: React.PropTypes.string.isRequired
 	},
+
+	getInitialState() {
+    	return {
+    		searchTerm: ""
+    	}
+  	},
 
 	componentDidMount() {
 		console.log("Header mounted...")
@@ -17,14 +23,11 @@ export default React.createClass({
 	},
 
 	render() {
+		let text = this.props.host.slice(0, -1)
 		return ( 
-			<div className='header center'>
+			<div className="header">
 				<h1>Honeypot Client</h1>
-				<h2>Server data@ 
-					<a href={this.props.source}>
-						{this.props.source}
-					</a>
-				</h2>
+				<h2>Server data @ <a href={this.props.host}>{text}</a></h2>
 			</div>
 		)
 	}

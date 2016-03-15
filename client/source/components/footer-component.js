@@ -16,7 +16,9 @@ export default React.createClass({
 		return ( 
 			<div>
 				<footer>
-					<a href='#'>[github.com/thefixers]</a>
+					<a href='https://github.com/thefixers' target="_blank">
+						Project by [github.com/thefixers]
+					</a>
 				</footer>
 			</div>
 		)
