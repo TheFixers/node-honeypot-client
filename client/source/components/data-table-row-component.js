@@ -18,9 +18,9 @@ export default React.createClass({
 	},
 
 	render() {
-		let th = capitalizeFirstLetter(this.props.th)	
+		let th = capitalizeFirstLetter(this.props.th)
 		let td = this.props.td
-		return (
+		return ( 
 			<tr>
 				<th>{th}</th>
 				<td>{td}</td>

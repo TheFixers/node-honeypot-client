@@ -5,7 +5,7 @@ export default React.createClass({
 	displayName: 'Footer Component',
 
 	componentDidMount() {
-	console.log("Footer mounted...")
+		console.log("Footer mounted...")
 	},
 
 	componentWillUnmount() {
@@ -13,10 +13,10 @@ export default React.createClass({
 	},
 
 	render() {
-		return (
+		return ( 
 			<div>
 				<footer>
-					<a href='#'>[github.com/thefixers]</a>
+					<a href='#'>[github.com / thefixers]</a>
 				</footer>
 			</div>
 		)

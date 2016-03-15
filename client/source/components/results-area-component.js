@@ -5,8 +5,8 @@ export default React.createClass({
 	displayName: 'Results Area',
 
 	propTypes: {
-  	    data: React.PropTypes.array.isRequired
-    },
+		data: React.PropTypes.array.isRequired
+	},
 
 	componentDidMount() {
 		console.log("Results mounted...")
@@ -30,6 +30,5 @@ export default React.createClass({
 				})}
 			</div>
 		)
-
 	}
 })

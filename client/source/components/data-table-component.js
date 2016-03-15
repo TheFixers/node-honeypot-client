@@ -7,15 +7,15 @@ export default React.createClass({
 	displayName: 'Data Table Component',
 
 	propTypes: {
- 		data: React.PropTypes.string.isRequired
- 	},
+		data: React.PropTypes.string.isRequired
+	},
 
 	componentDidMount() {
-	  console.log("Table mounted...")
+		console.log("Table mounted...")
 	},
 
 	componentWillUnmount() {
-	  console.log("Table un-mounted...")
+		console.log("Table un-mounted...")
 	},
 
 	render() {
@@ -26,28 +26,28 @@ export default React.createClass({
 			console.error(e.message)
 		}
 		if (item) {
-			return (
-		    	<table className='table center'>
-		    		<tbody>
-						{mapObject(item, function (key, value) {
-						  if (value !== null) {
-						    return (
-	    			      <TableRow 
-	    				      th={key.toString()} 
-	    					    td={value.toString()} />
-  	    				)
-						  }
+			return ( 
+				<table className='table center'>
+					<tbody> 
+						{mapObject(item, function(key, value) {
+							if (value !== null) {
+								return ( 
+									<TableRow 
+										th={key.toString()}
+										td={value.toString()} />
+								)
+							}
 						})}
-		    		</tbody>
-		    	</table>
-		    )
+					</tbody> 
+				</table>
+			)
 		}
-	    	
+
 	}
 })
 
 function mapObject(object, callback) {
-	return Object.keys(object).map(function (key) {
+	return Object.keys(object).map(function(key) {
 		return callback(key, object[key])
 	})
 }
