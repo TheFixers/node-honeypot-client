@@ -18,6 +18,12 @@ export default React.createClass({
 		console.log("Table un-mounted...")
 	},
 
+	_mapObject(object, callback) {
+		return Object.keys(object).map((key) => {
+			return callback(key, object[key])
+		})
+	},
+
 	render() {
 		let item = null
 		try {
@@ -29,7 +35,7 @@ export default React.createClass({
 			return ( 
 				<table className='table center'>
 					<tbody> 
-						{mapObject(item, function(key, value) {
+						{this._mapObject(item, (key, value) => {
 							if (value !== null) {
 								return ( 
 									<TableRow 
@@ -46,8 +52,3 @@ export default React.createClass({
 	}
 })
 
-function mapObject(object, callback) {
-	return Object.keys(object).map((key) => {
-		return callback(key, object[key])
-	})
-}

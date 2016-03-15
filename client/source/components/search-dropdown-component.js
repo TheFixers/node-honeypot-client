@@ -15,14 +15,15 @@ export default React.createClass({
     render() {
         return (
             <select>
-                <option className='select-child' value="index">Index</option>
-                <option className='select-child' value="ip">IP Address</option>
-                <option className='select-child' value="passwords">Passwords</option>
-                <option className='select-child' value="id">ID</option>
-                <option className='select-child' value="key">Key</option>
-                <option className='select-child' value="time">Time</option>
-                <option className='select-child' value="port">Port</option>
-                <option className='select-child' value="socket">Socketi</option>
+                <option className='select-header' selected disabled>Search By</option>
+                <option className='select-option' value="index">Index</option>
+                <option className='select-option' value="ip">IP Address</option>
+                <option className='select-option' value="passwords">Passwords</option>
+                <option className='select-option' value="id">ID</option>
+                <option className='select-option' value="key">Key</option>
+                <option className='select-option' value="time">Time</option>
+                <option className='select-option' value="port">Port</option>
+                <option className='select-option' value="socket">Socket</option>
             </select>
         )
     }

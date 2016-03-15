@@ -1,6 +1,6 @@
 import React from 'react'
 import Header from './header-component.js'
-import SearchBox from './search-box-component.js'
+import SearchArea from './search-area-component.js'
 import Results from './results-area-component.js'
 import Footer from './footer-component.js'
 import fetch from '../scripts/promise-fetch-server-data.js'
@@ -23,7 +23,7 @@ export default React.createClass({
 		let host = this.props.host
 		let file = this.props.file
 
-		let source = constructSourceUrl(protocol, host, file)
+		let source = this._constructSourceUrl(protocol, host, file)
 
 		return {
 			source: source,
@@ -62,6 +62,10 @@ export default React.createClass({
 		console.log("App un-mounted...")
 	},
 
+	_constructSourceUrl(protocol, host, file) {
+		return String(protocol + host + file)
+	},
+
 	_handleSearch(event) {
 		let term = event.target.value
 		if (this.state.logging) console.log("Search term: \"" + term + "\"")
@@ -81,7 +85,8 @@ export default React.createClass({
 					searchTerm={this.state.searchTerm}
 					updateSearch={this._handleSearch} />
 
-				<SearchBox 
+				<SearchArea
+					className="app-react-search"
 					placeholder="Search for..."
 					value={this.props.searchTerm}
 					updateSearch={this._handleSearch} />
@@ -101,7 +106,3 @@ export default React.createClass({
 	}
 
 })
-
-function constructSourceUrl(protocol, host, file) {
-	return String(protocol + host + file)
-}

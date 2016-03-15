@@ -10,11 +10,11 @@ export default React.createClass({
 	},
 
 	componentDidMount() {
-		console.log("Table Row mounted...")
+		//console.log("Table Row mounted...")
 	},
 
 	componentWillUnmount() {
-		console.log("Table Row un-mounted...")
+		//console.log("Table Row un-mounted...")
 	},
 
 	render() {
