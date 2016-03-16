@@ -14,10 +14,20 @@ export default React.createClass({
 
     render() {
         return (
+            <div className='react-search-button-component'>
+                {this._renderLayout(this.props.children)}
+            </div>
+        )
+    },
+
+    _renderLayout() {
+        return (
             <button 
                 className="btn-search"
                 type="reset"
-                value="Reset">Go</button>
+                value="Reset">
+            Go
+            </button>
         )
     }
 })

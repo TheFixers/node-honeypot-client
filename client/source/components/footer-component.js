@@ -13,14 +13,20 @@ export default React.createClass({
 	},
 
 	render() {
+        return (
+            <div className='react-footer-component'>
+                {this._renderLayout(this.props.children)}
+            </div>
+        )
+    },
+
+	_renderLayout() {
 		return ( 
-			<div>
-				<footer>
-					<a href='https://github.com/thefixers' target="_blank">
-						Project by [github.com/thefixers]
-					</a>
-				</footer>
-			</div>
+			<footer>
+				<a href='https://github.com/thefixers' target="_blank">
+					Project by [github.com/thefixers]
+				</a>
+			</footer>
 		)
 	}
 })

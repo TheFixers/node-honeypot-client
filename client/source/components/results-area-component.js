@@ -10,14 +10,22 @@ export default React.createClass({
 	},
 
 	componentDidMount() {
-		console.log("Results mounted...")
+		console.log("Results Area mounted...")
 	},
 
 	componentWillUnmount() {
-		console.log("Results un-mounted...")
+		console.log("Results Area un-mounted...")
 	},
 
 	render() {
+        return (
+            <div className='react-results-area-component'>
+                {this._renderLayout(this.props.children)}
+            </div>
+        )
+    },
+
+	_renderLayout() {
 		let data = this.props.data
 		return (
 			<div>
@@ -32,4 +40,6 @@ export default React.createClass({
 			</div>
 		)
 	}
+
+
 })

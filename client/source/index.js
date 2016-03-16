@@ -5,7 +5,7 @@ import {PROTOCOL, HOST, FILE, URL} from './static/source-url.js'
 
 ReactDOM.render(
 
-	<App 
+	<App className='app-root-component'
 		protocol={PROTOCOL}
 		host={HOST}
 		file={FILE}

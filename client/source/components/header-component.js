@@ -17,6 +17,14 @@ export default React.createClass({
 	},
 
 	render() {
+        return (
+            <div className='react-header-component'>
+                {this._renderLayout(this.props.children)}
+            </div>
+        )
+    },
+
+	_renderLayout() {
 		let text = this.props.host.slice(0, -1)
 		return ( 
 			<div className="header">

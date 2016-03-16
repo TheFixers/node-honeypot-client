@@ -3,7 +3,7 @@ import Header from './header-component.js'
 import SearchArea from './search-area-component.js'
 import Results from './results-area-component.js'
 import Footer from './footer-component.js'
-import fetch from '../scripts/promise-fetch-server-data.js'
+import fetch from '../scripts/data-items-fetch-promise.js'
 
 
 export default React.createClass({
@@ -75,29 +75,37 @@ export default React.createClass({
 	},
 
 	render() {
+        return (
+            <div className='app-react-component'>
+                {this._renderLayout(this.props.children)}
+            </div>
+        )
+    },
+
+	_renderLayout() {
 		return ( 
-			<div className="app-react-container">
+			<div className='app-react-container'>
 
 				<Header
-					className="app-react-header"
+					className='app-react-header'
 					logging={this.state.logging}
 					host={this.state.host}
 					searchTerm={this.state.searchTerm}
 					updateSearch={this._handleSearch} />
 
 				<SearchArea
-					className="app-react-search"
+					className='app-react-search'
 					placeholder="Search for..."
 					value={this.props.searchTerm}
 					updateSearch={this._handleSearch} />
 
 				<Results
-					className="app-react-results"
+					className='app-react-results'
 					logging={this.state.logging}
 					data={this.state.clientData} /> 
 
 				<Footer 
-					className="app-react-footer"
+					className='app-react-footer'
 					logging={this.state.logging}
 					source={this.props.source} />
 

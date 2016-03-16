@@ -22,6 +22,14 @@ export default React.createClass({
 	},
 
 	render() {
+        return (
+            <div className='react-search-area-component'>
+                {this._renderLayout(this.props.children)}
+            </div>
+        )
+    },
+
+	_renderLayout() {
 		return (
 			<div>
 				<form>

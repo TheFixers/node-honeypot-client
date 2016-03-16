@@ -1,4 +1,4 @@
-const notFound = null
+const notFound = "[no data]"
 
 let ServerDataItem = function(data, index) {
 

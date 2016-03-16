@@ -1,5 +1,5 @@
 import React from 'react'
-import itemCreator from '../scripts/item-object-creator.js'
+import DataItemCreator from '../scripts/data-item-object-creator.js'
 import TableRow from './data-table-row-component.js'
 
 export default React.createClass({
@@ -25,9 +25,20 @@ export default React.createClass({
 	},
 
 	render() {
+        return (
+            <div className='react-data-table-component'>
+                {this._renderLayout(this.props.children)}
+            </div>
+        )
+    },
+
+	_renderLayout() {
 		let item = null
 		try {
-			item = itemCreator(JSON.parse(this.props.data), this.props.index)
+			item = DataItemCreator(
+				JSON.parse(this.props.data), 
+				this.props.index
+			)
 		} catch (e) {
 			console.error(e.message)
 		}

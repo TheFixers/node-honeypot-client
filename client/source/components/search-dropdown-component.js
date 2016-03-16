@@ -14,6 +14,14 @@ export default React.createClass({
 
     render() {
         return (
+            <div className='react-search-dropdown-component'>
+                {this._renderLayout(this.props.children)}
+            </div>
+        )
+    },
+
+    _renderLayout() {
+        return (
             <select className="search-select" defaultValue="title">
                 <option className='select-header' value="title" disabled>Search By</option>
                 <option className='select-option' value="all">Show All</option>

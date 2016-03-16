@@ -19,6 +19,14 @@ export default React.createClass({
 	},
 
 	render() {
+        return (
+            <div className='react-search-input-component'>
+                {this._renderLayout(this.props.children)}
+            </div>
+        )
+    },
+
+	_renderLayout() {
 		return (
 			<input
 				className="search-input"
