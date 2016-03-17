@@ -5,7 +5,8 @@ export default React.createClass({
 	displayName: 'Header Component',
 
 	propTypes: {
-		host: React.PropTypes.string.isRequired
+		host: React.PropTypes.string.isRequired,
+		
 	},
 
 	componentDidMount() {

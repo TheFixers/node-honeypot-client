@@ -4,6 +4,11 @@ export default React.createClass({
 
     displayName: 'Search Dropdown Component',
 
+    propTypes: {
+        searchType: React.PropTypes.string.isRequired,
+        updateSearchType: React.PropTypes.func.isRequired
+    },
+
     componentDidMount() {
         console.log("Search Dropdown mounted...")
     },
@@ -22,7 +27,12 @@ export default React.createClass({
 
     _renderLayout() {
         return (
-            <select className="search-select" defaultValue="title">
+            <select 
+                className="search-select" 
+                defaultValue="title"
+                searchType={this.props.searchType}
+                onChange={this.props.updateSearchType}>
+
                 <option className='select-header' value="title" disabled>Search By</option>
                 <option className='select-option' value="all">Show All</option>
                 <option className='select-option' value="index">Index</option>
@@ -33,6 +43,7 @@ export default React.createClass({
                 <option className='select-option' value="time">Time</option>
                 <option className='select-option' value="port">Port</option>
                 <option className='select-option' value="socket">Socket</option>
+            
             </select>
         )
     }

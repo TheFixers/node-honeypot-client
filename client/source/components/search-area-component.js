@@ -9,8 +9,10 @@ export default React.createClass({
 
 	propTypes: {
 		placeholder: React.PropTypes.string.isRequired,
-		value: React.PropTypes.string,
-		updateSearch: React.PropTypes.func.isRequired
+		searchTerm: React.PropTypes.string.isRequired,
+		searchType: React.PropTypes.string.isRequired,
+		updateSearchTerm: React.PropTypes.func.isRequired,
+		updateSearchType: React.PropTypes.func.isRequired
 	},
 
 	componentDidMount() {
@@ -31,16 +33,17 @@ export default React.createClass({
 
 	_renderLayout() {
 		return (
-			<div>
-				<form>
-				    <SearchDropdown />
-					<SearchInput 
-					    placeholder={this.props.placeholder}
-					    value={this.props.value}
-					    updateSearch={this.props.updateSearch} />
-					<SearchButton />
-				</form>
-			</div>
+			<form>
+			    <SearchDropdown 
+			    	searchType={this.props.searchType}
+			    	updateSearchType={this.props.updateSearchType} />
+			    	
+				<SearchInput 
+				    placeholder={this.props.placeholder}
+				    searchTerm={this.props.searchTerm}
+				    updateSearchTerm={this.props.updateSearchTerm} />
+				<SearchButton />
+			</form>
 		)
 	}
 })

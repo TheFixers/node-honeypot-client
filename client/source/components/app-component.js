@@ -4,6 +4,7 @@ import SearchArea from './search-area-component.js'
 import Results from './results-area-component.js'
 import Footer from './footer-component.js'
 import fetch from '../scripts/data-items-fetch-promise.js'
+import SEARCHTYPES from '../scripts/search-types.js'
 
 
 export default React.createClass({
@@ -11,10 +12,10 @@ export default React.createClass({
 	displayName: 'App',
 
 	propTypes: {
+		source: React.PropTypes.string.isRequired,
 		protocol: React.PropTypes.string.isRequired,
 		host: React.PropTypes.string.isRequired,
-		file: React.PropTypes.string.isRequired,
-		source: React.PropTypes.string.isRequired
+		file: React.PropTypes.string.isRequired
 	},
 
 	getInitialState() {
@@ -27,12 +28,13 @@ export default React.createClass({
 
 		return {
 			source: source,
+			protocol: protocol,
 			host: host,
+			file: file,
 			clientData: [],
-			openIndex: null,
-			error: null,
 			logging: true,
-			searchTerm: ""
+			searchTerm: "",
+			searchType: SEARCHTYPES.ALL.name
 		}
 	},
 
@@ -45,14 +47,12 @@ export default React.createClass({
 			.then((data) => {
 				let clientData = data.trim().split('\n') // Split into array
 				this.setState({
-					clientData: clientData,
-					error: null
+					clientData: clientData
 				})
 			})
 			.catch((err) => {
 				this.setState({
-					clientData: [],
-					error: err
+					clientData: []
 				})
 				console.error(err)
 			})
@@ -66,17 +66,36 @@ export default React.createClass({
 		return String(protocol + host + file)
 	},
 
-	_handleSearch(event) {
+	_updateSearchTerm(event) {
 		let term = event.target.value
-		if (this.state.logging) console.log("Search term: \"" + term + "\"")
+
+		if (this.state.logging) 
+			console.log("Search term: \"" + term + "\"")
+
 	    this.setState({
-	    	searchTerm: term //Set max length of 140 chars
+	    	searchTerm: term
 	    })
+	},
+
+	_updateSearchType(event) {
+		let searchType = event.target.value.toUpperCase()
+
+		if (SEARCHTYPES.hasOwnProperty(searchType)) {
+			if (this.state.logging) 
+				console.log("Search type: \"" + searchType + "\"")
+
+			this.setState({
+		    	searchType: searchType
+		    })
+
+		} else {
+			console.error("Search type " + searchType + " is invalid...")
+		}
 	},
 
 	render() {
         return (
-            <div className='app-react-component'>
+            <div className='react-app-component'>
                 {this._renderLayout(this.props.children)}
             </div>
         )
@@ -84,30 +103,30 @@ export default React.createClass({
 
 	_renderLayout() {
 		return ( 
-			<div className='app-react-container'>
+			<div className='react-app-component-container'>
 
 				<Header
 					className='app-react-header'
-					logging={this.state.logging}
 					host={this.state.host}
-					searchTerm={this.state.searchTerm}
-					updateSearch={this._handleSearch} />
+					logging={this.state.logging} />
 
 				<SearchArea
 					className='app-react-search'
 					placeholder="Search for..."
-					value={this.props.searchTerm}
-					updateSearch={this._handleSearch} />
+					searchTerm={this.state.searchTerm}
+					searchType={this.state.searchType}
+					updateSearchTerm={this._updateSearchTerm}
+					updateSearchType={this._updateSearchType} />
 
 				<Results
 					className='app-react-results'
-					logging={this.state.logging}
-					data={this.state.clientData} /> 
+					data={this.state.clientData} 
+					logging={this.state.logging} /> 
 
 				<Footer 
 					className='app-react-footer'
-					logging={this.state.logging}
-					source={this.props.source} />
+					source={this.props.source}
+					logging={this.state.logging} />
 
 			</div>
 		)

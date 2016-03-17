@@ -6,8 +6,8 @@ export default React.createClass({
 
 	propTypes: {
 		placeholder: React.PropTypes.string.isRequired,
-		value: React.PropTypes.string,
-		updateSearch: React.PropTypes.func.isRequired
+		searchTerm: React.PropTypes.string.isRequired,
+		updateSearchTerm: React.PropTypes.func.isRequired
 	},
 
 	componentDidMount() {
@@ -32,8 +32,8 @@ export default React.createClass({
 				className="search-input"
 				type="text"
 				placeholder={this.props.placeholder}
-				value={this.props.value}
-				onChange={this.props.updateSearch} />
+				searchTerm={this.props.searchTerm}
+				onChange={this.props.updateSearchTerm} />
 		)
 	}
 })
