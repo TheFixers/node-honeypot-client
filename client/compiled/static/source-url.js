@@ -1,0 +1,1 @@
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0});var PROTOCOL=exports.PROTOCOL="http://",HOST=exports.HOST="54.200.61.193/",FILE=exports.FILE="clientInfoData.json",URL=exports.URL=String(PROTOCOL+HOST+FILE);

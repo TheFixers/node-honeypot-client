@@ -32,7 +32,6 @@ export default React.createClass({
                 defaultValue="title"
                 searchType={this.props.searchType}
                 onChange={this.props.updateSearchType}>
-
                 <option className='select-header' value="title" disabled>Search By</option>
                 <option className='select-option' value="all">Show All</option>
                 <option className='select-option' value="index">Index</option>
