@@ -1,4 +1,5 @@
 import React from 'react'
+import SEARCHTYPES from '../scripts/search-types.js'
 
 export default React.createClass({
 
@@ -17,6 +18,12 @@ export default React.createClass({
         console.log("Search Dropdown un-mounted...")
     },
 
+    _mapObject(object, callback) {
+        return Object.keys(object).map((key, index) => {
+            return callback(key, object[key], index)
+        })
+    },
+
     render() {
         return (
             <div className='react-search-dropdown-component'>
@@ -32,17 +39,24 @@ export default React.createClass({
                 defaultValue="title"
                 searchType={this.props.searchType}
                 onChange={this.props.updateSearchType}>
-                <option className='select-header' value="title" disabled>Search By</option>
-                <option className='select-option' value="all">Show All</option>
-                <option className='select-option' value="index">Index</option>
-                <option className='select-option' value="ip">IP Address</option>
-                <option className='select-option' value="passwords">Passwords</option>
-                <option className='select-option' value="id">ID</option>
-                <option className='select-option' value="key">Key</option>
-                <option className='select-option' value="time">Time</option>
-                <option className='select-option' value="port">Port</option>
-                <option className='select-option' value="socket">Socket</option>
-            
+                
+                <option 
+                    className='select-header' 
+                    value="title" 
+                    disabled>
+                Search By
+                </option>
+
+                {this._mapObject(SEARCHTYPES, (key, value, index) => {
+                    return ( 
+                        <option 
+                            className='select-option'
+                            key={index}
+                            value={value.name}>
+                        {value.text}
+                        </option>
+                    ) 
+                })}
             </select>
         )
     }

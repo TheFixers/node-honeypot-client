@@ -6,7 +6,6 @@ import Footer from './footer-component.js'
 import fetch from '../scripts/data-items-fetch-promise.js'
 import SEARCHTYPES from '../scripts/search-types.js'
 
-
 export default React.createClass({
 
 	displayName: 'App',
@@ -43,19 +42,18 @@ export default React.createClass({
 
 		var promise = fetch(this.props.source)
 
-		promise
-			.then((data) => {
-				let clientData = data.trim().split('\n') // Split into array
-				this.setState({
-					clientData: clientData
-				})
+		promise.then((data) => {
+			let clientData = data.trim().split('\n')
+			this.setState({
+				clientData: clientData
 			})
-			.catch((err) => {
-				this.setState({
-					clientData: []
-				})
-				console.error(err)
+		})
+		.catch((err) => {
+			this.setState({
+				clientData: []
 			})
+			console.error(err)
+		})
 	},
 
 	componentWillUnmount() {
@@ -81,7 +79,7 @@ export default React.createClass({
 		let searchType = event.target.value.toUpperCase()
 
 		if (SEARCHTYPES.hasOwnProperty(searchType)) {
-			if (this.state.logging) 
+			if (this.state.logging)
 				console.log("Search type: \"" + searchType + "\"")
 
 			this.setState({
