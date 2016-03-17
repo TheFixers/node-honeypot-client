@@ -1,4 +1,5 @@
 import React from 'react'
+import DropdownOption from './search-dropdown-option-component.js'
 import SEARCHTYPES from '../scripts/search-types.js'
 
 export default React.createClass({
@@ -44,17 +45,15 @@ export default React.createClass({
                     className='select-header' 
                     value="title" 
                     disabled>
-                Search By
+                Filter By
                 </option>
 
                 {this._mapObject(SEARCHTYPES, (key, value, index) => {
                     return ( 
-                        <option 
-                            className='select-option'
+                        <DropdownOption
                             key={index}
-                            value={value.name}>
-                        {value.text}
-                        </option>
+                            value={value.name}
+                            text={value.text} />
                     ) 
                 })}
             </select>

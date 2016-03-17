@@ -117,6 +117,8 @@ export default React.createClass({
 					updateSearchType={this._updateSearchType} />
 
 				<Results
+				    searchTerm={this.state.searchTerm}
+					searchType={this.state.searchType}
 					className='app-react-results'
 					data={this.state.clientData} 
 					logging={this.state.logging} /> 

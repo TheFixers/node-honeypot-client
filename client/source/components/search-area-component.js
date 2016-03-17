@@ -33,11 +33,11 @@ export default React.createClass({
 
 	_renderLayout() {
 		return (
-			<form>
+			<form> 
 			    <SearchDropdown 
 			    	searchType={this.props.searchType}
 			    	updateSearchType={this.props.updateSearchType} />
-			    	
+
 				<SearchInput 
 				    placeholder={this.props.placeholder}
 				    searchTerm={this.props.searchTerm}

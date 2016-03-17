@@ -6,7 +6,9 @@ export default React.createClass({
 	displayName: 'Results Area',
 
 	propTypes: {
-		data: React.PropTypes.array.isRequired
+		data: React.PropTypes.array.isRequired,
+		searchTerm: React.PropTypes.string.isRequired,
+		searchType: React.PropTypes.string.isRequired
 	},
 
 	componentDidMount() {
@@ -24,6 +26,8 @@ export default React.createClass({
             </div>
         )
     },
+
+    // Decide how to render based on sort now...
 
 	_renderLayout() {
 		let data = this.props.data
