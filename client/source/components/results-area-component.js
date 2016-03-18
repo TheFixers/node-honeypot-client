@@ -1,5 +1,6 @@
 import React from 'react'
-import ClientDataTable from './data-table-component.js'
+import DataTable from './data-table-component.js'
+import filter from '../scripts/data-filter.js'
 
 export default React.createClass({
 	
@@ -27,22 +28,53 @@ export default React.createClass({
         )
     },
 
-    // Decide how to render based on sort now...
-
 	_renderLayout() {
+		
 		let data = this.props.data
+
+		let searchTerm = this.props.searchTerm
+		let searchType = this.props.searchType
+
+		var filteredData = filter(data, searchType, searchTerm)
+
 		return (
-			<div>
-				{Object.keys(data).map((key, index) => {
+			<div className="top-table">
+				{Object.keys(filteredData).map((item, index) => {
+					
+					let dataItem = filteredData[item]
+
+					let values = {
+						index: dataItem.index.toString(),
+						id: dataItem.id.toString(),
+						ip: dataItem.ip.toString(),
+						username: dataItem.username.toString(),
+						passwords: dataItem.passwords.toString(),
+						data: dataItem.data.toString(),
+						key: dataItem.key.toString(),
+						time: dataItem.time.toString(),
+						port: dataItem.port.toString(),
+						socket: dataItem.socket.toString()
+					}
+
 					return (
-						<ClientDataTable
+						<DataTable
 							key={index}
-							index={index}
-							data={data[key]} />
+							index={values.index}
+							id={values.id}
+							ip={values.ip}
+							username={values.username}
+							passwords={values.passwords}
+							userkey={values.key}
+							data={values.data}
+							time={values.time}
+							port={values.port}
+							socket={values.socket} />
 					)
+
 				})}
 			</div>
 		)
+
 	}
 
 

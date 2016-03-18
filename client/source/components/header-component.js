@@ -5,16 +5,15 @@ export default React.createClass({
 	displayName: 'Header Component',
 
 	propTypes: {
-		host: React.PropTypes.string.isRequired,
-		
+		host: React.PropTypes.string.isRequired
 	},
 
 	componentDidMount() {
-		console.log("Header mounted...")
+		//console.log("Header mounted...")
 	},
 
 	componentWillUnmount() {
-		console.log("Header un-mounted...")
+		//console.log("Header un-mounted...")
 	},
 
 	render() {

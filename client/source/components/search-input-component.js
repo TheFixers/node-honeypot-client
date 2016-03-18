@@ -11,11 +11,11 @@ export default React.createClass({
 	},
 
 	componentDidMount() {
-		console.log("Search Input mounted...")
+		//console.log("Search Input mounted...")
 	},
 
 	componentWillUnmount() {
-		console.log("Search Input un-mounted...")
+		//console.log("Search Input un-mounted...")
 	},
 
 	render() {

@@ -1,7 +1,7 @@
 const notFound = "[no data]"
 
 let ServerDataItem = function(data, index) {
-
+    
     this.index = index
     this.ip = notFound
     this.username = notFound

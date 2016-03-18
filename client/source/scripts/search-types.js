@@ -1,5 +1,5 @@
 const SEARCHTYPE = {
-  ALL:       {name: 'ALL',       index: 0, target: "all",       text: "All"}, 
+  ALL:       {name: 'ALL',       index: 0, target: "all",       text: "Show All"}, 
   INDEX:     {name: 'INDEX',     index: 1, target: "index",     text: "Index"}, 
   IP:        {name: 'IP',        index: 2, target: "ip",        text: "IP"}, 
   ID:        {name: 'ID',        index: 3, target: "id",        text: "ID"}, 

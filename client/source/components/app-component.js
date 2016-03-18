@@ -57,7 +57,7 @@ export default React.createClass({
 	},
 
 	componentWillUnmount() {
-		console.log("App un-mounted...")
+		//console.log("App un-mounted...")
 	},
 
 	_constructSourceUrl(protocol, host, file) {

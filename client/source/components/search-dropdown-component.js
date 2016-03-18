@@ -12,11 +12,11 @@ export default React.createClass({
     },
 
     componentDidMount() {
-        console.log("Search Dropdown mounted...")
+        //console.log("Search Dropdown mounted...")
     },
 
     componentWillUnmount() {
-        console.log("Search Dropdown un-mounted...")
+        //console.log("Search Dropdown un-mounted...")
     },
 
     _mapObject(object, callback) {

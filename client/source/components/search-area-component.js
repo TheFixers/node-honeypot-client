@@ -1,7 +1,6 @@
 import React from 'react'
 import SearchDropdown from './search-dropdown-component.js'
 import SearchInput from './search-input-component.js'
-import SearchButton from './search-button-component.js'
 
 export default React.createClass({
 
@@ -16,11 +15,11 @@ export default React.createClass({
 	},
 
 	componentDidMount() {
-		console.log("Search Area mounted...")
+		//console.log("Search Area mounted...")
 	},
 
 	componentWillUnmount() {
-		console.log("Search Area un-mounted...")
+		//console.log("Search Area un-mounted...")
 	},
 
 	render() {
@@ -32,18 +31,26 @@ export default React.createClass({
     },
 
 	_renderLayout() {
-		return (
-			<form> 
-			    <SearchDropdown 
-			    	searchType={this.props.searchType}
-			    	updateSearchType={this.props.updateSearchType} />
-
-				<SearchInput 
-				    placeholder={this.props.placeholder}
-				    searchTerm={this.props.searchTerm}
-				    updateSearchTerm={this.props.updateSearchTerm} />
-				<SearchButton />
-			</form>
-		)
+		if (this.props.searchType === "ALL") {
+			return (
+				<div> 
+				    <SearchDropdown 
+				    	searchType={this.props.searchType}
+				    	updateSearchType={this.props.updateSearchType} />
+				</div>
+			)
+		} else {
+			return (
+				<div> 
+				    <SearchDropdown 
+				    	searchType={this.props.searchType}
+				    	updateSearchType={this.props.updateSearchType} />
+					<SearchInput 
+					    placeholder={this.props.placeholder}
+					    searchTerm={this.props.searchTerm}
+					    updateSearchTerm={this.props.updateSearchTerm} />
+				</div>
+			)
+		}
 	}
 })
