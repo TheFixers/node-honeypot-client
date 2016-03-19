@@ -1,6 +1,6 @@
 import React from 'react'
 import DropdownOption from './search-dropdown-option-component.js'
-import SEARCHTYPES from '../scripts/search-types.js'
+import SEARCHTYPES from '../static/search-types.js'
 
 export default React.createClass({
 

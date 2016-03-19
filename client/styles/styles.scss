@@ -59,6 +59,7 @@ body {
 		text-align: left;
 		min-width: 80px;
 		max-width: 80px;
+		font-family: 'Oswald'
 	}
 	td {
 		font-family: $font-td;
@@ -97,7 +98,7 @@ a:visited {
 }
 /* mouse over link */
 a:hover {
-    color: #6666FF;
+    color: yellow;
     transition: color 0.3s;
     text-decoration: underline;
 }

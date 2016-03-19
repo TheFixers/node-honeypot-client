@@ -1,5 +1,5 @@
 import React from 'react'
-import DataItemCreator from '../scripts/data-item-object-creator.js'
+import DataItemCreator from '../modules/data-item-object-creator.js'
 
 export default React.createClass({
 

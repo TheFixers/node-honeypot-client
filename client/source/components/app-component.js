@@ -3,8 +3,8 @@ import Header from './header-component.js'
 import SearchArea from './search-area-component.js'
 import Results from './results-area-component.js'
 import Footer from './footer-component.js'
-import fetch from '../scripts/data-items-fetch-promise.js'
-import SEARCHTYPES from '../scripts/search-types.js'
+import fetch from '../modules/data-items-fetch-promise.js'
+import SEARCHTYPES from '../static/search-types.js'
 
 export default React.createClass({
 

@@ -1,6 +1,6 @@
 import React from 'react'
 import DataTable from './data-table-component.js'
-import filter from '../scripts/data-filter.js'
+import filter from '../modules/data-filter.js'
 
 export default React.createClass({
 	

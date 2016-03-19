@@ -24,11 +24,11 @@ gulp.task('sass', function () {
 })
 
 // Compile sripts
-gulp.task('scripts', function () {
-    return gulp.src(['client/source/scripts/*.js'])
+gulp.task('modules', function () {
+    return gulp.src(['client/source/modules/*.js'])
         .pipe(babel())
         .pipe(uglify())
-        .pipe(gulp.dest('client/compiled/scripts'))
+        .pipe(gulp.dest('client/compiled/modules'))
 })
 
 // Compile react components
@@ -56,7 +56,7 @@ gulp.task('entry', function () {
 })
 
 // Compile all
-gulp.task('compile', ['scripts', 'components', 'static', 'entry', 'sass'], function() {
+gulp.task('compile', ['modules', 'components', 'static', 'entry', 'sass'], function() {
     return true
 })
 
