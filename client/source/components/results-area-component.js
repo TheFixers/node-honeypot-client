@@ -58,6 +58,8 @@ export default React.createClass({
 
 					return (
 						<DataTable
+							searchTerm={this.props.searchTerm}
+							searchType={this.props.searchType}
 							key={index}
 							index={values.index}
 							id={values.id}

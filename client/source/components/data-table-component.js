@@ -1,4 +1,5 @@
 import React from 'react'
+import TableRow from './data-table-row-component.js'
 import DataItemCreator from '../modules/data-item-object-creator.js'
 
 export default React.createClass({
@@ -6,6 +7,8 @@ export default React.createClass({
 	displayName: 'Data Table Component',
 
 	propTypes: {
+		searchType: React.PropTypes.string.isRequired,
+		searchTerm: React.PropTypes.string.isRequired,
 		index: React.PropTypes.string.isRequired,
 		ip: React.PropTypes.string.isRequired,
 		id: React.PropTypes.string.isRequired,
@@ -35,49 +38,36 @@ export default React.createClass({
     },
 
 	_renderLayout() {
+		
+		let rows = [
+			{name: "index",     type: "INDEX",     value: this.props.index},
+			{name: "id",        type: "ID",        value: this.props.id},
+			{name: "ip" ,       type: "IP",        value: this.props.ip},
+			{name: "username",  type: "USERNAME",  value: this.props.username},
+			{name: "passwords", type: "PASSWORDS", value: this.props.passwords},
+			{name: "data",      type: "DATA",      value: this.props.data},
+			{name: "key",       type: "KEY",       value: this.props.userkey},
+			{name: "time",      type: "TIME",      value: this.props.time},
+			{name: "port",      type: "PORT",      value: this.props.port},
+			{name: "socket",    type: "SOCKET",    value: this.props.socket}
+		]
+
 		return ( 
-			<table className='table center' align="right">
+			
+			<table className='table center'>
 				<tbody> 
-					<tr>
-						<th>Index</th>
-						<td>{this.props.index}</td>
-					</tr>
-					<tr>
-						<th>ID</th>
-						<td>{this.props.id}</td>
-					</tr>
-					<tr>
-						<th>IP</th>
-						<td>{this.props.ip}</td>
-					</tr>
-					<tr>
-						<th>Username</th>
-						<td>{this.props.username}</td>
-					</tr>
-					<tr>
-						<th>Passwords</th>
-						<td>{this.props.passwords}</td>
-					</tr>
-					<tr>
-						<th>Data</th>
-						<td>{this.props.data}</td>
-					</tr>
-					<tr>
-						<th>Key</th>
-						<td>{this.props.userkey}</td>
-					</tr>
-					<tr>
-						<th>Time</th>
-						<td>{this.props.time}</td>
-					</tr>
-					<tr>
-						<th>Port</th>
-						<td>{this.props.port}</td>
-					</tr>
-					<tr>
-						<th>Socket</th>
-						<td>{this.props.socket}</td>
-					</tr>
+					{rows.map((item, index) => {
+						//console.log(item.name, item.value)
+						return (
+							<TableRow
+								key={index}
+							    searchType={this.props.searchType}
+							    searchTerm={this.props.searchTerm}
+							    type={item.type}
+								th={item.name}
+								td={item.value} />
+						)
+					})}
 				</tbody> 
 			</table>
 		)
