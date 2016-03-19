@@ -17,7 +17,7 @@ let ServerDataItem = function(data, index) {
         this.ip = data.Client.IP
     }
 
-    if (data.Client && data.Client.Data && data.Client.Username) {
+    if (data.Client && data.Client.Data && data.Client.Data.Username) {
         this.username = data.Client.Data.Username
     }
 

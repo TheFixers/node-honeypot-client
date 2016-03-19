@@ -1,6 +1,5 @@
 import React from 'react'
 import DataItemCreator from '../scripts/data-item-object-creator.js'
-import TableRow from './data-table-row-component.js'
 
 export default React.createClass({
 

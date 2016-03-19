@@ -38,7 +38,7 @@ export default React.createClass({
 		var filteredData = filter(data, searchType, searchTerm)
 
 		return (
-			<div className="top-table">
+			<div>
 				{Object.keys(filteredData).map((item, index) => {
 					
 					let dataItem = filteredData[item]
