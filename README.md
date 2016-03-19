@@ -13,7 +13,11 @@ To package, compile, and bundle the application, use the following commands from
 * `gulp watch` - live building
 
 ## Contributions
-Please make sure all commits from this point on are done on branches, which I (@rabbitfighter81) will pull in after checking. This will aloow for a smoother workflow moving forward with more than one team member.
+Please make sure all commits from this point on are done on branches, which I (@rabbitfighter81) will pull in after checking. This will allow for a smoother workflow moving forward with more than one team member.
+
+* `git branch <new branch>`
+* `git checkout <new branch>`
+* `git push -u origin <new branch>`
 
 ## Team
 * @rabbitfighter81
