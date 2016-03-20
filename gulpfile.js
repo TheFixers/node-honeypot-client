@@ -72,7 +72,7 @@ gulp.task('browserify', ['compile'], function() {
 
 // Watch task
 gulp.task('watch', function() {
-    gulp.watch('src/client/**/*.{js, jsx}', ['browserfy'])
-    gulp.watch('src/client/*.{js, jsx}', ['browserify'])
-    gulp.watch('scss/*.{scss}', ['scss'])
+    gulp.watch('./client/source/**/*.{js, jsx}', ['browserfy'])
+    gulp.watch('./client/source/*.{js, jsx}', ['browserify'])
+    gulp.watch('./client/styles/*.{scss}', ['scss'])
 })

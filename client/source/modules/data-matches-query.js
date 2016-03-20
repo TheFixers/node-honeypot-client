@@ -3,7 +3,7 @@ export default (item, searchType, searchTerm) => {
     if (searchTerm === null || searchTerm === "" || searchType === "ALL") {
         return true
     } else {
-        let regex = new RegExp(searchTerm, "g")
+        let regex = new RegExp(searchTerm, "gi")
         switch (searchType) {
             case "ALL": 
                 return true

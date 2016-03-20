@@ -106,8 +106,7 @@ export default React.createClass({
 				<Header
 					className='app-react-header'
 					host={this.state.host}
-					source={this.props.source}
-					logging={this.state.logging} />
+					source={this.props.source} />
 
 				<SearchArea
 					className='app-react-search'
@@ -121,13 +120,11 @@ export default React.createClass({
 				    searchTerm={this.state.searchTerm}
 					searchType={this.state.searchType}
 					className='app-react-results'
-					data={this.state.clientData} 
-					logging={this.state.logging} /> 
+					data={this.state.clientData} /> 
 
 				<Footer 
 					className='app-react-footer'
-					source={this.props.source}
-					logging={this.state.logging} />
+					source={this.props.source} />
 
 			</div>
 		)

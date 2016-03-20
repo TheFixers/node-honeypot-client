@@ -1,4 +1,5 @@
 import React from 'react'
+import moment from 'moment'
 import DataTable from './data-table-component.js'
 import filter from '../modules/data-filter.js'
 
@@ -29,10 +30,6 @@ export default React.createClass({
     },
 
 	_renderLayout() {
-
-		var moment = require('moment');
-		console.log(moment.locale()); // en
-
 		
 		let data = this.props.data
 
@@ -51,6 +48,8 @@ export default React.createClass({
 				{Object.keys(filteredData).map((item, index) => {
 					
 					let dataItem = filteredData[item]
+					
+					let time = moment.unix(dataItem.time)
 
 					let values = {
 						index: dataItem.index.toString(),
@@ -61,7 +60,7 @@ export default React.createClass({
 						passwords: dataItem.passwords.toString(),
 						data: dataItem.data.toString(),
 						key: dataItem.key.toString(),
-						time: moment.unix(dataItem.time).toString(),
+						time: time.toString(),
 						port: dataItem.port.toString(),
 						socket: dataItem.socket.toString()
 					}
