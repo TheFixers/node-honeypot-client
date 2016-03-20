@@ -8,90 +8,90 @@ import SEARCHTYPES from '../static/search-types.js'
 
 export default React.createClass({
 
-	displayName: 'App',
+    displayName: 'App',
 
-	propTypes: {
-		source: React.PropTypes.string.isRequired,
-		protocol: React.PropTypes.string.isRequired,
-		host: React.PropTypes.string.isRequired,
-		file: React.PropTypes.string.isRequired
-	},
+    propTypes: {
+        source: React.PropTypes.string.isRequired,
+        protocol: React.PropTypes.string.isRequired,
+        host: React.PropTypes.string.isRequired,
+        file: React.PropTypes.string.isRequired
+    },
 
-	getInitialState() {
+    getInitialState() {
 
-		let protocol = this.props.protocol
-		let host = this.props.host
-		let file = this.props.file
+        let protocol = this.props.protocol
+        let host = this.props.host
+        let file = this.props.file
 
-		let source = this._constructSourceUrl(protocol, host, file)
+        let source = this._constructSourceUrl(protocol, host, file)
 
-		return {
-			source: source,
-			protocol: protocol,
-			host: host,
-			file: file,
-			clientData: [],
-			logging: true,
-			searchTerm: "",
-			searchType: SEARCHTYPES.ALL.name
-		}
-	},
+        return {
+            source: source,
+            protocol: protocol,
+            host: host,
+            file: file,
+            clientData: [],
+            logging: true,
+            searchTerm: "",
+            searchType: SEARCHTYPES.ALL.name
+        }
+    },
 
-	componentDidMount() {
-		console.log("App mounted...")
+    componentDidMount() {
+        console.log("App mounted...")
 
-		var promise = fetch(this.props.source)
+        var promise = fetch(this.props.source)
 
-		promise.then((data) => {
-			let clientData = data.trim().split('\n')
-			this.setState({
-				clientData: clientData
-			})
-		})
-		.catch((err) => {
-			this.setState({
-				clientData: []
-			})
-			console.error(err)
-		})
-	},
+        promise.then((data) => {
+            let clientData = data.trim().split('\n')
+            this.setState({
+                clientData: clientData
+            })
+        })
+        .catch((err) => {
+            this.setState({
+                clientData: []
+            })
+            console.error(err)
+        })
+    },
 
-	componentWillUnmount() {
-		//console.log("App un-mounted...")
-	},
+    componentWillUnmount() {
+        //console.log("App un-mounted...")
+    },
 
-	_constructSourceUrl(protocol, host, file) {
-		return String(protocol + host + file)
-	},
+    _constructSourceUrl(protocol, host, file) {
+        return String(protocol + host + file)
+    },
 
-	_updateSearchTerm(event) {
-		let term = event.target.value
+    _updateSearchTerm(event) {
+        let term = event.target.value
 
-		if (this.state.logging) 
-			console.log("Search term: \"" + term + "\"")
+        if (this.state.logging) 
+            console.log("Search term: \"" + term + "\"")
 
-	    this.setState({
-	    	searchTerm: term
-	    })
-	},
+        this.setState({
+            searchTerm: term
+        })
+    },
 
-	_updateSearchType(event) {
-		let searchType = event.target.value.toUpperCase()
+    _updateSearchType(event) {
+        let searchType = event.target.value.toUpperCase()
 
-		if (SEARCHTYPES.hasOwnProperty(searchType)) {
-			if (this.state.logging)
-				console.log("Search type: \"" + searchType + "\"")
+        if (SEARCHTYPES.hasOwnProperty(searchType)) {
+            if (this.state.logging)
+                console.log("Search type: \"" + searchType + "\"")
 
-			this.setState({
-		    	searchType: searchType
-		    })
+            this.setState({
+                searchType: searchType
+            })
 
-		} else {
-			console.error("Search type " + searchType + " is invalid...")
-		}
-	},
+        } else {
+            console.error("Search type " + searchType + " is invalid...")
+        }
+    },
 
-	render() {
+    render() {
         return (
             <div className='react-app-component'>
                 {this._renderLayout(this.props.children)}
@@ -99,35 +99,35 @@ export default React.createClass({
         )
     },
 
-	_renderLayout() {
-		return ( 
-			<div className='react-app-component-container'>
+    _renderLayout() {
+        return ( 
+            <div className='react-app-component-container'>
 
-				<Header
-					className='app-react-header'
-					host={this.state.host}
-					source={this.props.source} />
+                <Header
+                    className='app-react-header'
+                    host={this.state.host}
+                    source={this.props.source} />
 
-				<SearchArea
-					className='app-react-search'
-					placeholder="Search for..."
-					searchTerm={this.state.searchTerm}
-					searchType={this.state.searchType}
-					updateSearchTerm={this._updateSearchTerm}
-					updateSearchType={this._updateSearchType} />
+                <SearchArea
+                    className='app-react-search'
+                    placeholder="Search for..."
+                    searchTerm={this.state.searchTerm}
+                    searchType={this.state.searchType}
+                    updateSearchTerm={this._updateSearchTerm}
+                    updateSearchType={this._updateSearchType} />
 
-				<Results
-					className='app-react-results'
-				    searchTerm={this.state.searchTerm}
-					searchType={this.state.searchType}
-					data={this.state.clientData} /> 
+                <Results
+                    className='app-react-results'
+                    searchTerm={this.state.searchTerm}
+                    searchType={this.state.searchType}
+                    data={this.state.clientData} /> 
 
-				<Footer 
-					className='app-react-footer'
-					source={this.props.source} />
+                <Footer 
+                    className='app-react-footer'
+                    source={this.props.source} />
 
-			</div>
-		)
-	}
+            </div>
+        )
+    }
 
 })

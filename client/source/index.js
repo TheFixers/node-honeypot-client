@@ -5,13 +5,13 @@ import {PROTOCOL, HOST, FILE, URL} from './static/source-url.js'
 
 ReactDOM.render(
 
-	<App 
-	    className='app-root-component'
-		protocol={PROTOCOL}
-		host={HOST}
-		file={FILE}
-		source={URL} />, 
+    <App 
+        className='app-root-component'
+        protocol={PROTOCOL}
+        host={HOST}
+        file={FILE}
+        source={URL} />, 
 
-	document.getElementById('root')
+    document.getElementById('root')
 
 )
