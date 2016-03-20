@@ -1,6 +1,6 @@
 import moment from 'moment'
 
-const FORMAT = "MMM Do, YYYY hh:mm:ss A"
+const FORMAT = "dddd MMM Do, YYYY @ hh:mm:ss A"
 
 export default (timestamp) => {
 	try {
