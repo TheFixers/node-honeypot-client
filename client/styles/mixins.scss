@@ -1,0 +1,15 @@
+/*********************
+Media Queries
+*********************/
+
+@mixin bp($point) {
+  @if $point == full {
+    @media (min-width: 1024px) { @content; }
+  }
+  @else if $point == medium {
+    @media (min-width: 960px)  { @content; }
+  }
+  @else if $point == small {
+    @media (min-width: 550px)  { @content; }
+  }
+}
