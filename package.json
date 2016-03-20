@@ -4,7 +4,7 @@
   "description": "Honeypot Client",
   "main": "src/index.js",
   "scripts": {
-    "browserify": "gulp browserify",
+    "build": "gulp build",
     "compile": "gulp compile",
     "watch": "gulp watch",
     "gulp": "gulp"
