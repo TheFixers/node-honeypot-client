@@ -1,4 +1,5 @@
 export default (item, searchType, searchTerm) => {
+
     if (searchTerm === null || searchTerm === "" || searchType === "ALL") {
         return true
     } else {
@@ -14,6 +15,11 @@ export default (item, searchType, searchTerm) => {
                 break
             case "IP": 
                 if (item.ip.match(regex)) {
+                    return true
+                }
+                break
+            case "TYPE": 
+                if (item.type.match(regex)) {
                     return true
                 }
                 break

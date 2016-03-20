@@ -106,6 +106,7 @@ export default React.createClass({
 				<Header
 					className='app-react-header'
 					host={this.state.host}
+					source={this.props.source}
 					logging={this.state.logging} />
 
 				<SearchArea
