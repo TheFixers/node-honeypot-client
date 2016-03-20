@@ -1,3 +1,5 @@
+import timeFormatter from './unix-time-formatter.js'
+
 const notFound = "[no data]"
 
 let ServerDataItem = function(data, index) {
@@ -43,7 +45,7 @@ let ServerDataItem = function(data, index) {
     }
 
     if (data.Client && data.Client.Data && data.Client.Data.Time) {
-        this.time = data.Client.Data.Time.toString()
+        this.time = timeFormatter(data.Client.Data.Time) //Using npm 'moment'
     }
 
     if (data.Client && data.Client.Port) {

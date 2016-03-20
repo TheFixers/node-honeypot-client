@@ -8,7 +8,6 @@ export default React.createClass({
 	propTypes: {
 		searchTerm: React.PropTypes.string.isRequired,
 		searchType: React.PropTypes.string.isRequired,
-		type: React.PropTypes.string.isRequired,
 		th: React.PropTypes.string.isRequired,
 		td: React.PropTypes.string.isRequired
 	},
@@ -28,8 +27,9 @@ export default React.createClass({
 	render() {
 		let th = this._capitalizeFirstLetter(this.props.th)
 		let td = this.props.td
+		let searchType = th.toUpperCase()
 
-		if (this.props.searchType === this.props.type && this.props.searchTerm !== "") {
+		if (this.props.searchType === searchType && this.props.searchTerm !== "") {
 			return (
 				<tr>
 					<th>{th}</th>

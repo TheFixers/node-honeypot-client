@@ -1,5 +1,4 @@
 import React from 'react'
-import moment from 'moment'
 import DataTable from './data-table-component.js'
 import filter from '../modules/data-filter.js'
 
@@ -40,7 +39,7 @@ export default React.createClass({
 
 		let len = filteredData.length
 
-		let results = (len === 1) ? (len + " result found") : (len + " results found")
+		let results = ("Showing " + len) + (len === 1 ? " result" : " results")
 
 		return (
 			<div>
@@ -48,21 +47,19 @@ export default React.createClass({
 				{Object.keys(filteredData).map((item, index) => {
 					
 					let dataItem = filteredData[item]
-					
-					let time = moment.unix(dataItem.time)
 
 					let values = {
-						index: dataItem.index.toString(),
-						id: dataItem.id.toString(),
-						type: dataItem.type.toString(),
-						ip: dataItem.ip.toString(),
-						username: dataItem.username.toString(),
-						passwords: dataItem.passwords.toString(),
-						data: dataItem.data.toString(),
-						key: dataItem.key.toString(),
-						time: time.toString(),
-						port: dataItem.port.toString(),
-						socket: dataItem.socket.toString()
+						index: String(dataItem.index),
+						id: String(dataItem.id),
+						type: String(dataItem.type),
+						ip: String(dataItem.ip),
+						username: String(dataItem.username),
+						passwords: String(dataItem.passwords),
+						data: String(dataItem.data),
+						key: String(dataItem.key),
+						time: String(dataItem.time),
+						port: String(dataItem.port),
+						socket: String(dataItem.socket)
 					}
 
 					return (

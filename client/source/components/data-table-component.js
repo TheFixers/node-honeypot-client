@@ -1,6 +1,7 @@
 import React from 'react'
 import TableRow from './data-table-row-component.js'
 import DataItemCreator from '../modules/data-item-object-creator.js'
+import RowCreator from '../modules/data-table-row-creator.js'
 
 export default React.createClass({
 
@@ -40,19 +41,7 @@ export default React.createClass({
 
 	_renderLayout() {
 		
-		let rows = [
-			{name: "index",     type: "INDEX",     value: this.props.index},
-			{name: "id",        type: "ID",        value: this.props.id},	
-			{name: "type",      type: "TYPE",      value: this.props.type},
-			{name: "ip" ,       type: "IP",        value: this.props.ip},
-			{name: "username",  type: "USERNAME",  value: this.props.username},
-			{name: "passwords", type: "PASSWORDS", value: this.props.passwords},
-			{name: "data",      type: "DATA",      value: this.props.data},
-			{name: "key",       type: "KEY",       value: this.props.userkey},
-			{name: "time",      type: "TIME",      value: this.props.time},
-			{name: "port",      type: "PORT",      value: this.props.port},
-			{name: "socket",    type: "SOCKET",    value: this.props.socket}
-		]
+		let rows = RowCreator(this.props)
 
 		return ( 
 			
@@ -65,7 +54,6 @@ export default React.createClass({
 								key={index}
 							    searchType={this.props.searchType}
 							    searchTerm={this.props.searchTerm}
-							    type={item.type}
 								th={item.name}
 								td={item.value} />
 						)
