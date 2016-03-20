@@ -1,5 +1,5 @@
 # node-honeypot-client
-Honeypot Client using NodeJS, NPM, Gulp, and custom modules to parse JSON responses from Honeypot Server
+Honeypot Client using NodeJS, NPM, React, Gulp, and custom modules to parse JSON responses from Honeypot Server
 
 ##Installation
 
