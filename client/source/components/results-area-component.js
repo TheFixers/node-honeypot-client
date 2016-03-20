@@ -37,8 +37,13 @@ export default React.createClass({
 
 		var filteredData = filter(data, searchType, searchTerm)
 
+		let len = filteredData.length
+
+		let results = (len === 1) ? (len + " result found") : (len + " results found")
+
 		return (
 			<div>
+				<h4>{results}</h4>	
 				{Object.keys(filteredData).map((item, index) => {
 					
 					let dataItem = filteredData[item]

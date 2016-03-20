@@ -28,6 +28,10 @@ body {
 	 display: inline-block;
 	 width: auto;
 	 align:center;
+	 h4 {
+	 	font-family: $font-td;
+	 	color: white;
+	 }
 }
 .react-data-table-component {
 	display: inline-block;
