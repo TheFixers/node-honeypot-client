@@ -12,6 +12,7 @@ export default React.createClass({
 		index: React.PropTypes.string.isRequired,
 		ip: React.PropTypes.string.isRequired,
 		id: React.PropTypes.string.isRequired,
+		type: React.PropTypes.string.isRequired,
 		username: React.PropTypes.string.isRequired,
 		userkey: React.PropTypes.string.isRequired,
 		passwords: React.PropTypes.string.isRequired,
@@ -41,7 +42,8 @@ export default React.createClass({
 		
 		let rows = [
 			{name: "index",     type: "INDEX",     value: this.props.index},
-			{name: "id",        type: "ID",        value: this.props.id},
+			{name: "id",        type: "ID",        value: this.props.id},	
+			{name: "type",      type: "TYPE",      value: this.props.type},
 			{name: "ip" ,       type: "IP",        value: this.props.ip},
 			{name: "username",  type: "USERNAME",  value: this.props.username},
 			{name: "passwords", type: "PASSWORDS", value: this.props.passwords},
@@ -73,4 +75,3 @@ export default React.createClass({
 		)
 	}
 })
-

@@ -4,6 +4,7 @@ let ServerDataItem = function(data, index) {
     
     this.index = index.toString()
     this.ip = notFound
+    this.type = notFound
     this.username = notFound
     this.passwords = notFound
     this.data = notFound
@@ -20,7 +21,11 @@ let ServerDataItem = function(data, index) {
     if (data.Client && data.Client.Data && data.Client.Data.Username) {
         this.username = data.Client.Data.Username.toString()
     }
-
+    
+    if (data.Client && data.Client.TYPE) {
+        this.type = data.Client.TYPE.toString()
+    }
+    
     if (data.Client && data.Client.Data && data.Client.Data.Passwords) {
         this.passwords = data.Client.Data.Passwords.toString()
     }

@@ -29,6 +29,10 @@ export default React.createClass({
     },
 
 	_renderLayout() {
+
+		var moment = require('moment');
+		console.log(moment.locale()); // en
+
 		
 		let data = this.props.data
 
@@ -51,12 +55,13 @@ export default React.createClass({
 					let values = {
 						index: dataItem.index.toString(),
 						id: dataItem.id.toString(),
+						type: dataItem.type.toString(),
 						ip: dataItem.ip.toString(),
 						username: dataItem.username.toString(),
 						passwords: dataItem.passwords.toString(),
 						data: dataItem.data.toString(),
 						key: dataItem.key.toString(),
-						time: dataItem.time.toString(),
+						time: moment.unix(dataItem.time).toString(),
 						port: dataItem.port.toString(),
 						socket: dataItem.socket.toString()
 					}
@@ -67,6 +72,7 @@ export default React.createClass({
 							searchType={this.props.searchType}
 							key={index}
 							index={values.index}
+							type={values.type}
 							id={values.id}
 							ip={values.ip}
 							username={values.username}
@@ -83,6 +89,4 @@ export default React.createClass({
 		)
 
 	}
-
-
 })

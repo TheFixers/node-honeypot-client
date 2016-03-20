@@ -5,7 +5,8 @@ export default React.createClass({
 	displayName: 'Header Component',
 
 	propTypes: {
-		host: React.PropTypes.string.isRequired
+		host: React.PropTypes.string.isRequired,
+		source: React.PropTypes.string.isRequired
 	},
 
 	componentDidMount() {
@@ -25,12 +26,11 @@ export default React.createClass({
     },
 
 	_renderLayout() {
-		let text = this.props.host.slice(0, -1)
 		return ( 
 			<div className="header">
 				<h1>Honeypot Client</h1>
-				<h2>Server data @ <a href={this.props.host}>{text}</a></h2>
+				<h2>Server data @ <a href={this.props.source}> {this.props.host}</a></h2>
 			</div>
 		)
-	}
+	},
 })
