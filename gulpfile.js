@@ -6,15 +6,22 @@
  */
 
 // Imports
-var gulp   = require('gulp')
-var uglify = require('gulp-uglify')
-var concat = require('gulp-concat')
 var babel  = require('gulp-babel')
-var sass   = require('gulp-sass')
-var react  = require('gulp-react')
-var source = require('vinyl-source-stream')
 var browserify = require('browserify')
- 
+var concat = require('gulp-concat')
+var del = require('del');
+var gulp = require('gulp')
+var react = require('gulp-react')
+var sass = require('gulp-sass')
+var source = require('vinyl-source-stream')
+var uglify = require('gulp-uglify')
+
+gulp.task('clean', function () {
+  return del([
+    'build/*',
+    'client/compiled/*'
+  ])
+})
 // Compile scss
 gulp.task('sass', function () {
     return gulp.src('client/styles/*.scss')
@@ -22,7 +29,6 @@ gulp.task('sass', function () {
         .pipe(concat('styles.css'))
         .pipe(gulp.dest('build/styles'))
 })
-
 // Compile sripts
 gulp.task('modules', function () {
     return gulp.src(['client/source/modules/*.js'])
@@ -30,7 +36,6 @@ gulp.task('modules', function () {
         .pipe(uglify())
         .pipe(gulp.dest('client/compiled/modules'))
 })
-
 // Compile react components
 gulp.task('components', function () {
     return gulp.src(['client/source/components/*.js'])
@@ -38,7 +43,6 @@ gulp.task('components', function () {
         .pipe(uglify())
         .pipe(gulp.dest('client/compiled/components'))
 })
-
 // Compile static files
 gulp.task('static', function () {
     return gulp.src(['client/source/static/*.js'])
@@ -46,7 +50,6 @@ gulp.task('static', function () {
         .pipe(uglify())
         .pipe(gulp.dest('./client/compiled/static'))
 })
-
 // Compile index.js (entry file)
 gulp.task('entry', function () {
     return gulp.src(['client/source/*.js'])
@@ -54,25 +57,20 @@ gulp.task('entry', function () {
         .pipe(uglify())
         .pipe(gulp.dest('client/compiled'))
 })
-
 // Compile all
 gulp.task('compile', ['modules', 'components', 'static', 'entry', 'sass'], function() {
     return true
 })
-
-// Browserify task
-gulp.task('browserify', ['compile'], function() {
+// Browserify build task
+gulp.task('build', ['compile'], function() {
     return browserify('client/compiled/index.js')
         .bundle()
-        //Pass desired output filename to vinyl-source-stream
-        .pipe(source('bundle.js'))
-        // Start piping stream to tasks!
+        .pipe(source('bundle.js'))//Pass desired output filename to vinyl-source-stream
         .pipe(gulp.dest('./build/'))
 })
-
-// Watch task
+// Watch task builds live
 gulp.task('watch', function() {
-    gulp.watch('./client/source/**/*.{js, jsx}', ['browserfy'])
-    gulp.watch('./client/source/*.{js, jsx}', ['browserify'])
+    gulp.watch('./client/source/**/*.{js, jsx}', ['build'])
+    gulp.watch('./client/source/*.{js, jsx}', ['build'])
     gulp.watch('./client/styles/*.{scss}', ['scss'])
 })

@@ -36,14 +36,13 @@ export default React.createClass({
 		let searchType = this.props.searchType
 
 		var filteredData = filter(data, searchType, searchTerm)
-
 		let len = filteredData.length
 
 		let results = ("Showing " + len) + (len === 1 ? " result" : " results")
 
 		return (
 			<div>
-				<h4>{results}</h4>	
+				<p>{results}</p>	
 				{Object.keys(filteredData).map((item, index) => {
 					
 					let dataItem = filteredData[item]

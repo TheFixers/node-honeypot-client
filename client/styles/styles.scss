@@ -2,6 +2,7 @@
 
 @import url(http://fonts.googleapis.com/css?family=Sigmar+One|Special+Elite|Bangers|Roboto|Oswald|Lato|Roboto+Slab|Open+Sans);
 
+// Colors
 $color-yellow: #ffff00;
 $color-med-dark: #333;
 $color-dark: #111;
@@ -9,11 +10,13 @@ $color-med: #777;
 $color-bg: #555;
 $color-text: white;
 
+// Table colors
 $color-th: #DFDFDF;
 $color-td: #FAFAFA;
 $color-tr-even: #F1F1F1;
 $color-tr-odd: #FEFEFE;
 
+// Fonts
 $font-header: 'Oswald';
 $font-subheader: 'Lato';
 $font-th: 'Roboto';
@@ -23,7 +26,6 @@ body {
 	text-align: center;
 	background-color: $color-bg;
 }
-
 .react-results-area-component {
 	 display: inline-block;
 	 width: auto;
@@ -89,7 +91,6 @@ body {
 		transition: color 0.3s;
 	}
 }
-
 /* unvisited link */
 a:link {
     color: white;
@@ -197,8 +198,10 @@ a:active {
 	}	
 }
 .react-results-area-component {
-	h4 {
+	p {
 		color: white;
+		font-size: 1.2em;
+		font-family: $font-header
 	}
 }
 .select-option {
@@ -218,7 +221,6 @@ a:active {
 .highlight {
 	strong {
 		background-color: yellow;
-		color: red;
 	}
 }
 

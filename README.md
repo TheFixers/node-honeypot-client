@@ -8,9 +8,18 @@ To package, compile, and bundle the application, use the following commands from
 ### Installing node dependencies
 * `npm install` - installs all node dependancies from `package.json`
 
-### Gulp commands
-* `gulp browserify` - build and compile everything
+### Main Gulp commands
+* `gulp build` - build and compile everything
 * `gulp watch` - live building
+* `gulp clean` - clean out the build and client/compiled folders before git commit
+
+#### Misc Gulp commands
+* `gulp sass`  - compile SASS to CSS
+* `gulp modules` - compile modules
+* `gulp components` - compile components
+* `gulp static` - compile static sources
+* `gulp entry` - compile entry file
+* `gulp compile` - compile
 
 ## Contributions
 Please make sure all commits from this point on are done on branches, which I (@rabbitfighter81) will pull in after checking. This will allow for a smoother workflow moving forward with more than one team member.
