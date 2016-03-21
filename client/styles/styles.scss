@@ -1,13 +1,14 @@
+// Imports
 @import "mixins.scss";
 @import url(http://fonts.googleapis.com/css?family=Roboto|Oswald|Lato|Roboto+Slab|Open+Sans);
 
 // Colors
-$color-yellow: #ffff00;
+$color-yellow: #FFFF00;
 $color-med-dark: #333;
 $color-dark: #111;
 $color-med: #777;
 $color-bg: #555;
-$color-text: white;
+$color-text: #FFF;
 
 // Table colors
 $color-th: #DFDFDF;
@@ -16,8 +17,8 @@ $color-tr-even: #F1F1F1;
 $color-tr-odd: #FEFEFE;
 
 // Fonts
-$font-header: 'Oswald';
-$font-subheader: 'Lato';
+$font-oswald: 'Oswald';
+$font-lato: 'Lato';
 $font-th: 'Roboto';
 $font-td: 'Open Sans';
 
@@ -41,7 +42,7 @@ body {
 		width: auto;
 		align: center;
 		margin: 25px;
-		color: #333;
+		color: $color-med-dark;
 		border-collapse:
 		collapse; border-spacing: 0;
 		border: solid 3px white;
@@ -64,7 +65,7 @@ body {
 		text-align: left;
 		min-width: 80px;
 		max-width: 80px;
-		font-family: 'Oswald'
+		font-family: $font-oswald
 	}
 	td {
 		font-family: $font-td;
@@ -117,7 +118,7 @@ a:active {
     border-radius: 5px;
 	h1 {
 		padding: 8px;
-		font-family: $font-header;
+		font-family: $font-oswald;
 	    font-size: 3em;
 	    text-transform: UPPERCASE;
 	    text-shadow: 2px 2px black;
@@ -126,7 +127,7 @@ a:active {
 	h2 {
 		padding: 8px;
 		margin-top: -50px;
-		font-family: $font-subheader;
+		font-family: $font-lato;
 		text-shadow: 2px 2px $color-med-dark;
 		color: white;
 	}
@@ -200,7 +201,7 @@ a:active {
 	p {
 		color: white;
 		font-size: 1.2em;
-		font-family: $font-header
+		font-family: $font-oswald;
 	}
 }
 .select-option {
@@ -213,7 +214,7 @@ a:active {
 }
 .react-footer-component {
 	footer{
-		font-family: $font-subheader;
+		font-family: $font-lato;
 		color: white;
 	}
 }

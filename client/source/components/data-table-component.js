@@ -11,16 +11,16 @@ export default React.createClass({
         searchType: React.PropTypes.string.isRequired,
         searchTerm: React.PropTypes.string.isRequired,
         index: React.PropTypes.string.isRequired,
-        ip: React.PropTypes.string.isRequired,
-        id: React.PropTypes.string.isRequired,
-        type: React.PropTypes.string.isRequired,
-        username: React.PropTypes.string.isRequired,
-        userkey: React.PropTypes.string.isRequired,
-        passwords: React.PropTypes.string.isRequired,
-        data: React.PropTypes.string.isRequired,
-        time: React.PropTypes.string.isRequired,
-        port: React.PropTypes.string.isRequired,
-        socket: React.PropTypes.string.isRequired
+        clientIp: React.PropTypes.string.isRequired,
+        clientId: React.PropTypes.string.isRequired,
+        clientType: React.PropTypes.string.isRequired,
+        clientUsername: React.PropTypes.string.isRequired,
+        clientKey: React.PropTypes.string.isRequired,
+        clientPasswords: React.PropTypes.string.isRequired,
+        clientData: React.PropTypes.string.isRequired,
+        clientTime: React.PropTypes.string.isRequired,
+        clientPort: React.PropTypes.string.isRequired,
+        clientSocket: React.PropTypes.string.isRequired
     },
 
     componentDidMount() {
@@ -40,15 +40,11 @@ export default React.createClass({
     },
 
     _renderLayout() {
-        
         let rows = RowCreator(this.props)
-
         return ( 
-            
             <table className='table center'>
                 <tbody> 
                     {rows.map((item, index) => {
-                        //console.log(item.name, item.value)
                         return (
                             <TableRow
                                 key={index}

@@ -7,7 +7,7 @@ export default React.createClass({
     displayName: 'Results Area',
 
     propTypes: {
-        data: React.PropTypes.array.isRequired,
+        serverData: React.PropTypes.array.isRequired,
         searchTerm: React.PropTypes.string.isRequired,
         searchType: React.PropTypes.string.isRequired
     },
@@ -30,7 +30,7 @@ export default React.createClass({
 
     _renderLayout() {
         
-        let data = this.props.data
+        let data = this.props.serverData
 
         let searchTerm = this.props.searchTerm
         let searchType = this.props.searchType
@@ -49,39 +49,38 @@ export default React.createClass({
 
                     let values = {
                         index: String(dataItem.index),
-                        id: String(dataItem.id),
-                        type: String(dataItem.type),
-                        ip: String(dataItem.ip),
-                        username: String(dataItem.username),
-                        passwords: String(dataItem.passwords),
-                        data: String(dataItem.data),
-                        key: String(dataItem.key),
-                        time: String(dataItem.time),
-                        port: String(dataItem.port),
-                        socket: String(dataItem.socket)
+                        clientId: String(dataItem.id),
+                        clientType: String(dataItem.type),
+                        clientIp: String(dataItem.ip),
+                        clientUsername: String(dataItem.username),
+                        clientPasswords: String(dataItem.passwords),
+                        clientData: String(dataItem.data),
+                        clientKey: String(dataItem.key),
+                        clientTime: String(dataItem.time),
+                        clientPort: String(dataItem.port),
+                        clientSocket: String(dataItem.socket)
                     }
 
                     return (
                         <DataTable
-                            searchTerm={this.props.searchTerm}
-                            searchType={this.props.searchType}
                             key={index}
                             index={values.index}
-                            type={values.type}
-                            id={values.id}
-                            ip={values.ip}
-                            username={values.username}
-                            passwords={values.passwords}
-                            userkey={values.key}
-                            data={values.data}
-                            time={values.time}
-                            port={values.port}
-                            socket={values.socket} />
+                            clientType={values.clientType}
+                            clientId={values.clientId}
+                            clientIp={values.clientIp}
+                            clientUsername={values.clientUsername}
+                            clientPasswords={values.clientPasswords}
+                            clientKey={values.clientKey}
+                            clientData={values.clientData}
+                            clientTime={values.clientTime}
+                            clientPort={values.clientPort}
+                            clientSocket={values.clientSocket}
+                            searchTerm={this.props.searchTerm}
+                            searchType={this.props.searchType} />
                     )
 
                 })}
             </div>
         )
-
     }
 })

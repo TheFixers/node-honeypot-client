@@ -1,7 +1,4 @@
-/*********************
-Media Queries
-*********************/
-
+// Media Query breakpoint mixins
 @mixin bp($point) {
   @if $point == full {
     @media (min-width: 1024px) { @content; }
