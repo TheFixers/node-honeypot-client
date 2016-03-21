@@ -30,8 +30,7 @@ export default React.createClass({
             protocol: protocol,
             host: host,
             file: file,
-            clientData: [],
-            logging: true,
+            serverData: [],
             searchTerm: "",
             searchType: SEARCHTYPES.ALL.name
         }
@@ -43,14 +42,14 @@ export default React.createClass({
         var promise = fetch(this.props.source)
 
         promise.then((data) => {
-            let clientData = data.trim().split('\n')
+            let serverData = data.trim().split('\n')
             this.setState({
-                clientData: clientData
+                serverData: serverData
             })
         })
         .catch((err) => {
             this.setState({
-                clientData: []
+                serverData: new Array()
             })
             console.error(err)
         })
@@ -65,13 +64,12 @@ export default React.createClass({
     },
 
     _updateSearchTerm(event) {
-        let term = event.target.value
+        let searchTerm = event.target.value
 
-        if (this.state.logging) 
-            console.log("Search term: \"" + term + "\"")
+        console.log("Search term: \"" + searchTerm + "\"")
 
         this.setState({
-            searchTerm: term
+            searchTerm: searchTerm
         })
     },
 
@@ -79,8 +77,7 @@ export default React.createClass({
         let searchType = event.target.value.toUpperCase()
 
         if (SEARCHTYPES.hasOwnProperty(searchType)) {
-            if (this.state.logging)
-                console.log("Search type: \"" + searchType + "\"")
+            console.log("Search type: \"" + searchType + "\"")
 
             this.setState({
                 searchType: searchType
@@ -120,7 +117,7 @@ export default React.createClass({
                     className='app-react-results'
                     searchTerm={this.state.searchTerm}
                     searchType={this.state.searchType}
-                    data={this.state.clientData} /> 
+                    serverData={this.state.serverData} /> 
 
                 <Footer 
                     className='app-react-footer'

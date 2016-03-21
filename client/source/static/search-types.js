@@ -1,4 +1,4 @@
-const SEARCHTYPE = {
+export default {
   ALL:       {name: 'ALL',       index: 0, target: "all",       text: "Show All"}, 
   TYPE:      {name: 'TYPE',      index: 1, target: 'type',      text: "Plugin Type"},
   INDEX:     {name: 'INDEX',     index: 2, target: "index",     text: "Index"}, 
@@ -12,4 +12,3 @@ const SEARCHTYPE = {
   PORT:      {name: 'PORT',      index: 10, target: "port",      text: "Port"}, 
   SOCKET:    {name: 'SOCKET',    index: 11, target: "socket",    text: "Socket"} 
 }
-export default SEARCHTYPE

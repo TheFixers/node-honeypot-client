@@ -45,7 +45,7 @@ let ServerDataItem = function(data, index) {
     }
 
     if (data.Client && data.Client.Data && data.Client.Data.Time) {
-        this.time = timeFormatter(data.Client.Data.Time) //Using npm 'moment'
+        this.time = timeFormatter(data.Client.Data.Time)
     }
 
     if (data.Client && data.Client.Port) {
