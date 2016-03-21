@@ -4,11 +4,11 @@
 
 // Colors
 $color-yellow: #FFFF00;
-$color-med-dark: #333;
 $color-dark: #111;
-$color-med: #777;
-$color-bg: #555;
+$color-med: #555;
+$color-bg: #0A0A0A;
 $color-text: #FFF;
+$color-red: #FF0A0A;
 
 // Table colors
 $color-th: #DFDFDF;
@@ -38,18 +38,18 @@ body {
 .react-data-table-component {
 	display: inline-block;
 	table {
-		font-size: .8em;
+		font-size: 0.8em;
 		width: auto;
 		align: center;
 		margin: 25px;
-		color: $color-med-dark;
+		color: $color-med;
 		border-collapse:
 		collapse; border-spacing: 0;
 		border: solid 3px white;
 		border-radius: 5px;
 	}
 	table:hover {
-		border-color: $color-med-dark;
+		border-color: $color-med;
 	}
 	td, th {
 		border: 3px solid transparent; /* No more visible border */
@@ -85,7 +85,7 @@ body {
 	}
 	/* Hover cell effect! */
 	tr td:hover { 
-		background: $color-bg; 
+		background: $color-med; 
 		color: white; 
 		transition: background 0.3s;
 		transition: color 0.3s;
@@ -103,8 +103,8 @@ a:visited {
 }
 /* mouse over link */
 a:hover {
-    color: yellow;
-    transition: color 0.3s;
+    color: $color-red;
+    transition: color 0.2s;
     text-decoration: underline;
 }
 /* selected link */
@@ -113,22 +113,17 @@ a:active {
     text-decoration: none;
 }
 .header{
-	margin: 10px;
-	background-color: $color-med-dark;
-    border-radius: 5px;
 	h1 {
-		padding: 8px;
 		font-family: $font-oswald;
 	    font-size: 3em;
 	    text-transform: UPPERCASE;
-	    text-shadow: 2px 2px black;
-	    color: white;
+	    text-shadow: 2px 2px $color-med;
+	    color: $color-red;
 	}
 	h2 {
 		padding: 8px;
 		margin-top: -50px;
 		font-family: $font-lato;
-		text-shadow: 2px 2px $color-med-dark;
 		color: white;
 	}
 }
@@ -136,7 +131,8 @@ a:active {
 	display: inline;
 	input {
 		border-radius: 2.3px;
-	    margin: 10px;
+	    margin: 5px;
+	    margin-top: -10px;
 	    border: 1px solid #111;
 	    background: transparent;
 	    width: 175px;
@@ -160,7 +156,8 @@ a:active {
 	display: inline;
 	select {
 		border-radius: 2.3px;
-	    margin: 10px;
+	    margin: 5px;
+	    margin-top: -10px;
 	    background: transparent;
 	    width: 175px;
 	    padding: 5px 35px 5px 5px;
@@ -223,10 +220,3 @@ a:active {
 		background-color: yellow;
 	}
 }
-
-
-
-
-
-
-
