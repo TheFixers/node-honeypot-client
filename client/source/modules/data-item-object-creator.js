@@ -36,6 +36,10 @@ let ServerDataItem = function(data, index) {
         this.data = data.Client.Data.Data.toString()
     }
 
+    if (data.Client && data.Client.Data && data.Client.Data.clientURL) {
+        this.data = data.Client.Data.clientURL.toString()
+    }
+
     if (data._id && data._id.$oid) {
         this.id = data._id.$oid.toString()
     }
