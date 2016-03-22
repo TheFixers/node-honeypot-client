@@ -1,6 +1,7 @@
 import React from 'react'
 import DataTable from './data-table-component.js'
 import filter from '../modules/data-filter.js'
+import DataItemsBuilder from '../modules/data-items-builder'
 
 export default React.createClass({
     
@@ -31,6 +32,9 @@ export default React.createClass({
     _renderLayout() {
         
         let data = this.props.serverData
+
+        // TODO: (Refactor) Send back the NEW data objects...
+        let dataItems = DataItemsBuilder(data)
 
         let searchTerm = this.props.searchTerm
         let searchType = this.props.searchType

@@ -26,7 +26,8 @@ $font-td: 'Open Sans';
 $search-component-font-size: 16px;
 
 // Margins
-$margin-table: 25px;
+$margin-table: 20px;
+$margin-table-side: 10px;
 $search-component-margin: 5px;
 $search-component-margin-top: -10px;
 
@@ -71,7 +72,9 @@ body {
 		font-size: 0.8em;
 		width: auto;
 		align: center;
-		margin: $margin-table;
+		margin-bottom: $margin-table;
+		margin-right: $margin-table-side;
+		margin-left: $margin-table-side;
 		color: $color-med;
 		border-collapse: collapse; 
 		border-spacing: 0;
