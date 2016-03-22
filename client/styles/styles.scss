@@ -22,12 +22,31 @@ $font-lato: 'Lato';
 $font-th: 'Roboto';
 $font-td: 'Open Sans';
 
+// Font sizes
+$search-component-font-size: 16px;
+
+// Margins
+$margin-table: 25px;
+$search-component-margin: 5px;
+$search-component-margin-top: -10px;
+
+// Widths/Heights
+$table-height: 300px;
+$table-item-height: 20px;
+$th-width: 80px;
+$td-width: 250px;
+$search-component-width: 175px;
+
+// Padding
+$search-component-padding: 5px 35px 5px 5px;
+
 body {
 	background-image:
 		linear-gradient(
 			rgba(0, 0, 0, 0.3), 
 			rgba(0, 0, 0, 0.3)), 
 	 	url("../../images/background.png");
+	background-color: #111;
 	background-size: 100%;
     text-align: center;
     width: 100%;
@@ -46,13 +65,16 @@ body {
 .react-data-table-component {
 	display: inline-block;
 	table {
+		display: inline-block;
+		max-height: $table-height;
+		overflow-y: scroll;
 		font-size: 0.8em;
 		width: auto;
 		align: center;
-		margin: 25px;
+		margin: $margin-table;
 		color: $color-med;
-		border-collapse:
-		collapse; border-spacing: 0;
+		border-collapse: collapse; 
+		border-spacing: 0;
 		border: solid 3px white;
 		border-radius: 5px;
 	}
@@ -60,28 +82,25 @@ body {
 		border-color: $color-med;
 	}
 	td, th {
-		border: 3px solid transparent; /* No more visible border */
-		height: 30px;
+		border: 2px solid transparent; /* No more visible border */
+		height: $table-item-height;
 		transition: all 0.3s;  /* Simple transition for hover effect */
 		border: solid 2px white;
 	}
 	th {
-		font-family: $font-th;
-		padding: 3px;
-		background: $color-th;  /* Darken header a bit */
 		font-weight: bold;
 		text-align: left;
-		min-width: 80px;
-		max-width: 80px;
-		font-family: $font-oswald
+		font-family: $font-oswald;
+		background: $color-th;
+		min-width: $th-width;
+		max-width: $th-width;
 	}
 	td {
-		font-family: $font-td;
-		padding: 3px;
-		background: $color-td;
 		text-align: left;
-		min-width: 250px;
-		max-width: 250px;
+		font-family: $font-td;
+		background: $color-td;
+		min-width: $td-width;
+		max-width: $td-width;
 	}
 	/* Cells in even rows (2,4,6...) are one color */
 	tr:nth-child(even) td { 
@@ -124,9 +143,9 @@ a:active {
 	//background-color: $color-bg; 
 	h1 {
 		padding: 8px;
-		font-family: $font-oswald;
-	    font-size: 3em;
+		font-size: 3em;
 	    text-transform: UPPERCASE;
+		font-family: $font-oswald;
 	    text-shadow: 2px 2px $color-med;
 	    color: $color-red;
 	}
@@ -141,14 +160,13 @@ a:active {
 	display: inline;
 	input {
 		border-radius: 2.3px;
-	    margin: 5px;
-	    margin-top: -10px;
-	    border: 1px solid #111;
-	    background: transparent;
-	    width: 175px;
-	    padding: 5px 35px 5px 5px;
-	    font-size: 16px;
-	    border: 2px solid #ccc;
+		background: transparent;
+	    margin: $search-component-margin;
+	    margin-top: $search-component-margin-top;
+	    width: $search-component-width;
+	    padding: $search-component-padding;
+	    font-size: $search-component-font-size;
+	    border: 2px solid white;
 	    height: 20px;
 	    color: white;
 	}
@@ -163,13 +181,13 @@ a:active {
 	display: inline;
 	select {
 		border-radius: 2.3px;
-	    margin: 5px;
-	    margin-top: -10px;
-	    background: transparent;
-	    width: 175px;
-	    padding: 5px 35px 5px 5px;
-	    font-size: 16px;
-	    border: 2px solid #ccc;
+		background: transparent;
+	    margin: $search-component-margin;
+	    margin-top: $search-component-margin-top;
+	    width: $search-component-width;
+	    padding: $search-component-padding;
+	    font-size: $search-component-font-size;
+	    border: 2px solid white;
 	    height: 34px;
 	    color: white;
 	    //background-color: $color-bg; 
