@@ -41,12 +41,12 @@ $search-component-width: 175px;
 $search-component-padding: 5px 35px 5px 5px;
 
 body {
-	background-image:
+	/* background-image:
 		linear-gradient(
 			rgba(0, 0, 0, 0.3), 
 			rgba(0, 0, 0, 0.3)), 
-	 	url("../../images/background.png");
-	background-color: #111;
+	 	url("../../images/background.png"); */
+	background-color: $color-bg;
 	background-size: 100%;
     text-align: center;
     width: 100%;
