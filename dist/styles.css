@@ -1,0 +1,36 @@
+h1 {
+	font-family: 'Oswald', sans-serif;
+	text-transform: uppercase;
+}
+.text-success {
+	color: #21BC21;
+}
+.search-area{
+
+}
+.results h2{
+	display: block;
+}
+.results h4{
+	display: block;
+}
+.result {
+	position: relative;
+	cursor: pointer;
+	padding-left: 20px;
+}
+.result:after {
+    position: absolute;
+    background: none;
+    content: "\25bc";
+    color:#000;
+    font-size: 14px;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    transform-origin: 50% 40%;
+    transform: rotate(-90deg);
+}
+.result-open:after {
+	transform: rotate(0deg);
+}
