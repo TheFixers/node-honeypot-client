@@ -61,6 +61,11 @@ tr td:hover {
     border: solid 2px #ccc;    
 }
 
+.btn-toolbar {
+    display: table;
+    margin: 0 auto;
+}
+
 .highlight {
     background-color: lightpink;
 }

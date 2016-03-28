@@ -1,5 +1,6 @@
 import React from 'react';
 import Result from './app-result-component'
+import Pagination from './app-pagination-component'
 
 export default ( props ) => {
 	let txt = "Item"
@@ -26,7 +27,9 @@ export default ( props ) => {
             <Result txt={txt + ' 9'}/>
             <Result txt={txt + ' 10'}/>
             <br /><br />
-            <p className="text-center">{text}</p>
+            <Pagination className="text-center"/>
+            <br/>
+            {/*<p className="text-center">{text}</p>*/}
         </div>
     )
 }
