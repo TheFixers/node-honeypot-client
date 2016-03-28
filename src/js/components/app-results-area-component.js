@@ -16,16 +16,16 @@ export default ( props ) => {
               className='text-success text-center' 
               style={styles}
             >Showing 1-{numResults} of 72 results</h4>
-            <Result txt={txt + ' 1'}/>
-            <Result txt={txt + ' 2'}/>
-            <Result txt={txt + ' 3'}/>
-            <Result txt={txt + ' 4'}/>
-            <Result txt={txt + ' 5'}/>
-            <Result txt={txt + ' 6'}/>
-            <Result txt={txt + ' 7'}/>
-            <Result txt={txt + ' 8'}/>
-            <Result txt={txt + ' 9'}/>
-            <Result txt={txt + ' 10'}/>
+            <Result index="0" txt={txt + ' 1'}/>
+            <Result index="1" txt={txt + ' 2'}/>
+            <Result index="2" txt={txt + ' 3'}/>
+            <Result index="3" txt={txt + ' 4'}/>
+            <Result index="4" txt={txt + ' 5'}/>
+            <Result index="5" txt={txt + ' 6'}/>
+            <Result index="6" txt={txt + ' 7'}/>
+            <Result index="7" txt={txt + ' 8'}/>
+            <Result index="8" txt={txt + ' 9'}/>
+            <Result index="9" txt={txt + ' 10'}/>
             <br /><br />
             <Pagination className="text-center"/>
             <br/>

@@ -1,9 +1,24 @@
 import {dispatch, register} from '../dispatchers/app-dispatcher'
 import AppConstants from '../constants/app-constants'
 import {EventEmitter} from 'events'
-import ClientDataAPI from '../api/ClientDataAPI'
 
 const CHANGE_EVENT = 'change'
+
+var _data = []
+
+for (let i = 0; i < 10; i++) {
+    _data.push(
+        {
+            ip: '127.0.0.1',
+            id: '12345676543221',
+            username: 'joshua'.
+            passwords: 'trustno1',
+            index: i,
+            port: '23',
+            socket: '666'
+        }
+    )
+}
 
 const AppStore = Object.assign(EventEmitter.prototype, {
   

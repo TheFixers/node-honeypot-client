@@ -1,7 +1,6 @@
 export default {
-  ADD_TABLE: 'ADD_TABLE',
-  REMOVE_TABLE: 'REMOVE_TABLE',
-  ADD_TABLE_ITEM: 'ADD_ITEM',
-  REMOVE_TABLE_ITEM: 'REMOVE_ITEM',
-  FILTER_TABLES: 'FILTER_TABLES',
+  ADD_ITEM_TO_LIST: 'ADD_ITEM_TO_LIST', // Adds item to our list
+  REMOVE_ITEM_FROM_LIST: 'REMOVE_ITEM_FROM_LIST', // Removes item from list
+  FILTER_DATA: 'FILTER_DATA', // Filters the results
+  SHOW_ITEM: 'SHOW_ITEM'
 }

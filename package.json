@@ -4,12 +4,15 @@
   "description": "Honeypot client w/ webpack, ES6, and react-router",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server"
+    "start": "gulp sass && webpack-dev-server"
   },
   "author": "Joshua Michael Waggoner",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "flux": "^2.1.1",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-sass": "^2.2.0",
     "history": "^1.17.0",
     "moment": "^2.12.0",
     "react": "^0.14.7",

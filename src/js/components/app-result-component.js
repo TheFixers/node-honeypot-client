@@ -1,4 +1,5 @@
 import React from 'react'
+import AppActions from '../actions/app-actions'
 
 export default (props) => {
 	let styles = {
@@ -8,6 +9,7 @@ export default (props) => {
 	let buttonStyles = {
 		margin: '10px'
 	}
+	let index = props.index
     return (
         <div className="result" style={styles}>
         	<div className="row">
@@ -21,8 +23,19 @@ export default (props) => {
                     <p>Wed Mar 31st, 2016 8:47 PM</p>
                 </div>
                 <div className="col-sm-4">
-                    <button style={buttonStyles} type="button" className="btn btn-secondary">Show info</button>
-                    <button style={buttonStyles} type="button" className="btn btn-secondary">Add to list</button>
+                    <button 
+                    	style={buttonStyles} 
+                    	type="button" className="btn btn-secondary"
+                    	onClick={AppActions.showItem.bind(null, index)}>
+                    Show info
+                    </button>
+                    <button 
+                    	style={buttonStyles}
+                    	type="button"
+                    	className="btn btn-secondary"
+                    	onClick={AppActions.addItemToList.bind(null, index)}>
+                    Add to list
+                    </button>
                 </div>
             </div>
         </div>
