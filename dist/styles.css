@@ -2,8 +2,11 @@ h1 {
 	font-family: 'Oswald', sans-serif;
 	text-transform: uppercase;
 }
+.footer {
+    margin-top: 50px;
+}
 .text-success {
-	color: #21BC21;
+	color: black;
 }
 .search-area{
 

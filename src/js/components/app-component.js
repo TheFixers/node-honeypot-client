@@ -4,7 +4,14 @@ import ResultDetail from './app-result-detail-component'
 import Template from './app-template-component'
 import {Router, Route, IndexRoute} from 'react-router'
 
-export default () => {
+export default (props) => {
+	var data = null
+	try {
+		data = props.clientData
+		console.log(data)
+	} catch (err) {
+		console.error(err)
+	}
     return (
         <Router>
             <Route path="/" component={Template}>

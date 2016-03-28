@@ -8,7 +8,7 @@ export default () => {
 		margin: '5px',
 		marginTop: '20px',
 		padding: '5px',
-		border: 'solid 1px black',
+		border: 'solid 1px #666',
 		borderRadius: '3px'
 	}
     return (

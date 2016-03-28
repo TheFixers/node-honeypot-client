@@ -8,7 +8,7 @@ export default (props) => {
 	}
     return (
         <div className="result" style={styles}>
-        <strong>{props.txt}</strong> stephen@10.0.0.1
+         	<strong>{props.txt}</strong> stephen@10.0.0.1
         </div>
     )
 }
