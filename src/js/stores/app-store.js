@@ -31,18 +31,18 @@ const AppStore = Object.assign(EventEmitter.prototype, {
   dispatcherIndex: register( function( action ){
     switch(action.actionType){
       case AppConstants.ADD_ITEM:
-                CartAPI.addItem( action.item )
-                break;
+          ClientDataAPI.addItem( action.item )
+          break
       case AppConstants.REMOVE_ITEM:
-          CartAPI.removeItem( action.item )
-          break;
+          ClientDataAPI.removeItem( action.item )
+          break
 
       case AppConstants.INCREASE_ITEM:
-          CartAPI.increaseItem( action.item )
-          break;
+          ClientDataAPI.increaseItem( action.item )
+          break
 
       case AppConstants.DECREASE_ITEM:
-          CartAPI.decreaseItem( action.item )
+          ClientDataAPI.decreaseItem( action.item )
           break;
     }
 

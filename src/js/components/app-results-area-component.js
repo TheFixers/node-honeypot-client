@@ -1,6 +1,5 @@
-import React from 'react'
+import React from 'react';
 import Result from './app-result-component'
-//import Results from './app-results-component'
 
 export default ( props ) => {
 	let txt = "Item"
@@ -28,7 +27,6 @@ export default ( props ) => {
             <Result txt={txt + ' 9'}/>
             <br /><br />
             <h5 className="text-center">{text}</h5>
-            {/*<Results />*/}
         </div>
     )
 }

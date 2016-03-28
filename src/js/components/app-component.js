@@ -8,7 +8,7 @@ export default (props) => {
 	var data = null
 	try {
 		data = props.clientData
-		console.log(data)
+		console.log("Nothing to show yet...", data)
 	} catch (err) {
 		console.error(err)
 	}
