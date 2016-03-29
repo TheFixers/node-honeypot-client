@@ -2,8 +2,8 @@ import React from 'react';
 import ResultsItem from './app-results-item'
 import Pagination from './app-pagination'
 import FakeData from '../static/FakeData'
-
 import AppStore from '../stores/app-store'
+import parseDataItems from '../modules/data-items-parser'
 
 function getServerData() {
     return { data: FakeData } //AppStore.getServerData() }
@@ -31,62 +31,34 @@ class AppResults extends React.Component {
 
     render() {
 
-        // TODO: Temp crap...
-        let txt = "Item"
-        let numResults = 10
-        let text = "\<Prev, 1, 2, 3, 4, 5, 6, 7, Next\>"
-
         // Styles
         let styles = {
             marginTop: '10px',
             marginBottom: '10px'
         }
 
-        var items= this.state.data.map( ( item ) => {
-            let temp = {}
-            for (var subItem in item) {
-                //console.log(subItem, item[subItem])
-                if (subItem === '_id') {
-                    for (var idItem in item[subItem]) {
-                        temp[idItem] = item[subItem][idItem]
-                        //console.log(idItem, item[subItem][idItem])
-                    }
-                }
-                if (subItem === 'Client') {
-                    for (var clientItem in item[subItem]) {
-                        temp[clientItem] = item[subItem][clientItem]
-                        //console.log(clientItem, item[subItem][clientItem])
-                        if (clientItem === 'Data') {
-                            for (var dataItem in item[subItem][clientItem]) {
-                                temp[dataItem] = item[subItem][clientItem][dataItem]
-                                //console.log(dataItem, item[subItem][clientItem][dataItem])
-                            }
-                        }
-                    }
-                }
-
-            }
-            //console.log("-----------\n\n")
-            return Object.assign( {}, temp )
-        } )
+        var items = parseDataItems(this.state.data)
 
         console.log(items)
 
-        var results = this.state.data.map((item, index) => {
-            if (index < 10) // Limi to ten for now...
-                return <ResultsItem key={index} item={item} index={index} txt={txt + ' '+ index}/>
+        var resultsItems = this.state.data.map(( item, index ) => {
+            if ( index < 10 ) // Limi to ten for now...
+                return ( 
+                    <ResultsItem 
+                      key={ index } 
+                      item={ item } 
+                      index={ index } 
+                      txt={ 'Item ' + index }/> 
+                )
         })
 
         return (
-            
             <div className="results">
-                {/* idList*/ }
-                
-                <h4  className='text-success text-center' style={styles}>
-                Showing 1-{numResults} of 72 results
+                <h4  className='text-success text-center' style={ styles }>
+                Showing 1-72 of 72 results
                 </h4>
-                
-                { results }
+    
+                { resultsItems }
 
                 <br /><br />
 
