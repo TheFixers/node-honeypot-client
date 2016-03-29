@@ -27,7 +27,7 @@ export default (props) => {
                     	style={buttonStyles} 
                     	type="button" className="btn btn-secondary"
                     	onClick={AppActions.showItem.bind(null, index)}>
-                    Show info
+                    Learn more
                     </button>
                     <button 
                     	style={buttonStyles}

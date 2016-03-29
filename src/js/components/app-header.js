@@ -1,5 +1,5 @@
 import React from 'react'
-import SearchArea from './app-search-area-component'
+import SearchArea from './app-search'
 
 export default () => {
     let styles = {

@@ -1,24 +1,28 @@
 import {dispatch, register} from '../dispatchers/app-dispatcher'
 import AppConstants from '../constants/app-constants'
 import {EventEmitter} from 'events'
+import UserListAPI from '../api/UserListAPI'
+
+import SOURCE from '../static/SourceURL'
 
 const CHANGE_EVENT = 'change'
 
 var _data = []
 
-for (let i = 0; i < 10; i++) {
-    _data.push(
-        {
-            ip: '127.0.0.1',
-            id: '12345676543221',
-            username: 'joshua'.
-            passwords: 'trustno1',
-            index: i,
-            port: '23',
-            socket: '666'
-        }
-    )
+for(let i = 0; i < 10; i++) {
+    _data.push({
+        'ip': '127.0.0.' + i,
+        'id': '12345676543221' + i,
+        'username': 'joshua' + i,
+        'passwords': 'trustno' +i,
+        'index': i,
+        'port': '22' + i,
+        'socket': '666' + i
+    })
 }
+
+// TODO: Remove me! :)
+console.log("Source:", SOURCE)
 
 const AppStore = Object.assign(EventEmitter.prototype, {
   

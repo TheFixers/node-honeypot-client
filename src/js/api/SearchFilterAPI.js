@@ -1,4 +1,9 @@
-const SearchAPI = {
+/**
+ * Author: Joshua Michael Waggoner <rabbitfighter@cryptolab.net>
+ * Search API that contains code for performing search operations
+ */
+
+const SearchFilterAPI = {
     
     // Results array
     results: [],

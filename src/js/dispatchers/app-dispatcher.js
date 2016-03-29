@@ -1,5 +1,9 @@
 import {Dispatcher} from 'flux'
 
+const LOGGING = true
+
+const FROM = 'src/js/dispatchers/app-dispatcher'
+
 const flux = new Dispatcher()
 
 export function register(callback) {
@@ -7,6 +11,6 @@ export function register(callback) {
 }
 
 export function dispatch(actionType, action) {
-	console.log(actionType)
+	if (LOGGING) console.log(actionType)
     flux.dispatch(actionType, action)
 }

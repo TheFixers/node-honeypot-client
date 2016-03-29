@@ -1,6 +1,6 @@
 import React from 'react'
-import Header from './app-header-component'
-import Footer from './app-footer-component'
+import Header from './app-header'
+import Footer from './app-footer'
 
 export default (props) => {
     return (

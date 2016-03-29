@@ -1,6 +1,7 @@
 import React from 'react'
 
 export default () => {
+	
 	var styles = {
 		width: '150px',
 		background: 'transparent',
@@ -11,6 +12,7 @@ export default () => {
 		border: 'solid 1px #666',
 		borderRadius: '3px'
 	}
+	
     return (
     	<div className='search-area text-right'>
 	    	<select className='select' style={styles} defaultValue="title">
