@@ -10,7 +10,6 @@ export default [
     {"_id":{"$oid":"56ef45a7d37f4245fc989f8b"},"Client":{"IP":"127.0.0.1","TYPE":"HTTPS","Port":"4443","Socket":"55227","Data":{"clientURL":"/","Time":"1458521511.18"}}},
     {"_id":{"$oid":"56ef45b6d37f422d1cc42d23"},"Client":{"IP":"127.0.0.1","TYPE":"HTTPS","Port":"4443","Socket":"55237","Data":{"clientURL":"/","Time":"1458521526.67"}}},
     {"_id":{"$oid":"56ef45b6d37f422d1cc42d24"},"Client":{"IP":"127.0.0.1","TYPE":"HTTPS","Port":"4443","Socket":"55236","Data":{"clientURL":"/","Time":"1458521526.97"}}},
-    {"_id":{"$oid":"56ef45b7d37f422d1cc42d25"},"Client":{"IP":"127.0.0.1","TYPE":"HTTPS","Port":"4443","Socket":"55238","Data":{"clientURL":"/","Time":"1458521527.03"}}},
     {"_id":{"$oid":"56ef45b7d37f422d1cc42d26"},"Client":{"IP":"127.0.0.1","TYPE":"HTTPS","Port":"4443","Socket":"55239","Data":{"clientURL":"/","Time":"1458521527.09"}}},
     {"_id":{"$oid":"56ef45b8d37f422d1cc42d27"},"Client":{"IP":"127.0.0.1","TYPE":"HTTPS","Port":"4443","Socket":"55242","Data":{"clientURL":"/","Time":"1458521528.12"}}},
     {"_id":{"$oid":"56ef45b9d37f422d1cc42d28"},"Client":{"IP":"127.0.0.1","TYPE":"HTTPS","Port":"4443","Socket":"55244","Data":{"clientURL":"/","Time":"1458521529.15"}}},

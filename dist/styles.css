@@ -67,26 +67,25 @@ tr td:hover {
 .results h4 {
   display: block; }
 
-.result {
-  position: relative;
-  cursor: pointer;
-  padding-left: 20px; }
-
 .result p {
   padding-top: 10px; }
 
-.result:after {
-  position: absolute;
-  background: none;
-  content: "\25bc";
-  color: #000;
-  font-size: 14px;
-  margin-top: 23px;
-  top: 0;
-  left: 0;
-  pointer-events: none;
-  transform-origin: 50% 40%;
-  transform: rotate(-90deg); }
-
+/* .result:after {
+    position: absolute;
+    background: none;
+    content: "\25bc";
+    color:#000;
+    font-size: 14px;
+    margin-top: 23px;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    transform-origin: 50% 40%;
+    transform: rotate(-90deg);
+} */
 .result-open:after {
   transform: rotate(0deg); }
+
+.btn-toolbar {
+  margin-top: 20px;
+  margin-bottom: 20px; }

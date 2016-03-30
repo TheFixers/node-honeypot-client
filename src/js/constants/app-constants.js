@@ -13,4 +13,4 @@ export default {
     UPDATE_SEARCH_TERM: 'UPDATE_SEARCH_TERM',        // Updates te search term
     SHOW_ITEM: 'SHOW_ITEM',                          // Shows item detail view
     SHOW_LIST: 'SHOW_LIST'						     // Show list
-}
+ }

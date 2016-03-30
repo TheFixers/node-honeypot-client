@@ -1,25 +1,59 @@
 import AppConstants from '../constants/app-constants'
-import {dispatch, register} from '../dispatchers/app-dispatcher'
+import { dispatch, register } from '../dispatchers/app-dispatcher'
 
 export default {
-	addItemToList(index) {
+	requestDataAsync( url ) {
 		dispatch({
-			actionType:AppConstants.ADD_ITEM_TO_LIST, index
+			actionType:AppConstants.REQUEST_DATA_ASYNC, url
 		})
 	},
-	removeItemFromList(index) {
+
+	requestDataSuccess( data ) {
 		dispatch({
-			actionType: AppConstants.REMOVE_ITEM_FROM_LIST, index
+			actionType:AppConstants.REQUEST_DATA_SUCCESS, data
 		})
 	},
-	filterData(data) {
+
+	requestDataFailure( err ) {
 		dispatch({
-			actionType: AppConstants.FILTER_DATA, data
+			actionType:AppConstants.REQUEST_DATA_FAILURE, err
 		})
 	},
-	showItem(index) {
+
+	addItemToList( item ) {
 		dispatch({
-			actionType: AppConstants.SHOW_ITEM, index
+			actionType:AppConstants.ADD_ITEM_TO_LIST, item
+		})
+	},
+
+	removeItemFromList( item ) {
+		dispatch({
+			actionType: AppConstants.REMOVE_ITEM_FROM_LIST, item
+		})
+	},
+
+	updateSearchType( type ) {
+		dispatch({
+			actionType: AppConstants.UPDATE_SEARCH_TYPE, type
+		})
+	},
+
+	updateSearchTerm( term ) {
+		dispatch({
+			actionType: AppConstants.UPDATE_SEARCH_TERM, term
+		})
+	},
+
+	showItem( item ) {
+		dispatch({
+			actionType: AppConstants.SHOW_ITEM, item
+		})
+	},
+
+	showList( list ) {
+		dispatch({
+			actionType: AppConstants.SHOW_LIST, list
 		})
 	}
+
 }

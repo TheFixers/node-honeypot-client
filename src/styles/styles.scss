@@ -83,15 +83,13 @@ tr td:hover {
 	display: block;
 }
 .result {
-	position: relative;
-	cursor: pointer;
-	padding-left: 20px;
+
 }
 
 .result p {
     padding-top: 10px;
 }
-.result:after {
+/* .result:after {
     position: absolute;
     background: none;
     content: "\25bc";
@@ -103,7 +101,11 @@ tr td:hover {
     pointer-events: none;
     transform-origin: 50% 40%;
     transform: rotate(-90deg);
-}
+} */
 .result-open:after {
 	transform: rotate(0deg);
+}
+.btn-toolbar {
+    margin-top: 20px;
+    margin-bottom: 20px;
 }

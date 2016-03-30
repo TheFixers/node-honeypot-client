@@ -10,30 +10,34 @@ export default (props) => {
 		margin: '10px'
 	}
 	let index = props.index
+	let item = props.item
     return (
-        <div className="result" style={styles}>
+        <div className="result text-center" style={styles}>
         	<div className="row">
-                <div className="col-sm-2">
+                <div className="col-sm-1">
                     <p>{props.txt}</p>
                 </div>
-                <div className="col-sm-3">
-                    <p>stephen@127.0.0.1</p>
+                <div className="col-sm-2">
+                    <p>{item.TYPE}</p>
+                </div>
+                <div className="col-sm-2">
+                    <p>{item.IP}</p>
                 </div>
                 <div className="col-sm-3">
-                    <p>Wed Mar 31st, 2016 8:47 PM</p>
+                    <p>{item.Time}</p>
                 </div>
                 <div className="col-sm-4">
                     <button 
                     	style={buttonStyles} 
                     	type="button" className="btn btn-secondary"
-                    	onClick={AppActions.showItem.bind(null, index)}>
+                    	onClick={AppActions.showItem.bind(null, item)}>
                     Learn more
                     </button>
                     <button 
                     	style={buttonStyles}
                     	type="button"
                     	className="btn btn-secondary"
-                    	onClick={AppActions.addItemToList.bind(null, index)}>
+                    	onClick={AppActions.addItemToList.bind(null, item)}>
                     Add to list
                     </button>
                 </div>

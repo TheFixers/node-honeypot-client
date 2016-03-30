@@ -1,51 +1,60 @@
 /**
- * File: data-item-parser.js
- * Author: JMW <rabbitfighter@cryptolab.net>
- * Purpose: Gets data from JSON and makes an object 
+ * Gets data from JSON and makes an object 
  * for each item that is easier to work with, being 
  * just key/value pairs extracted from nested JSON.
- *
- * TODO: Define JSON schema somewhere in parent project...
+ * This was sooo hard not to go over 80 chars, so plz excuse aming conventions!
+ * TODO: Define JSON schema somewhere in parent projects readme for future devs
  */
+import date from './unix-timestamp-formatter'
 
-const successMsg = "JSON Parser Success:"
 const errorMsg = "JSON Parser Failure: Data not accordant to JSON scheme..."
+const notFound = "null"
 
-export default function (items) {
-    var dataItems = []
-    items.map( ( item ) => {
-        let temp = {}
-        for ( var subItem in item ) {
-            if ( subItem === '_id' ) {
-                for ( var idItem in item[subItem] ) {
-                    temp[idItem] = item[subItem][idItem]
-                    //console.log(idItem, item[subItem][idItem])
+export default function ( items ) {
+    var _items = []
+    items.map( ( item, index) => {
+        let obj = {}
+        for ( var field in item ) {
+            if ( field === '_id' ) {
+                for ( var id in item[field] ) {
+                    if ( item[field][id] !== "" &&
+                         item[field][id] !== null ) {
+                        obj[id] = item[field][id]
+                    } else {
+                        obj[id] = notFound
+                    }
                 }
-            } else if ( subItem === 'Client' ) {
-                for ( var cliItem in item[subItem] ) {
-                    
-                    if ( cliItem === 'Data' ) {
-                        for ( var dItem in item[subItem][cliItem] ) {
-                            temp[dItem] = item[subItem][cliItem][dItem]
-                            //console.log(dItem, item[subItem][cliItem][dItem])
+            } else if ( field === 'Client' ) {
+                for ( var cli in item[field] ) {
+                    if ( cli === 'Data' ) {
+                        for ( var data in item[field][cli] ) {
+                            if (data !== 'Time') {
+                                if ( item[field][cli][data] !== "" &&
+                                     item[field][cli][data] !== null ) {
+                                    obj[data] = item[field][cli][data]
+                                } else {
+                                    obj[data] = notFound
+                                }
+                            } else {
+                                obj[data] = date(item[field][cli][data])
+                            }
+                            
                         }
                     } else {
-                        //console.log(cliItem, item[subItem][cliItem])
-                        temp[cliItem] = item[subItem][cliItem]
+                        if ( item[field][cli] !== "" &&
+                             item[field][cli] !== null ) {
+                            obj[cli] = item[field][cli]
+                        } else {
+                            obj[cli] = notFound
+                        }
                     }
                 }
             } else {
-                console.error("Item skipped", errorMsg)
+                console.error( "Item skipped", errorMsg )
             }
-
         }
-        dataItems.push( Object.assign( {}, temp ) )
+        _items.push( Object.assign( { 'index': index }, obj ) )
     } )
-
-    if (!dataItems.length > 0) {
-        return []
-    }
-    console.log(successMsg, "Items: " + dataItems.length)
-    return dataItems
+    return _items
 }
 
