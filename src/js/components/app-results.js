@@ -3,30 +3,47 @@ import ResultsItem from './app-results-item'
 import Pagination from './app-pagination'
 import FakeData from '../static/FakeData'
 import AppStore from '../stores/app-store'
-import parseDataItems from '../modules/data-items-parser'
+import _parseDataItems from '../modules/data-items-parser'
+import _fetchData from '../modules/fetch-data-promise'
+import SOURCE from '../static/SourceURL'
 
-function getServerData() {
-    return { data: FakeData } //AppStore.getServerData() }
+const getServerData = () => {
+    console.log("Fetching server data... ... ...")
+    return { data: AppStore.getServerData() }
 }
 
 class AppResults extends React.Component {
 
     constructor( props ) {
         super( props )
-        this.state = getServerData()
+        this.state = AppStore.getServerData()
         this._onChange = this._onChange.bind( this )
     }
 
     componentWillMount() {
         AppStore.addChangeListener( this._onChange )
+        this._onChange()
+    }
+
+    componentDidMount() {
+        
     }
 
     componentWillUnmount() {
         AppStore.removeChangeListener( this._onChange )
+        this.serverRequest.abort()
     }
 
     _onChange() {
-        this.setState( this.props )
+        this.serverRequest = _fetchData( SOURCE )
+        
+        this.serverRequest.then( ( data ) => {
+            console.log( "IF THIS WORKS IM A GENIUS" )
+             this.setState( { data: data } )
+        })
+        .catch( ( err ) => {
+            console.log( err.message )
+        })
     }
 
     render() {
@@ -38,11 +55,18 @@ class AppResults extends React.Component {
         }
 
         // Uses 'data-item-paser.js'
-        var items = parseDataItems(this.state.data)
-        console.log(items)
+        var items = []
+        let data = this.state.data
+
+        if (data) {
+            items = _parseDataItems( this.state.data )
+        }
+
+        console.log( "Server Data Items:", items )
+
 
         var resultsItems = items.map(( item, index ) => {
-            if ( index < 10 ) // Limi to ten for now...
+            //if ( index < 10 ) // Limi to ten for now...
                 return ( 
                     <ResultsItem 
                       key={ index } 
@@ -52,40 +76,47 @@ class AppResults extends React.Component {
                 )
         })
 
-        return (
-            <div className="results text-center">
-                <h4  
-                  className='text-success text-center' 
-                  style={ styles }>
-                Showing 1-72 of 72 results
-                </h4>
+        if ( items !== 'undefined' && items !== null ) {
+            return (
+                <div className="results text-center">
+                    <h4  
+                      className='text-success text-center' 
+                      style={ styles }>
+                    Showing 1-72 of 72 results
+                    </h4>
 
-                <div className="header row">
-                    <div className="col-sm-1">
-                        <h4>Index</h4>
+                    <div className="header row">
+                        <div className="col-sm-1">
+                            <h4>Index</h4>
+                        </div>
+                        <div className="col-sm-2">
+                            <h4>Type</h4>
+                        </div>
+                        <div className="col-sm-2">
+                            <h4>IP Address</h4>
+                        </div>
+                        <div className="col-sm-3">
+                            <h4>Time</h4>
+                        </div>
+                        <div className="col-sm-4">
+                            <h4>Actions</h4>
+                        </div>
                     </div>
-                    <div className="col-sm-2">
-                        <h4>Type</h4>
-                    </div>
-                    <div className="col-sm-2">
-                        <h4>IP Address</h4>
-                    </div>
-                    <div className="col-sm-3">
-                        <h4>Time</h4>
-                    </div>
-                    <div className="col-sm-4">
-                        <h4>Actions</h4>
-                    </div>
+        
+                    { resultsItems }
+
+                    <Pagination className="pagination text-center"/>
                 </div>
-    
-                { resultsItems }
-
-                <Pagination className="pagination text-center"/>
-            </div>
-        )
+            )
+        } else {
+            return <h4 className="text-center">Loading...</h4>
+        }
+        
     }
     
 }
+
+
 
 export default AppResults
 

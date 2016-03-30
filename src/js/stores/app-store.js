@@ -1,25 +1,13 @@
-import {dispatch, register} from '../dispatchers/app-dispatcher'
+import { EventEmitter } from 'events'
+import { dispatch, register } from '../dispatchers/app-dispatcher'
 import AppConstants from '../constants/app-constants'
-import {EventEmitter} from 'events'
-import UserListAPI from '../api/UserListAPI'
-
+//import UserListAPI from '../api/UserListAPI'
+//import _fetchData from '../modules/fetch-data-promise'
 import SOURCE from '../static/SourceURL'
 
 const CHANGE_EVENT = 'change'
 
-var _data = []
-
-for(let i = 0; i < 10; i++) {
-    _data.push({
-        'ip': '127.0.0.' + i,
-        'id': '12345676543221' + i,
-        'username': 'joshua' + i,
-        'passwords': 'trustno' +i,
-        'index': i,
-        'port': '22' + i,
-        'socket': '666' + i
-    })
-}
+var _data = null
 
 // TODO: Remove me! :)
 console.log( "Source:", SOURCE )
@@ -38,31 +26,22 @@ const AppStore = Object.assign( EventEmitter.prototype, {
     this.removeListener( CHANGE_EVENT, callback )
   },
 
-  getData(){
-    return ClientDataAPI.data
+  getServerData() {
+      return { data: _data }
   },
 
-  getTotals(){
-    return ClientDataAPI.dataTotals()
+  setServerData( data ) {
+      console.log( "I'm here..." )
+      _data = data
+      //console.log("this._data =", _data)
   },
 
   // Needs wprk ... Based of of app-constants.js
   dispatcherIndex: register( function( action ) {
     switch(action.actionType){
-      case AppConstants.ADD_ITEM:
-          ClientDataAPI.addItem( action.item )
+      case AppConstants.REQUEST_DATA_ASYNC:
+          console.log( "REQUEST_DATA_ASYNC" )
           break
-      case AppConstants.REMOVE_ITEM:
-          ClientDataAPI.removeItem( action.item )
-          break
-
-      case AppConstants.INCREASE_ITEM:
-          ClientDataAPI.increaseItem( action.item )
-          break
-
-      case AppConstants.DECREASE_ITEM:
-          ClientDataAPI.decreaseItem( action.item )
-          break;
     }
 
     AppStore.emitChange()
