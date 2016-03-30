@@ -1,7 +1,7 @@
 import React from 'react'
 import AppActions from '../actions/app-actions'
 
-export default (props) => {
+export default ( props ) => {
 	let styles = {
 		borderBottom: 'solid 1px #ccc',
 		width: '100%'

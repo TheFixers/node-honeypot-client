@@ -22,19 +22,19 @@ for(let i = 0; i < 10; i++) {
 }
 
 // TODO: Remove me! :)
-console.log("Source:", SOURCE)
+console.log( "Source:", SOURCE )
 
-const AppStore = Object.assign(EventEmitter.prototype, {
+const AppStore = Object.assign( EventEmitter.prototype, {
   
   emitChange(){
     this.emit( CHANGE_EVENT )
   },
 
-  addChangeListener( callback ){
+  addChangeListener( callback ) {
     this.on( CHANGE_EVENT, callback )
   },
 
-  removeChangeListener( callback ){
+  removeChangeListener( callback ) {
     this.removeListener( CHANGE_EVENT, callback )
   },
 
@@ -47,7 +47,7 @@ const AppStore = Object.assign(EventEmitter.prototype, {
   },
 
   // Needs wprk ... Based of of app-constants.js
-  dispatcherIndex: register( function( action ){
+  dispatcherIndex: register( function( action ) {
     switch(action.actionType){
       case AppConstants.ADD_ITEM:
           ClientDataAPI.addItem( action.item )
@@ -68,6 +68,7 @@ const AppStore = Object.assign(EventEmitter.prototype, {
     AppStore.emitChange()
 
   })
+  
 })
 
 export default AppStore

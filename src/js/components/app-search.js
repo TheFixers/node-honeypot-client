@@ -12,10 +12,10 @@ export default () => {
 		border: 'solid 1px #666',
 		borderRadius: '3px'
 	}
-	
+
     return (
     	<div className='search-area text-right'>
-	    	<select className='select' style={styles} defaultValue="title">
+	    	<select className='select' style={ styles } defaultValue="title">
 	    		<option value='title' disabled>Search by</option>
 	    		<option>Show All</option>
 	    		<option>Index</option>
@@ -27,7 +27,7 @@ export default () => {
 	    		<option>Port</option>
 	    		<option>Socket</option>
 	    	</select>
-	    	<input className='input' type="text" placeholder='Search for...' style={styles}/>
+	    	<input className='input' type="text" placeholder='Search for...' style={ styles }/>
         </div>
     )
 }
