@@ -20,6 +20,7 @@ export default {
 		})
 	},
 
+	// In use...
 	addItemToList( item ) {
 		dispatch({
 			actionType:AppConstants.ADD_ITEM_TO_LIST, item
@@ -44,6 +45,7 @@ export default {
 		})
 	},
 
+	// In use...
 	showItem( item ) {
 		dispatch({
 			actionType: AppConstants.SHOW_ITEM, item

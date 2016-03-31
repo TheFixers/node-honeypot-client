@@ -38,12 +38,19 @@ class AppResults extends React.Component {
         this.serverRequest = _fetchData( SOURCE )
         
         this.serverRequest.then( ( data ) => {
-            console.log( "IF THIS WORKS IM A GENIUS" )
-             this.setState( { data: data } )
+            this.setState( { data: data } )
         })
         .catch( ( err ) => {
             console.log( err.message )
         })
+    }
+
+    _hasUsername(value) {
+        if (value.hasOwnProperty('Username') && value.Username !== "") {
+            return true
+        } else {
+            return false
+        }
     }
 
     render() {
@@ -64,42 +71,50 @@ class AppResults extends React.Component {
 
         console.log( "Server Data Items:", items )
 
+        var filtered = (items.filter(this._hasUsername))
 
-        var resultsItems = items.map(( item, index ) => {
+
+        var resultsItems = filtered.map(( item, index ) => {
             //if ( index < 10 ) // Limi to ten for now...
                 return ( 
                     <ResultsItem 
                       key={ index } 
                       item={ item } 
                       index={ index } 
-                      txt={ index }/> 
+                      txt={ index + 1 }/> 
                 )
         })
 
-        if ( items !== 'undefined' && items !== null ) {
+
+
+        if ( filtered.length > 0 ) {
             return (
                 <div className="results text-center">
-                    <h4  
-                      className='text-success text-center' 
-                      style={ styles }>
-                    Showing 1-72 of 72 results
-                    </h4>
+                    
+                    <h3 className='text-success text-center' style={ styles }>
+                    1-{ filtered.length } of { filtered.length } Results
+                    </h3>
+
+                    <br />
 
                     <div className="header row">
                         <div className="col-sm-1">
-                            <h4>Index</h4>
+                            <h4><b>Item</b></h4>
                         </div>
                         <div className="col-sm-2">
-                            <h4>Type</h4>
+                            <h4><b>Username</b></h4>
+                        </div>
+                        <div className="col-sm-1">
+                            <h4><b>Type</b></h4>
                         </div>
                         <div className="col-sm-2">
-                            <h4>IP Address</h4>
+                            <h4><b>IP Address</b></h4>
                         </div>
                         <div className="col-sm-3">
-                            <h4>Time</h4>
+                            <h4><b>Time</b></h4>
                         </div>
-                        <div className="col-sm-4">
-                            <h4>Actions</h4>
+                        <div className="col-sm-3">
+                            <h4><b>Actions</b></h4>
                         </div>
                     </div>
         
@@ -120,134 +135,3 @@ class AppResults extends React.Component {
 
 export default AppResults
 
-// Dont delete yet, old tables, really cool....
-{/*<div className="col-sm-3">
-    <table className="table">
-        <caption className="text-center">Data Item</caption>
-        <tbody>
-            <tr className="row">
-                <th height="30" className="col-sm-4">Key</th>
-                <td height="30" className="col-sm-8">Value</td>
-            </tr>
-            <tr className="row">
-                <th height="30" className="col-sm-4">Key</th>
-                <td height="30" className="col-sm-8">Value</td>
-            </tr>
-            <tr className="row">
-                <th height="30" className="col-sm-4">Key</th>
-                <td height="30" className="col-sm-8">Value</td>
-            </tr>
-            <tr className="row">
-                <th height="30" className="col-sm-4">Key</th>
-                <td height="30" className="col-sm-8">Value</td>
-            </tr>
-            <tr className="row">
-                <th height="30" className="col-sm-4">Key</th>
-                <td height="30" className="col-sm-8">Value</td>
-            </tr>
-        </tbody>
-    </table>
-    <div className="btn-group" role="group" aria-label="Basic example">
-      <button type="button" className="btn btn-secondary">Inspect</button>
-      <button type="button" className="btn btn-secondary">Add to list</button>
-    </div>
-</div>
-
- <div className="col-sm-3">
-    <table className="table">
-        <caption className="text-center">Data Item</caption>
-        <tbody>
-            <tr className="row">
-                <th className="col-sm-4">Key</th>
-                <td className="col-sm-8">Value</td>
-            </tr>
-            <tr className="row">
-                <th className="col-sm-4">Key</th>
-                <td className="col-sm-8">Value</td>
-            </tr>
-            <tr className="row">
-                <th className="col-sm-4">Key</th>
-                <td className="col-sm-8">Value</td>
-            </tr>
-            <tr className="row">
-                <th className="col-sm-4">Key</th>
-                <td className="col-sm-8">Value</td>
-            </tr>
-            <tr className="row">
-                <th className="col-sm-4">Key</th>
-                <td className="col-sm-8">Value</td>
-            </tr>
-            
-        </tbody>
-
-    </table>
-    <div className="btn-group" role="group" aria-label="Basic example">
-      <button type="button" className="btn btn-secondary">Inspect</button>
-      <button type="button" className="btn btn-secondary">Add to list</button>
-    </div>
-</div>
-
- <div className="col-sm-3">
-    <table className="table">
-        <caption className="text-center">Data Item</caption>
-        <tbody>
-            <tr className="row">
-                <th className="col-sm-4">Key</th>
-                <td className="col-sm-8">Value</td>
-            </tr>
-            <tr className="row">
-                <th className="col-sm-4">Key</th>
-                <td className="col-sm-8">Value</td>
-            </tr>
-            <tr className="row">
-                <th className="col-sm-4">Key</th>
-                <td className="col-sm-8">Value</td>
-            </tr>
-            <tr className="row">
-                <th className="col-sm-4">Key</th>
-                <td className="col-sm-8">Value</td>
-            </tr>
-            <tr className="row">
-                <th className="col-sm-4">Key</th>
-                <td className="col-sm-8">Value</td>
-            </tr>
-        </tbody>
-    </table>
-    <div className="btn-group" role="group" aria-label="Basic example">
-      <button type="button" className="btn btn-secondary">Inspect</button>
-      <button type="button" className="btn btn-secondary">Add to list</button>
-    </div>
-</div>
-
- <div className="col-sm-3">
-    <table className="table">
-        <caption className="text-center">Data Item</caption>
-        <tbody>
-            <tr className="row">
-                <th className="col-sm-4">Key</th>
-                <td className="col-sm-8">Value</td>
-            </tr>
-            <tr className="row">
-                <th className="col-sm-4">Key</th>
-                <td className="col-sm-8">Value</td>
-            </tr>
-            <tr className="row">
-                <th className="col-sm-4">Key</th>
-                <td className="col-sm-8">Value</td>
-            </tr>
-            <tr className="row">
-                <th className="col-sm-4">Key</th>
-                <td className="col-sm-8">Value</td>
-            </tr>
-            <tr className="row">
-                <th className="col-sm-4">Key</th>
-                <td className="col-sm-8">Value</td>
-            </tr>
-        </tbody>
-    </table>
-    <div className="btn-group" role="group" aria-label="Basic example">
-      <button type="button" className="btn btn-secondary">Inspect</button>
-      <button type="button" className="btn btn-secondary">Add to list</button>
-    </div>
-</div>
-*/}

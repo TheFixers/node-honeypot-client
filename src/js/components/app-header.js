@@ -17,9 +17,9 @@ export default () => {
     }
     return (
 
-        <div className="row" style={{borderBottom: '2px solid #ccc'}}>
+        <div className="row" style={ {borderBottom: '2px solid #ccc'} }>
             <div className="col-sm-4 text-left">
-                <img src='http://dejanstojanovic.net/media/31519/honey.ico' style={styles}></img>
+                <img src='http://dejanstojanovic.net/media/31519/honey.ico' style={ styles }></img>
             	<h1>Honeypot Client</h1>
             </div>
             <div className="col-sm-7">
@@ -29,7 +29,7 @@ export default () => {
                 <a href="http://github.com/TheFixers/node-honeypot-client" target="blank">
                     <img 
                       src="http://static.wixstatic.com/media/94f355_8ef96f732b7146c1828dc5e474bf770f.gif"
-                      style={stylesGitHub}>
+                      style={ stylesGitHub }>
                     </img>
                 </a>
             </div>

@@ -11,7 +11,7 @@ export default ( props ) => {
 	}
 	let index = props.index
     return (
-        <div className="result" style={styles}>
+        <div className="result" style={ styles }>
         	Detail...
         </div>
     )

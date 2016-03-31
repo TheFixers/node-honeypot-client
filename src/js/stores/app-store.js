@@ -9,6 +9,8 @@ const CHANGE_EVENT = 'change'
 
 var _data = null
 
+var _list = []
+
 // TODO: Remove me! :)
 console.log( "Source:", SOURCE )
 
@@ -30,17 +32,11 @@ const AppStore = Object.assign( EventEmitter.prototype, {
       return { data: _data }
   },
 
-  setServerData( data ) {
-      console.log( "I'm here..." )
-      _data = data
-      //console.log("this._data =", _data)
-  },
-
   // Needs wprk ... Based of of app-constants.js
-  dispatcherIndex: register( function( action ) {
-    switch(action.actionType){
-      case AppConstants.REQUEST_DATA_ASYNC:
-          console.log( "REQUEST_DATA_ASYNC" )
+  dispatcherIndex: register( function( payload ) {
+    switch(payload.actionType){
+      case AppConstants.ADD_ITEM_TO_LIST:
+          console.log( "Adding item to  list: " , payload)
           break
     }
 

@@ -20,15 +20,7 @@ const UserListAPI = {
 
     // Initialize with dummy data. TODO: Replace with actual data!
     init() {
-        for ( let i = 1; i < 9; i++ ) {
-            this._list.push({
-                'id': 'Widget' + i,
-                'title': 'Widget #' + i,
-                'summary': 'A great widget',
-                'description': 'Lorem ipsum dolor sit amet.',
-                'cost': i
-            })
-        }
+ 
     }
 }
 

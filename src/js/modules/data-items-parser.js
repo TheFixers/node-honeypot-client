@@ -17,43 +17,32 @@ export default function ( items ) {
         for ( var field in item ) {
             if ( field === '_id' ) {
                 for ( var id in item[field] ) {
-                    if ( item[field][id] !== "" &&
-                         item[field][id] !== null ) {
-                        obj[id] = item[field][id]
-                    } else {
-                        obj[id] = notFound
-                    }
+                    obj[id] = item[field][id]
                 }
             } else if ( field === 'Client' ) {
                 for ( var cli in item[field] ) {
                     if ( cli === 'Data' ) {
                         for ( var data in item[field][cli] ) {
                             if (data !== 'Time') {
-                                if ( item[field][cli][data] !== "" &&
-                                     item[field][cli][data] !== null ) {
-                                    obj[data] = item[field][cli][data]
-                                } else {
-                                    obj[data] = notFound
-                                }
+                                obj[data] = item[field][cli][data]
                             } else {
                                 obj[data] = date(item[field][cli][data])
                             }
-                            
                         }
                     } else {
-                        if ( item[field][cli] !== "" &&
-                             item[field][cli] !== null ) {
-                            obj[cli] = item[field][cli]
-                        } else {
-                            obj[cli] = notFound
-                        }
+                        obj[cli] = item[field][cli]  
                     }
                 }
             } else {
                 console.error( "Item skipped", errorMsg )
             }
         }
+/*        if ( !obj.hasOwnProperty('Username') ) {
+            obj.Username = 'nil'
+        }*/
         _items.push( Object.assign( { 'index': index }, obj ) )
+
+
     } )
     return _items
 }
