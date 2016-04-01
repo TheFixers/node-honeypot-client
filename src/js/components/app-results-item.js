@@ -36,7 +36,7 @@ export default ( props ) => {
                     	style={ buttonStyles } 
                     	type="button" className="btn btn-secondary"
                     	onClick={ AppActions.showItem.bind( null, item ) }>
-                    <span className="glyphicon glyphicon-search" aria-hidden="true"></span>
+                    <span className="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
                     </button>
                     <button 
                     	style={ buttonStyles }

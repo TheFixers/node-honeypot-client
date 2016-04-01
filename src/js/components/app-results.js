@@ -118,7 +118,7 @@ class AppResults extends React.Component {
                             <h4><b>Time</b></h4>
                         </div>
                         <div className="col-sm-3">
-                            <h4><b>Actions</b></h4>
+                            <h4><b>View / Add</b></h4>
                         </div>
                     </div>
         
