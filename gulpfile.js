@@ -2,7 +2,7 @@
  * Gulpfile for compiling SCSS files inHoneypot Client
  * Author: Joshua Michael Waggoner
  * Email: <rabbitfighter@cryptolab.net>
- * Usage: 'gulp [option]' i.e. 'gulp watch'
+ * Usage: 'gulp [option]' i.e. 'gulp sass'
  */
 
 // Imports
@@ -16,9 +16,4 @@ gulp.task('sass', function () {
         .pipe(sass())
         .pipe(concat('styles.css'))
         .pipe(gulp.dest('dist'))
-})
-
-// Watch task builds live
-gulp.task('watch', function() {
-    gulp.watch('./src/styles/*.scss', ['sass'])
 })

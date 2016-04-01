@@ -1,3 +1,8 @@
+/**
+ * Filename: 'app-results-item.js'
+ * Author: JMW <rabbitfighter@cryptolab.net>
+ * App single results item component
+ */
 import React from 'react'
 import AppActions from '../actions/app-actions'
 

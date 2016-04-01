@@ -1,3 +1,8 @@
+/**
+ * Filename: 'app-list-button.js'
+ * Author: JMW <rabbitfighter@cryptolab.net>
+ * App pagination component (WIP) Not implemented yet...
+ */
 import React from 'react'
 
 export default ( props ) => {

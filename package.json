@@ -6,8 +6,24 @@
   "scripts": {
     "start": "gulp sass && webpack-dev-server"
   },
-  "author": "Joshua Michael Waggoner",
+    "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TheFixers/node-honeypot-client.git"
+  },
+  "keywords": [
+    "React",
+    "FLUX",
+    "Node",
+    "ES6",
+    "Gulp",
+    "JavaScript"
+  ],
+  "author": "JMW <rabbitfighter@cryptolab.net>",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TheFixers/node-honeypot-client/issues"
+  },
+  "homepage": "https://github.com/TheFixers/node-honeypot-client#readme",
   "dependencies": {
     "flux": "^2.1.1",
     "gulp": "^3.9.1",

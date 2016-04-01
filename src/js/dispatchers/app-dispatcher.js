@@ -1,3 +1,9 @@
+/**
+ * Filename: 'app-dispatcher.js'
+ * Author: JMW <rabbitfighter@cryptolab.net>
+ * Flux dispatcher. Reponsible for dispatching and registering events
+ */
+
 import { Dispatcher } from 'flux'
 
 const LOGGING = true

@@ -1,3 +1,8 @@
+/**
+ * Filename: 'FakeData.js'
+ * Author: JMW <rabbitfighter@cryptolab.net>
+ * TODO: Remove me when done!
+ */
 export default [
     {"_id":{"$oid":"56ee34b484f4236156936b75"},"Client":{"IP":"127.0.0.1","TYPE":"HTTP","Port":"80","Socket":"44902","Data":{"clientURL":"/","Time":"1458451637.0"}}},
     {"_id":{"$oid":"56ee34b584f4236156936b76"},"Client":{"IP":"127.0.0.1","TYPE":"HTTP","Port":"80","Socket":"44906","Data":{"clientURL":"/favicon.ico","Time":"1458451637.42"}}},

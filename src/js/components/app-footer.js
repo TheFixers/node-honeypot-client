@@ -1,3 +1,9 @@
+/**
+ * Filename: 'app-footer.js'
+ * Author: JMW <rabbitfighter@cryptolab.net>
+ * App footer stateless component
+ */
+
 import React from 'react'
 
 export default () => {

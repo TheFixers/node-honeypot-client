@@ -1,7 +1,12 @@
+/**
+ * Filename: 'app-store.js'
+ * Author: JMW <rabbitfighter@cryptolab.net>
+ * Contains state logic for app
+ */
+
 import { EventEmitter } from 'events'
 import { dispatch, register } from '../dispatchers/app-dispatcher'
 import AppConstants from '../constants/app-constants'
-
 import _fetchData from '../modules/fetch-data-promise'
 import SOURCE from '../static/SourceURL'
 

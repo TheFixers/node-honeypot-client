@@ -1,3 +1,9 @@
+/**
+ * Filename: 'app-search.js'
+ * Author: JMW <rabbitfighter@cryptolab.net>
+ * App search area component
+ */
+
 import React from 'react'
 
 export default () => {

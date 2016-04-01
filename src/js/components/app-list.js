@@ -1,7 +1,11 @@
+/**
+ * Filename: 'app-list.js'
+ * Author: JMW <rabbitfighter@cryptolab.net>
+ * App list component
+ */
 import React from 'react'
 import AppStore from '../stores/app-store'
 import AppListItem from './app-list-item'
-
 import AppActions from '../actions/app-actions'
 
 export default ( props ) => {

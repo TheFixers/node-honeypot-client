@@ -1,3 +1,9 @@
+/**
+ * Filename: 'app.js'
+ * Author: JMW <rabbitfighter@cryptolab.net>
+ * App router
+ */
+
 import React from 'react'
 import Results from './app-results'
 import ResultsItemDetail from './app-results-item-detail'

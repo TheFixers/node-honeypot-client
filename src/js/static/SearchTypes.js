@@ -1,3 +1,9 @@
+/**
+ * Filename: 'SearchTypes.js'
+ * Author: JMW <rabbitfighter@cryptolab.net>
+ * Search types
+ */
+
 export default {
   ALL:       {name: 'ALL',       index: 0, target: "all",       text: "Show All"}, 
   TYPE:      {name: 'TYPE',      index: 1, target: 'type',      text: "Plugin Type"},

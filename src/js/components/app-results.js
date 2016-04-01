@@ -1,12 +1,17 @@
+/**
+ * Filename: 'app-results.js'
+ * Author: JMW <rabbitfighter@cryptolab.net>
+ * App results area component
+ */
+
 import React from 'react';
 import ResultsItem from './app-results-item'
 import Pagination from './app-pagination'
-import FakeData from '../static/FakeData'
 import AppStore from '../stores/app-store'
 import AppActions from '../actions/app-actions'
 import _parseDataItems from '../modules/data-items-parser'
-import _fetchData from '../modules/fetch-data-promise'
 import SOURCE from '../static/SourceURL'
+//import _fetchData from '../modules/fetch-data-promise'
 
 let started = false
 

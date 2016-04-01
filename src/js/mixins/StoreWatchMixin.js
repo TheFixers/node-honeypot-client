@@ -1,3 +1,12 @@
+/**
+ * Filename: 'StoreWatchMixin.js'
+ * Author: JMW <rabbitfighter@cryptolab.net>
+ * A higher-order component to help reduce code for
+ * events, callbacks, and change listeners. A component
+ * gets wrapped with this to inherit constructor and
+ * lifecylce functions as well as other custom functions.
+ */
+
 import React from 'react'
 import AppStore from '../stores/app-store'
 
