@@ -28,17 +28,22 @@ export default ( props ) => {
                 <div className="col-sm-2">
                     <p>{ item.IP }</p>
                 </div>
+                <div className="col-sm-1">
+                    <p>{ item.Port }</p>
+                </div>
                 <div className="col-sm-3">
                     <p>{ item.Time }</p>
                 </div>
-                <div className="col-sm-3">
+                <div className="col-sm-2">
                     <button 
+                        className="col-sm-6"
                     	style={ buttonStyles } 
                     	type="button" className="btn btn-secondary"
                     	onClick={ AppActions.showItem.bind( null, item ) }>
                     <span className="glyphicon glyphicon-eye-open" aria-hidden="true" />
                     </button>
-                    <button 
+                    <button
+                        className="col-sm-6"
                     	style={ buttonStyles }
                     	type="button"
                     	className="btn btn-secondary"

@@ -117,11 +117,19 @@ class AppResults extends React.Component {
                         <div className="col-sm-2">
                             <h4><b>IP Address</b></h4>
                         </div>
+                        <div className="col-sm-1">
+                            <h4><b>Port</b></h4>
+                        </div>
                         <div className="col-sm-3">
                             <h4><b>Time</b></h4>
                         </div>
-                        <div className="col-sm-3">
-                            <h4><b>View / Add</b></h4>
+                        <div className="col-sm-2">
+                            <div className="col-sm-6">
+                                <h4><b>View</b></h4>
+                            </div>
+                            <div className="col-sm-6">
+                                <h4><b>List</b></h4>
+                            </div>
                         </div>
                     </div>
         
