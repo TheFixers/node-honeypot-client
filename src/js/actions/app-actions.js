@@ -1,3 +1,9 @@
+/**
+ * Filename: 'app-footer.js'
+ * Author: JMW <rabbitfighter@cryptolab.net>
+ * App footer stateless component
+ */
+
 import AppConstants from '../constants/app-constants'
 import { dispatch, register } from '../dispatchers/app-dispatcher'
 
@@ -42,19 +48,6 @@ export default {
 	updateSearchTerm( term ) {
 		dispatch({
 			actionType: AppConstants.UPDATE_SEARCH_TERM, term
-		})
-	},
-
-	// In use...
-	showItem( item ) {
-		dispatch({
-			actionType: AppConstants.SHOW_ITEM, item
-		})
-	},
-
-	showList( list ) {
-		dispatch({
-			actionType: AppConstants.SHOW_LIST, list
 		})
 	}
 

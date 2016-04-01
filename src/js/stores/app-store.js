@@ -16,73 +16,72 @@ var _data = {}
 
 var _list = []
 
-// TODO: Remove me! :)
-console.log( "Source:", SOURCE )
+const _removeItem = ( item ) => {
+  _list.splice( _list.findIndex( i => i === item ), 1 )
+}
+
+const _findListItem = ( item ) => {
+  return _list.find( listItem => listItem.index === item.index )
+}
+
+const _addItem = ( item ) => {
+    _list.push( Object.assign( {}, item ) )
+}
+
+const _listTotals = ( total = 0 ) => {
+    _list.forEach( listItem => {
+        total += 1
+    })
+    return total
+}
+
+const _setData = ( obj ) => {
+    var serverRequest = _fetchData( obj.url )
+    serverRequest.then( ( data ) => {
+        _data = data
+        AppStore.emitChange() // Required b/c of async return...
+    })
+    .catch( ( err ) => {
+        console.log( err.message )
+    })
+}
 
 const AppStore = Object.assign( EventEmitter.prototype, {
   
-  emitChange(){
-    this.emit( CHANGE_EVENT )
-  },
+    emitChange() {
+        this.emit( CHANGE_EVENT )
+    },
 
-  addChangeListener( callback ) {
-    this.on( CHANGE_EVENT, callback )
-  },
+    addChangeListener( callback ) {
+        this.on( CHANGE_EVENT, callback )
+    },
 
-  removeChangeListener( callback ) {
-    this.removeListener( CHANGE_EVENT, callback )
-  },
+    removeChangeListener( callback ) {
+        this.removeListener( CHANGE_EVENT, callback )
+    },
 
-  getServerData( data ) {
-      return _data
-  },
+    getServerData( data ) {
+        return _data
+    },
 
-  _addItemToList( item ) {
-
-  },
-
-  _removeItemFromList( item ) {
-
-  },
-
-  _setData() {
-
-      var serverRequest = _fetchData( SOURCE )
-      
-      serverRequest.then( ( data ) => {
-          _data = data
-          AppStore.emitChange()
-      })
-      .catch( ( err ) => {
-          console.log( err.message )
-      })
-
-  },
-
-  
-
-  // Needs wprk ... Based of of app-constants.js
-  dispatcherIndex: register( function( payload ) {
-      switch( payload.actionType ){
-          case AppConstants.REQUEST_DATA_ASYNC:
-              console.log( "REQUESTING_DATA_ASYNC:", payload )
-              AppStore._setData( payload )
-              break
-          case AppConstants.ADD_ITEM_TO_LIST:
-              console.log( "ADD_ITEM_TO_LIST:", payload )
-              AppStore._addItemToList( payload )
-              break
-          case AppConstants.REMOVE_ITEM_FROM_LIST:
-              console.log( "REMOVE_ITEM_FROM_LIST:", payload )
-              AppStore._removeItemFromList( payload )
-              break
-      }
-
-    
-
-    AppStore.emitChange()
-
-  })
+    // Needs wprk ... Based of of app-constants.js
+    dispatcherIndex: register( function( payload ) {
+        switch( payload.actionType ){
+            case AppConstants.REQUEST_DATA_ASYNC:
+                console.log( "REQUESTING_DATA_ASYNC:", payload )
+                _setData( payload )
+                break
+            case AppConstants.ADD_ITEM_TO_LIST:
+                console.log( "ADD_ITEM_TO_LIST:", payload )
+                _addItem( payload )
+                break
+            case AppConstants.REMOVE_ITEM_FROM_LIST:
+                console.log( "REMOVE_ITEM_FROM_LIST:", payload )
+                _removeItem( payload )
+                break
+        }
+        AppStore.emitChange()
+    })
   
 })
 

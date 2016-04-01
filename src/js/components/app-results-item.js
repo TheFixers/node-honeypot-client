@@ -43,8 +43,7 @@ export default ( props ) => {
                     <button 
                         className="col-sm-6"
                     	style={ buttonStyles } 
-                    	type="button" className="btn btn-secondary"
-                    	onClick={ AppActions.showItem.bind( null, props.item ) }>
+                    	type="button" className="btn btn-secondary">
                     <span className="glyphicon glyphicon-eye-open" aria-hidden="true" />
                     </button>
                     <button
