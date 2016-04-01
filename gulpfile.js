@@ -17,3 +17,8 @@ gulp.task('sass', function () {
         .pipe(concat('styles.css'))
         .pipe(gulp.dest('dist'))
 })
+
+// Watch task builds live
+gulp.task('watch', function() {
+    gulp.watch('./src/styles/*.scss', ['sass'])
+})

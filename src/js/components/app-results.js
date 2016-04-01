@@ -3,9 +3,12 @@ import ResultsItem from './app-results-item'
 import Pagination from './app-pagination'
 import FakeData from '../static/FakeData'
 import AppStore from '../stores/app-store'
+import AppActions from '../actions/app-actions'
 import _parseDataItems from '../modules/data-items-parser'
 import _fetchData from '../modules/fetch-data-promise'
 import SOURCE from '../static/SourceURL'
+
+let started = false
 
 const getServerData = () => {
     console.log("Fetching server data... ... ...")
@@ -22,11 +25,7 @@ class AppResults extends React.Component {
 
     componentWillMount() {
         AppStore.addChangeListener( this._onChange )
-        this._onChange()
-    }
-
-    componentDidMount() {
-        
+        //this._setData()
     }
 
     componentWillUnmount() {
@@ -35,14 +34,7 @@ class AppResults extends React.Component {
     }
 
     _onChange() {
-        this.serverRequest = _fetchData( SOURCE )
-        
-        this.serverRequest.then( ( data ) => {
-            this.setState( { data: data } )
-        })
-        .catch( ( err ) => {
-            console.log( err.message )
-        })
+        this.setState( getServerData )
     }
 
     _hasUsername(value) {
@@ -61,33 +53,45 @@ class AppResults extends React.Component {
             marginBottom: '10px'
         }
 
-        // Uses 'data-item-paser.js'
-        var items = []
-        let data = this.state.data
-
-        if (data) {
-            items = _parseDataItems( this.state.data )
+        let buttonStyle = {
+            margin: '20px',
+            width: '30%',
+            clear: 'both',
+            marginLeft: '35%',
+            marginRight: '35%' 
         }
 
-        console.log( "Server Data Items:", items )
+        // Uses 'data-item-paser.js'
+        var items = null
+        var filtered = null
 
-        var filtered = (items.filter(this._hasUsername))
+        if (this.state && this.state.data) {
+            items = _parseDataItems( this.state.data )
+            
+        }
 
+        if (items) {
+            try {
+                filtered = (items.filter(this._hasUsername))
+            } catch (err) {
+                console.error( err )
+            }
+        }
+        
+        if ( filtered ) {
 
-        var resultsItems = filtered.map(( item, index ) => {
-            //if ( index < 10 ) // Limi to ten for now...
-                return ( 
-                    <ResultsItem 
-                      key={ index } 
-                      item={ item } 
-                      index={ index } 
-                      txt={ index + 1 }/> 
-                )
-        })
+            var resultsItems = filtered.map(( item, index ) => {
+                //if ( index < 10 ) // Limi to ten for now...
+                    return ( 
+                        <ResultsItem 
+                          key={ index } 
+                          item={ item } 
+                          index={ index } 
+                          txt={ index + 1 }
+                        /> 
+                    )
+            })
 
-
-
-        if ( filtered.length > 0 ) {
             return (
                 <div className="results text-center">
                     
@@ -124,14 +128,19 @@ class AppResults extends React.Component {
                 </div>
             )
         } else {
-            return <h4 className="text-center">Loading...</h4>
+            return <button 
+                      className="col-sm-12 text-center btn btn-info" 
+                      onClick={ AppActions.requestDataAsync.bind( null, SOURCE ) } 
+                      style={ buttonStyle }>
+                    Load Data From Server
+                    </button>
         }
-        
     }
     
 }
 
-
-
 export default AppResults
+
+/*Call 844-400-7746 to qualify today. Application Deadline Ending Soon.
+*/
 

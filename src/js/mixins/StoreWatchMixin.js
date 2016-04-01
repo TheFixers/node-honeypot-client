@@ -1,11 +1,11 @@
 import React from 'react'
 import AppStore from '../stores/app-store'
 
-export default ( InnerComponent, stateCallback ) => class extends React.Component {
+export default ( InnerComponent, stateCB ) => class extends React.Component {
     
     constructor( props ) {
         super( props )
-        this.state = stateCallback( props )
+        this.state = stateCB( props )
         this._onChange = this._onChange.bind( this )
     }
 
@@ -18,7 +18,7 @@ export default ( InnerComponent, stateCallback ) => class extends React.Componen
     }
 
     _onChange() {
-        this.setState( stateCallback( this.props ) )
+        this.setState( stateCB( this.props ) )
     }
 
     render() {

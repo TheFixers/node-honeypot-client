@@ -11,6 +11,8 @@ const errorMsg = "JSON Parser Failure: Data not accordant to JSON scheme..."
 const notFound = "null"
 
 export default function ( items ) {
+    console.log(items)
+    if ( Object.keys(items).length === 0 ) return
     var _items = []
     items.map( ( item, index) => {
         let obj = {}

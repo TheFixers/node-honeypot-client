@@ -1,13 +1,13 @@
 import { EventEmitter } from 'events'
 import { dispatch, register } from '../dispatchers/app-dispatcher'
 import AppConstants from '../constants/app-constants'
-//import UserListAPI from '../api/UserListAPI'
-//import _fetchData from '../modules/fetch-data-promise'
+
+import _fetchData from '../modules/fetch-data-promise'
 import SOURCE from '../static/SourceURL'
 
 const CHANGE_EVENT = 'change'
 
-var _data = null
+var _data = {}
 
 var _list = []
 
@@ -28,22 +28,43 @@ const AppStore = Object.assign( EventEmitter.prototype, {
     this.removeListener( CHANGE_EVENT, callback )
   },
 
-  getServerData() {
-      return { data: _data }
+  getServerData( data ) {
+      return _data
   },
+
+  _setData() {
+
+      var serverRequest = _fetchData( SOURCE )
+      
+      serverRequest.then( ( data ) => {
+          _data = data
+          AppStore.emitChange()
+      })
+      .catch( ( err ) => {
+          console.log( err.message )
+      })
+
+  },
+
+  
 
   // Needs wprk ... Based of of app-constants.js
   dispatcherIndex: register( function( payload ) {
-    switch(payload.actionType){
-      case AppConstants.ADD_ITEM_TO_LIST:
-          console.log( "Adding item to  list: " , payload)
-          break
+      switch( payload.actionType ){
+          case AppConstants.REQUEST_DATA_ASYNC:
+              console.log( "REQUESTING_DATA_ASYNC:", payload )
+              AppStore._setData( payload )
+              break
     }
+
+    
 
     AppStore.emitChange()
 
   })
   
 })
+
+
 
 export default AppStore

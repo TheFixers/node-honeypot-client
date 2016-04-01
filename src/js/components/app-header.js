@@ -1,5 +1,6 @@
 import React from 'react'
 import SearchArea from './app-search'
+import ListButton from './app-list-button'
 
 export default () => {
     let styles = {
@@ -10,10 +11,11 @@ export default () => {
         margin: '10px',
         marginTop: '20px'
     }
-    let stylesGitHub = {
-        width: '40px',
-        height: '40px',
-        marginTop: '15px'
+
+    let buttonStyles = {
+        width: 'auto',
+        height: 'auto',
+        marginTop: '18px',
     }
     return (
 
@@ -26,12 +28,12 @@ export default () => {
                 <SearchArea />
             </div>
             <div className="col-sm-1">
-                <a href="http://github.com/TheFixers/node-honeypot-client" target="blank">
-                    <img 
-                      src="http://static.wixstatic.com/media/94f355_8ef96f732b7146c1828dc5e474bf770f.gif"
-                      style={ stylesGitHub }>
-                    </img>
-                </a>
+                <button 
+                    className="btn btn-info" 
+                    type="button" text="Show List" 
+                    style={buttonStyles} 
+                    onClick=""><span className="glyphicon glyphicon-user" aria-hidden="true"></span> My List</button>
+
             </div>
         </div>
     )

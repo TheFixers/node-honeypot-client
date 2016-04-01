@@ -36,14 +36,14 @@ export default ( props ) => {
                     	style={ buttonStyles } 
                     	type="button" className="btn btn-secondary"
                     	onClick={ AppActions.showItem.bind( null, item ) }>
-                    View
+                    <span className="glyphicon glyphicon-search" aria-hidden="true"></span>
                     </button>
                     <button 
                     	style={ buttonStyles }
                     	type="button"
                     	className="btn btn-secondary"
                     	onClick={ AppActions.addItemToList.bind( null, item ) }>
-                    Add
+                    <span className="glyphicon glyphicon-paperclip" aria-hidden="true"></span>
                     </button>
                 </div>
             </div>
