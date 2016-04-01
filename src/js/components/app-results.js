@@ -74,12 +74,12 @@ class AppResults extends React.Component {
         var items = null
         var filtered = null
 
-        if (this.state && this.state.data) {
+        if ( this.state && this.state.data ) {
             items = _parseDataItems( this.state.data )
             
         }
 
-        if (items) {
+        if ( items ) {
             try {
                 filtered = ( items.filter( this._hasUsername ) )
             } catch (err) {

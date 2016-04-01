@@ -10,11 +10,11 @@ import date from './unix-timestamp-formatter'
 const errorMsg = "JSON Parser Failure: Data not accordant to JSON scheme..."
 const notFound = "unknown"
 
-export default function ( items ) {
+export default function ( items, index = 0 ) {
     //console.log(items)
     if ( Object.keys(items).length === 0 ) return
     var _items = []
-    items.map( ( item, index) => {
+    items.map( ( item ) => {
         let obj = {}
         for ( var field in item ) {
             if ( field === '_id' ) {
@@ -43,9 +43,8 @@ export default function ( items ) {
             obj.Username = notFound
         }
         _items.push( Object.assign( { 'index': index }, obj ) )
-
-
-    } )
+        index++
+    })
     return _items
 }
 

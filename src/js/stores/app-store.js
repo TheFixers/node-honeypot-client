@@ -61,8 +61,12 @@ const AppStore = Object.assign( EventEmitter.prototype, {
         this.removeListener( CHANGE_EVENT, callback )
     },
 
-    getServerData( data ) {
+    getServerData() {
         return _data
+    },
+
+    getListTotals() {
+      return _listTotals()
     },
 
     // Needs wprk ... Based of of app-constants.js
@@ -75,6 +79,7 @@ const AppStore = Object.assign( EventEmitter.prototype, {
             case AppConstants.ADD_ITEM_TO_LIST:
                 console.log( "ADD_ITEM_TO_LIST:", payload )
                 _addItem( payload )
+                console.log("List:", _list)
                 break
             case AppConstants.REMOVE_ITEM_FROM_LIST:
                 console.log( "REMOVE_ITEM_FROM_LIST:", payload )
@@ -85,7 +90,5 @@ const AppStore = Object.assign( EventEmitter.prototype, {
     })
   
 })
-
-
 
 export default AppStore
