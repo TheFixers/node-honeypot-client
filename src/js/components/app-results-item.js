@@ -19,7 +19,7 @@ export default ( props ) => {
                 <div className="col-sm-1">
                     <p><b>{ props.txt }</b></p>
                 </div>
-                <div className="col-sm-2">
+                <div className="col-sm-3">
                     <p>{ item.Username }</p>
                 </div>
                 <div className="col-sm-1">
@@ -31,19 +31,19 @@ export default ( props ) => {
                 <div className="col-sm-3">
                     <p>{ item.Time }</p>
                 </div>
-                <div className="col-sm-3">
+                <div className="col-sm-2">
                     <button 
                     	style={ buttonStyles } 
                     	type="button" className="btn btn-secondary"
                     	onClick={ AppActions.showItem.bind( null, item ) }>
-                    <span className="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+                    <span className="glyphicon glyphicon-eye-open" aria-hidden="true" />
                     </button>
                     <button 
                     	style={ buttonStyles }
                     	type="button"
                     	className="btn btn-secondary"
                     	onClick={ AppActions.addItemToList.bind( null, item ) }>
-                    <span className="glyphicon glyphicon-paperclip" aria-hidden="true"></span>
+                    <span className="glyphicon glyphicon-plus" aria-hidden="true" />
                     </button>
                 </div>
             </div>

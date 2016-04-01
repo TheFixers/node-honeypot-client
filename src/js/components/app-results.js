@@ -72,13 +72,15 @@ class AppResults extends React.Component {
 
         if (items) {
             try {
-                filtered = (items.filter(this._hasUsername))
+                filtered = ( items.filter( this._hasUsername ) )
             } catch (err) {
                 console.error( err )
             }
         }
         
         if ( filtered ) {
+
+            console.log( filtered )
 
             var resultsItems = filtered.map(( item, index ) => {
                 //if ( index < 10 ) // Limi to ten for now...
@@ -96,6 +98,7 @@ class AppResults extends React.Component {
                 <div className="results text-center">
                     
                     <h3 className='text-success text-center' style={ styles }>
+                
                     1-{ filtered.length } of { filtered.length } Results
                     </h3>
 
@@ -105,7 +108,7 @@ class AppResults extends React.Component {
                         <div className="col-sm-1">
                             <h4><b>Item</b></h4>
                         </div>
-                        <div className="col-sm-2">
+                        <div className="col-sm-3">
                             <h4><b>Username</b></h4>
                         </div>
                         <div className="col-sm-1">
@@ -117,7 +120,7 @@ class AppResults extends React.Component {
                         <div className="col-sm-3">
                             <h4><b>Time</b></h4>
                         </div>
-                        <div className="col-sm-3">
+                        <div className="col-sm-2">
                             <h4><b>View / Add</b></h4>
                         </div>
                     </div>

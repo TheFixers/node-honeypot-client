@@ -8,10 +8,10 @@
 import date from './unix-timestamp-formatter'
 
 const errorMsg = "JSON Parser Failure: Data not accordant to JSON scheme..."
-const notFound = "null"
+const notFound = "unknown"
 
 export default function ( items ) {
-    console.log(items)
+    //console.log(items)
     if ( Object.keys(items).length === 0 ) return
     var _items = []
     items.map( ( item, index) => {
@@ -39,9 +39,9 @@ export default function ( items ) {
                 console.error( "Item skipped", errorMsg )
             }
         }
-/*        if ( !obj.hasOwnProperty('Username') ) {
-            obj.Username = 'nil'
-        }*/
+        if ( !obj.hasOwnProperty('Username') ) {
+            obj.Username = notFound
+        }
         _items.push( Object.assign( { 'index': index }, obj ) )
 
 

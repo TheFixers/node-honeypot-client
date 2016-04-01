@@ -21,7 +21,7 @@ export default () => {
 
         <div className="row" style={ {borderBottom: '2px solid #ccc'} }>
             <div className="col-sm-4 text-left">
-                <img src='http://dejanstojanovic.net/media/31519/honey.ico' style={ styles }></img>
+                <img src='http://dejanstojanovic.net/media/31519/honey.ico' style={ styles } />
             	<h1>Honeypot Client</h1>
             </div>
             <div className="col-sm-7">
@@ -32,7 +32,9 @@ export default () => {
                     className="btn btn-info" 
                     type="button" text="Show List" 
                     style={buttonStyles} 
-                    onClick=""><span className="glyphicon glyphicon-user" aria-hidden="true"></span> My List</button>
+                    onClick="">
+                    <span className="glyphicon glyphicon-user" aria-hidden="true" /> My List
+                </button>
 
             </div>
         </div>
