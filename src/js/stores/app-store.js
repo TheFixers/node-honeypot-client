@@ -7,6 +7,7 @@
 import { EventEmitter } from 'events'
 import { dispatch, register } from '../dispatchers/app-dispatcher'
 import AppConstants from '../constants/app-constants'
+import AppActions from '../actions/app-actions'
 import _fetchData from '../modules/fetch-data-promise'
 import SOURCE from '../static/SourceURL'
 
@@ -35,11 +36,11 @@ const _listTotals = ( total = 0 ) => {
     return total
 }
 
-const _setData = ( obj ) => {
+const _requestServerData = ( obj ) => {
     var serverRequest = _fetchData( obj.url )
     serverRequest.then( ( data ) => {
         _data = data
-        AppStore.emitChange() // Required b/c of async return...
+        AppStore.emitChange()
     })
     .catch( ( err ) => {
         console.log( err.message )
@@ -69,7 +70,7 @@ const AppStore = Object.assign( EventEmitter.prototype, {
         switch( payload.actionType ){
             case AppConstants.REQUEST_DATA_ASYNC:
                 console.log( "REQUESTING_DATA_ASYNC:", payload )
-                _setData( payload )
+                _requestServerData( payload )
                 break
             case AppConstants.ADD_ITEM_TO_LIST:
                 console.log( "ADD_ITEM_TO_LIST:", payload )
