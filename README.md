@@ -22,8 +22,11 @@ Use the following commands from the root directory...
 ### Installing node dependencies
 * `npm install` - installs all node dependancies from `package.json`
 
-### Running on webpack-dev-server
+### Running on webpack-dev-server and compiling SCSS to CSS
 * `npm start`
+
+### Gulp Sass task (included in `npm start` but can be run separately)
+* `gulp sass`
 
 ## Contributions
 Please make sure all commits from this point on are done on branches, which I (@rabbitfighter81) will pull in after checking. This will allow for a smoother workflow moving forward with more than one team member.
