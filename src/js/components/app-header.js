@@ -33,7 +33,7 @@ export default () => {
                     type="button" text="Show List" 
                     style={buttonStyles} 
                     onClick="">
-                    <span className="glyphicon glyphicon-user" aria-hidden="true" /> My List
+                    <i className="glyphicon glyphicon-user" aria-hidden="true" /> My List
                 </button>
 
             </div>

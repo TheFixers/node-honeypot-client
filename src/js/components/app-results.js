@@ -53,6 +53,10 @@ class AppResults extends React.Component {
             marginBottom: '10px'
         }
 
+        let th = {
+            borderBottom: 'solid 1px #ccc',
+        }
+
         let buttonStyle = {
             margin: '20px',
             width: '30%',
@@ -80,7 +84,7 @@ class AppResults extends React.Component {
         
         if ( filtered ) {
 
-            console.log( filtered )
+            //console.log( filtered )
 
             var resultsItems = filtered.map(( item, index ) => {
                 //if ( index < 10 ) // Limi to ten for now...
@@ -104,7 +108,7 @@ class AppResults extends React.Component {
 
                     <br />
 
-                    <div className="header row">
+                    <div className="header row" style={ th }>
                         <div className="col-sm-1">
                             <h4><b>Item</b></h4>
                         </div>

@@ -32,6 +32,14 @@ const AppStore = Object.assign( EventEmitter.prototype, {
       return _data
   },
 
+  _addItemToList( item ) {
+
+  },
+
+  _removeItemFromList( item ) {
+
+  },
+
   _setData() {
 
       var serverRequest = _fetchData( SOURCE )
@@ -55,7 +63,15 @@ const AppStore = Object.assign( EventEmitter.prototype, {
               console.log( "REQUESTING_DATA_ASYNC:", payload )
               AppStore._setData( payload )
               break
-    }
+          case AppConstants.ADD_ITEM_TO_LIST:
+              console.log( "ADD_ITEM_TO_LIST:", payload )
+              AppStore._addItemToList( payload )
+              break
+          case AppConstants.REMOVE_ITEM_FROM_LIST:
+              console.log( "REMOVE_ITEM_FROM_LIST:", payload )
+              AppStore._removeItemFromList( payload )
+              break
+      }
 
     
 

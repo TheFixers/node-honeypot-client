@@ -39,7 +39,7 @@ export default ( props ) => {
                         className="col-sm-6"
                     	style={ buttonStyles } 
                     	type="button" className="btn btn-secondary"
-                    	onClick={ AppActions.showItem.bind( null, item ) }>
+                    	onClick={ AppActions.showItem.bind( null, props.item ) }>
                     <span className="glyphicon glyphicon-eye-open" aria-hidden="true" />
                     </button>
                     <button
@@ -47,7 +47,7 @@ export default ( props ) => {
                     	style={ buttonStyles }
                     	type="button"
                     	className="btn btn-secondary"
-                    	onClick={ AppActions.addItemToList.bind( null, item ) }>
+                    	onClick={ AppActions.addItemToList.bind( null, props.item ) }>
                     <span className="glyphicon glyphicon-plus" aria-hidden="true" />
                     </button>
                 </div>

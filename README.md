@@ -6,6 +6,15 @@ Honeypot Client using NodeJS, NPM, React, Webpack, and custom modules to parse J
 * Legacy code has been moved to `legacy/` but links have not been changed yet, so the legacy code is broken for now, but intact.
 * Scaffolding and basic app construction for refactor is underway. Please do not touch right now as it's in a critical stage of development, and just being fleshed out right now... Feel free to fire it up though... :)
 
+## This project assumes you have Node and the following global NPM packages installed 
+* `node`
+* `babel`
+* `webpack`
+* `webpack-dev-server`
+
+### Example of installing global NPM packages
+`npm install babel webpack webpack-dev-server -g`
+
 ##Installation
 
 Use the following commands from the root directory...

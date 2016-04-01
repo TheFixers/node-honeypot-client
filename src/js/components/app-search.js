@@ -15,6 +15,7 @@ export default () => {
 
     return (
     	<div className='search-area text-right'>
+    		<i className="glyphicon glyphicon-search"></i> 
 	    	<select className='select' style={ styles } defaultValue="title">
 	    		<option value='title' disabled>Search by</option>
 	    		<option>Show All</option>
