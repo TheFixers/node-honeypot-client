@@ -19,7 +19,7 @@ export default ( props ) => {
                 <div className="col-sm-1">
                     <p><b>{ props.txt }</b></p>
                 </div>
-                <div className="col-sm-3">
+                <div className="col-sm-2">
                     <p>{ item.Username }</p>
                 </div>
                 <div className="col-sm-1">
@@ -31,7 +31,7 @@ export default ( props ) => {
                 <div className="col-sm-3">
                     <p>{ item.Time }</p>
                 </div>
-                <div className="col-sm-2">
+                <div className="col-sm-3">
                     <button 
                     	style={ buttonStyles } 
                     	type="button" className="btn btn-secondary"
