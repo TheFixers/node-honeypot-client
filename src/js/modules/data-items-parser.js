@@ -5,14 +5,13 @@
  * This was sooo hard not to go over 80 chars, so plz excuse aming conventions!
  * TODO: Define JSON schema somewhere in parent projects readme for future devs
  */
-import date from './unix-timestamp-formatter'
+import _date from './unix-timestamp-formatter'
 
 const errorMsg = "JSON Parser Failure: Data not accordant to JSON scheme..."
-const notFound = "unknown"
+const notFound = "[unknown]"
 
 export default function ( items, index = 0 ) {
-    //console.log(items)
-    if ( Object.keys(items).length === 0 ) return
+    if ( Object.keys(items).length === 0 ) return []
     var _items = []
     items.map( ( item ) => {
         let obj = {}
@@ -28,7 +27,7 @@ export default function ( items, index = 0 ) {
                             if (data !== 'Time') {
                                 obj[data] = item[field][cli][data]
                             } else {
-                                obj[data] = date(item[field][cli][data])
+                                obj[data] = _date(item[field][cli][data])
                             }
                         }
                     } else {

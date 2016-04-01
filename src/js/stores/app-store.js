@@ -13,7 +13,7 @@ import SOURCE from '../static/SourceURL'
 
 const CHANGE_EVENT = 'change'
 
-var _data = {}
+var _data = null
 
 var _list = []
 
@@ -63,6 +63,10 @@ const AppStore = Object.assign( EventEmitter.prototype, {
 
     getServerData() {
         return _data
+    },
+
+    getList() {
+        return _list
     },
 
     getListTotals() {

@@ -18,11 +18,11 @@ export default () => {
     }
     return (
         <div className="row" style={ {borderBottom: '2px solid #ccc'} }>
-            <div className="col-sm-4 text-left">
+            <div className="col-md-4 text-left">
                 <img src='http://dejanstojanovic.net/media/31519/honey.ico' style={ styles } />
             	<h1>Honeypot Client</h1>
             </div>
-            <div className="col-sm-7">
+            <div className="col-md-7">
                 <SearchArea />
             </div>
             <ListButton />

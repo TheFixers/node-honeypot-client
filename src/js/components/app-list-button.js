@@ -12,7 +12,7 @@ export default () => {
         marginTop: '18px',
     }
     return (
-    	<div className="col-sm-1">
+    	<div className="col-md-1">
             <button 
                 className="btn btn-info" 
                 type="button" text="Show List" 

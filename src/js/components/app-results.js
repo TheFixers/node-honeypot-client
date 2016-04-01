@@ -12,11 +12,12 @@ import AppActions from '../actions/app-actions'
 import _parseDataItems from '../modules/data-items-parser'
 import SOURCE from '../static/SourceURL'
 //import _fetchData from '../modules/fetch-data-promise'
+import AppList from './app-list'
 
 let started = false
 
 const getServerData = () => {
-    console.log("Fetching server data... ... ...")
+    //console.log( "AppStore.getServerData(): ", AppStore.getServerData() )
     return { data: AppStore.getServerData() }
 }
 
@@ -24,13 +25,12 @@ class AppResults extends React.Component {
 
     constructor( props ) {
         super( props )
-        this.state = AppStore.getServerData()
+        this.state = getServerData()
         this._onChange = this._onChange.bind( this )
     }
 
     componentWillMount() {
         AppStore.addChangeListener( this._onChange )
-        //this._setData()
     }
 
     componentWillUnmount() {
@@ -40,14 +40,6 @@ class AppResults extends React.Component {
 
     _onChange() {
         this.setState( getServerData )
-    }
-
-    _hasUsername(value) {
-        if (value.hasOwnProperty('Username') && value.Username !== "") {
-            return true
-        } else {
-            return false
-        }
     }
 
     render() {
@@ -76,29 +68,18 @@ class AppResults extends React.Component {
 
         if ( this.state && this.state.data ) {
             items = _parseDataItems( this.state.data )
-            
-        }
-
-        if ( items ) {
-            try {
-                filtered = ( items.filter( this._hasUsername ) )
-            } catch (err) {
-                console.error( err )
-            }
         }
         
-        if ( filtered ) {
+        if ( items ) {
 
-            //console.log( filtered )
-
-            var resultsItems = filtered.map(( item, index ) => {
+            var results = items.map( ( item, index ) => {
                 //if ( index < 10 ) // Limi to ten for now...
                     return ( 
                         <ResultsItem 
                           key={ index } 
                           item={ item } 
                           index={ index } 
-                          txt={ index + 1 }
+                          txt={ index }
                         /> 
                     )
             })
@@ -108,14 +89,14 @@ class AppResults extends React.Component {
                     
                     <h3 className='text-success text-center' style={ styles }>
                 
-                    1-{ filtered.length } of { filtered.length } Results
+                    1-{ results.length } of { results.length } Results
                     </h3>
 
                     <br />
 
                     <div className="header row" style={ th }>
                         <div className="col-sm-1">
-                            <h4><b>Item</b></h4>
+                            <h4><b>Index</b></h4>
                         </div>
                         <div className="col-sm-2">
                             <h4><b>Username</b></h4>
@@ -142,7 +123,9 @@ class AppResults extends React.Component {
                         </div>
                     </div>
         
-                    { resultsItems }
+                    { results }
+
+                    <AppList />
 
                     <Pagination className="pagination text-center"/>
                 </div>

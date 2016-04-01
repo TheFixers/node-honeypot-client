@@ -8,40 +8,44 @@ import AppStore from '../stores/app-store'
 import AppListItem from './app-list-item'
 import AppActions from '../actions/app-actions'
 
-export default ( props ) => {
-	let styles = {
-		borderBottom: 'solid 1px #ccc',
-		width: '100%'
-	}
-	let buttonStyles = {
-		margin: '10px'
-	}
-	let index = props.index
-	let item = props.item
-    return (
-        <div className="result text-center" style={ styles }>
-        	<div className="row">
-                <div className="col-sm-1">
-                    <p>{ props.txt }</p>
-                </div>
-                <div className="col-sm-2">
-                    <p>{ item.TYPE }</p>
-                </div>
-                <div className="col-sm-2">
-                    <p>{ item.IP }</p>
-                </div>
-                <div className="col-sm-3">
-                    <p>{ item.Time }</p>
-                </div>
-                <div className="col-sm-4">
-                    <button 
-                    	style={ buttonStyles } 
-                    	type="button" className="btn btn-secondary"
-                    	onClick={ AppActions.removeItemFromList.bind( null, item ) }>
-                    x
-                    </button>
-                </div>
-            </div>
-        </div>
-    )
+
+const getList = () => {
+    return { items: AppStore.getList() } 
 }
+
+class AppList extends React.Component {
+
+    constructor( props ) {
+        super( props )
+        this.state = getList()
+        this._onChange = this._onChange.bind( this )
+    }
+
+    componentWillMount() {
+        AppStore.addChangeListener( this._onChange )
+    }
+
+    componentWillUnmount() {
+        AppStore.removeChangeListener( this._onChange )
+        this.serverRequest.abort()
+    }
+
+    _onChange() {
+        this.setState( getList )
+    }
+
+    render() {
+
+        var items = this.state.items.map( ( item, index ) => {
+            return <AppListItem key={index} index={index} id={item.id} item={item} />
+        })
+        return (
+            <div className="list">
+                { items }
+            </div>
+        )
+    }
+    
+}
+
+export default AppList
