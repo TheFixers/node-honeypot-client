@@ -11,25 +11,27 @@ caption {
   background: #DFDFDF;
   color: black; }
 
-table {
-  border: solid 1px #ccc;
-  display: inline-block;
-  border-collapse: collapse;
-  border-spacing: 0;
-  border: solid 3px white;
-  border-radius: 5px;
-  width: 100%; }
-
+/* table {
+    border: solid 1px #ccc;
+    display: block;
+    border-collapse: collapse; 
+    border-spacing: 0;
+    border: solid 3px white;
+    border-radius: 5px;
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
 th, td {
-  padding: 1px;
-  border: solid 1px #ccc; }
-
+    padding: 1px;
+    border: solid 1px #ccc;
+}
 th {
-  background: #F1F1F1; }
-
+    background: #F1F1F1;
+}
 td {
-  background: #FAFAFA; }
-
+    background: #FAFAFA;
+} */
 button:hover {
   border: solid 2px #777; }
 

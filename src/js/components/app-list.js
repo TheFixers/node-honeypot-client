@@ -37,10 +37,19 @@ class AppList extends React.Component {
     render() {
 
         var items = this.state.items.map( ( item, index ) => {
-            return <AppListItem key={index} index={index} id={item.id} item={item} />
+            return ( 
+                <AppListItem 
+                    key={index} 
+                    index={index} 
+                    id={item.id} 
+                    item={item} />
+            )
         })
+
         return (
-            <div className="list">
+            <div className="table">
+                <h2>My List</h2>
+                <br />
                 { items }
             </div>
         )
