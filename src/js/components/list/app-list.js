@@ -27,8 +27,8 @@ const AppList = ( props ) => {
     })
 
     return (
-        <div className="table">
-            <h2>My List</h2>
+        <div className="table text-center">
+            <h2>Showing { items.length } items</h2>
             <br />
             { items }
         </div>

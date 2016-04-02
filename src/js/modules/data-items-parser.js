@@ -41,7 +41,7 @@ export default function ( items, index = 0 ) {
         if ( !obj.hasOwnProperty('Username') ) {
             obj.Username = notFound
         }
-        _items.push( Object.assign( { 'index': index }, obj ) )
+        _items.push( Object.assign( { 'index': index, 'id': obj.$oid }, obj ) )
         index++
     })
     return _items

@@ -18,7 +18,7 @@ export default ( props ) => {
             <Route path="/" component={ Template }>
                 <IndexRoute component={ Results }/>
                 <Route path="list" component={ AppList } />
-                {/*<Route path="item/:item" component={ ResultsItemDetail } />*/}
+                <Route path="item/:item" component={ ResultsItemDetail } />
             </Route>
         </Router>
     )

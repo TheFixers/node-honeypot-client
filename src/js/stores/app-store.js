@@ -37,6 +37,15 @@ const _listTotals = ( total = 0 ) => {
     return total
 }
 
+const _findItem = () => {
+    if (_data) {
+        for (let i = 0; i < _data.length; i++) {
+
+    }
+    }
+    
+}
+
 const _requestServerData = ( obj ) => {
     var serverRequest = _fetchData( obj.url )
     serverRequest.then( ( data ) => {
@@ -64,6 +73,25 @@ const AppStore = Object.assign( EventEmitter.prototype, {
 
     getServerData() {
         return _data
+    },
+
+    getCatalog(){
+        if (_data) {
+           return _data.map( item => {
+               return Object.assign( {}, item, _data.find( dItem => dItem.id === item.id))
+           }) 
+        } else {
+            return null
+        }
+        
+    },
+
+    getResultsItems() {
+        if (_data) {
+            return _data
+        } else {
+            return []
+        }
     },
 
     getList() {

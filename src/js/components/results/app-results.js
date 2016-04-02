@@ -104,8 +104,6 @@ const AppResults = ( props ) => {
     
                 { results }
 
-                <AppList />
-
                 <Pagination className="pagination text-center"/>
             </div>
         )
