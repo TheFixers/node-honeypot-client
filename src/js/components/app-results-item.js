@@ -17,12 +17,13 @@ export default ( props ) => {
 
 	let index = props.index
 	let item = props.item
+    let txt = props.txt
 
     return (
         <div className="result text-center">
         	<div className="row item" style={ styles }>
-                <div className="col-sm-1">
-                    <p><b>{ props.txt }</b></p>
+                <div className="col-md-1">
+                    <p><b>{ txt }</b></p>
                 </div>
                 <div className="col-md-2">
                     <p>{ item.Username }</p>

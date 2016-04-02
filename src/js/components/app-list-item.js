@@ -5,9 +5,10 @@
  */
 import React from 'react'
 import AppActions from '../actions/app-actions'
+import AppListItemRow from './app-list-item-row'
 
-export default ( props ) => {
-    console.log("Item: ", props.item)
+const AppListItem = ( props ) => {
+    
     let styles = {
         border: 'solid 1px #ccc',
         width: '60%',
@@ -22,7 +23,7 @@ export default ( props ) => {
 
     if ( props && props.item) {
         var rows = Object.keys( props.item ).map( (key, index) => {
-            return <Row 
+            return <AppListItemRow 
                 style={ styles } 
                 key={ index } 
                 index={ index }  
@@ -60,30 +61,5 @@ export default ( props ) => {
     }
 }
 
-const Row = ( props ) => {
+export default AppListItem
 
-    console.log( props.field )
-
-    if ( props.field === 'index' ){
-        return (
-            <tr className="row">
-                <th className="col-md-4"><b>{ props.field.capFirst() }</b></th>
-                <td className="col-md-8 text-left"><b>{ props.value }</b></td>
-            </tr>
-        )
-    } else {
-        return (
-            <tr className="row">
-                <th className="col-md-4"><b>{ props.field }</b></th>
-                <td className="col-md-8 text-left">{ props.value }</td>
-            </tr>
-        )
-    }
-
-
-    
-}
-
-String.prototype.capFirst = function() {
-    return this.charAt(0).toUpperCase() + this.slice(1);
-}

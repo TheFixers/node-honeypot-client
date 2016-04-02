@@ -11,7 +11,7 @@ import AppStore from '../stores/app-store'
 import AppActions from '../actions/app-actions'
 import _parseDataItems from '../modules/data-items-parser'
 import SOURCE from '../static/SourceURL'
-//import _fetchData from '../modules/fetch-data-promise'
+import StoreWatchMixin from '../mixins/StoreWatchMixin'
 import AppList from './app-list'
 
 let started = false
@@ -21,128 +21,107 @@ const getServerData = () => {
     return { data: AppStore.getServerData() }
 }
 
-class AppResults extends React.Component {
+const AppResults = ( props ) => {
 
-    constructor( props ) {
-        super( props )
-        this.state = getServerData()
-        this._onChange = this._onChange.bind( this )
+    // Styles
+    let styles = {
+        marginTop: '10px',
+        marginBottom: '10px'
     }
 
-    componentWillMount() {
-        AppStore.addChangeListener( this._onChange )
+    let th = {
+        borderBottom: 'solid 2px #ccc',
     }
 
-    componentWillUnmount() {
-        AppStore.removeChangeListener( this._onChange )
-        this.serverRequest.abort()
+    let buttonStyle = {
+        margin: '20px',
+        width: '30%',
+        clear: 'both',
+        marginLeft: '35%',
+        marginRight: '35%' 
     }
 
-    _onChange() {
-        this.setState( getServerData )
-    }
+    // Uses 'data-item-paser.js'
+    var items = null
+    var filtered = null
 
-    render() {
-
-        // Styles
-        let styles = {
-            marginTop: '10px',
-            marginBottom: '10px'
-        }
-
-        let th = {
-            borderBottom: 'solid 2px #ccc',
-        }
-
-        let buttonStyle = {
-            margin: '20px',
-            width: '30%',
-            clear: 'both',
-            marginLeft: '35%',
-            marginRight: '35%' 
-        }
-
-        // Uses 'data-item-paser.js'
-        var items = null
-        var filtered = null
-
-        if ( this.state && this.state.data ) {
-            items = _parseDataItems( this.state.data )
-        }
-        
-        if ( items ) {
-
-            var results = items.map( ( item, index ) => {
-                if ( index < 20 ) // Limi to ten for now...
-                    return ( 
-                        <ResultsItem 
-                          key={ index } 
-                          item={ item } 
-                          index={ index } 
-                          txt={ index }
-                        /> 
-                    )
-            })
-
-            return (
-                <div className="results text-center">
-                    
-                    <h3 className='text-success text-center' style={ styles }>
-                
-                    1-{ results.length } of { results.length } Results
-                    </h3>
-
-                    <br />
-
-                    <div className="header row" style={ th }>
-                        <div className="col-sm-1">
-                            <h4><b>Index</b></h4>
-                        </div>
-                        <div className="col-sm-2">
-                            <h4><b>Username</b></h4>
-                        </div>
-                        <div className="col-sm-1">
-                            <h4><b>Type</b></h4>
-                        </div>
-                        <div className="col-sm-2">
-                            <h4><b>IP Address</b></h4>
-                        </div>
-                        <div className="col-sm-1">
-                            <h4><b>Port</b></h4>
-                        </div>
-                        <div className="col-sm-3">
-                            <h4><b>Time</b></h4>
-                        </div>
-                        <div className="col-sm-2">
-                            <div className="col-sm-6">
-                                <h4><b>View</b></h4>
-                            </div>
-                            <div className="col-sm-6">
-                                <h4><b>List</b></h4>
-                            </div>
-                        </div>
-                    </div>
-        
-                    { results }
-
-                    <AppList />
-
-                    <Pagination className="pagination text-center"/>
-                </div>
-            )
-        } else {
-            return <button 
-                      className="col-sm-12 text-center btn btn-info" 
-                      onClick={ AppActions.requestDataAsync.bind( null, SOURCE ) } 
-                      style={ buttonStyle }>
-                    Load Data From Server
-                    </button>
-        }
+    if ( props && props.data ) {
+        items = _parseDataItems( props.data )
     }
     
+    if ( items ) {
+
+        var results = items.map( ( item, index ) => {
+            if ( index < 20 ) // Limi to ten for now...
+                return ( 
+                    <ResultsItem 
+                      key={ index } 
+                      item={ item } 
+                      index={ index } 
+                      txt={ index }
+                    /> 
+                )
+        })
+
+        return (
+            <div className="results text-center">
+                
+                <h3 className='text-success text-center' style={ styles }>
+            
+                1-{ results.length } of { results.length } Results
+                </h3>
+
+                <br />
+
+                <div className="header row" style={ th }>
+                    <div className="col-sm-1">
+                        <h4><b>Index</b></h4>
+                    </div>
+                    <div className="col-sm-2">
+                        <h4><b>Username</b></h4>
+                    </div>
+                    <div className="col-sm-1">
+                        <h4><b>Type</b></h4>
+                    </div>
+                    <div className="col-sm-2">
+                        <h4><b>IP Address</b></h4>
+                    </div>
+                    <div className="col-sm-1">
+                        <h4><b>Port</b></h4>
+                    </div>
+                    <div className="col-sm-3">
+                        <h4><b>Time</b></h4>
+                    </div>
+                    <div className="col-sm-2">
+                        <div className="col-sm-6">
+                            <h4><b>View</b></h4>
+                        </div>
+                        <div className="col-sm-6">
+                            <h4><b>List</b></h4>
+                        </div>
+                    </div>
+                </div>
+    
+                { results }
+
+                <AppList />
+
+                <Pagination className="pagination text-center"/>
+            </div>
+        )
+    } else {
+        return (
+            <button 
+              className="col-sm-12 text-center btn btn-info" 
+              onClick={ AppActions.requestDataAsync.bind( null, SOURCE ) } 
+              style={ buttonStyle }>
+            Load Data From Server
+            </button>
+        )
+    }
 }
 
-export default AppResults
+export default StoreWatchMixin( AppResults, getServerData )
 
 /*Call 844-400-7746 to qualify today. Application Deadline Ending Soon.
 */

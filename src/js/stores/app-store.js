@@ -27,7 +27,7 @@ const _findListItem = ( item ) => {
 }
 
 const _addItem = ( item ) => {
-    _list.push( item )
+    _list.push( Object.assign( {}, item ) )
 }
 
 const _listTotals = ( total = 0 ) => {
@@ -72,6 +72,7 @@ const AppStore = Object.assign( EventEmitter.prototype, {
 
     getListTotals() {
       return _listTotals()
+      AppStore.emitChange()
     },
 
     // Needs wprk ... Based of of app-constants.js
