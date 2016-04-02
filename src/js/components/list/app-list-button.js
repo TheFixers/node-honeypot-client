@@ -5,8 +5,14 @@
  */
 import React from 'react'
 import AppStore from '../../stores/app-store'
+import StoreWatchMixin from '../../mixins/StoreWatchMixin'
+import { Link } from 'react-router'
 
-export default ( props ) => {
+const getListTotals = () => {
+    return { qty: AppStore.getListTotals() } 
+}
+
+const AppListButton = ( props ) => {
 	
     let buttonStyles = {
         marginRight: '10px',
@@ -19,7 +25,8 @@ export default ( props ) => {
     let txt = ( props.qty === 1 ) ? 'item' : 'items'
     return (
     	<div className="col-md-1">
-            <button 
+            <Link 
+            to="/list" 
             className="btn btn-info" 
             type="button" text="Show List" 
             style={ buttonStyles } 
@@ -27,7 +34,9 @@ export default ( props ) => {
                 <i 
                 className="glyphicon glyphicon-user" 
                 aria-hidden="true" /> My List ( <b>{ props.qty } { txt }</b> )
-            </button>
+            </Link>
         </div>
     )
 }
+
+export default StoreWatchMixin( AppListButton, getListTotals )

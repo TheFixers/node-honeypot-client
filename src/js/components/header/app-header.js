@@ -5,13 +5,10 @@
  */
 import React from 'react'
 import SearchArea from '../search/app-search'
-import ListButton from '../list/app-list-button'
+import AppListButton from '../list/app-list-button'
 import AppStore from '../../stores/app-store'
-import StoreWatchMixin from '../../mixins/StoreWatchMixin'
 
-const getListTotals = () => {
-    return { qty: AppStore.getListTotals() } 
-}
+
 
 const AppHeader = ( props ) => {
     
@@ -30,12 +27,15 @@ const AppHeader = ( props ) => {
                 <img src='http://dejanstojanovic.net/media/31519/honey.ico' style={ styles } />
                 <h1>Honeypot Client</h1>
             </div>
-            <div className="col-md-7">
+            <div className="col-md-5">
                 <SearchArea />
             </div>
-            <ListButton qty={ props.qty } />
+            <div className="col-md-2">
+                <AppListButton />
+            </div>
+            
         </div>
     )
 }
 
-export default StoreWatchMixin( AppHeader, getListTotals )
+export default AppHeader
