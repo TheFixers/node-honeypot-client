@@ -7,9 +7,9 @@ import React from 'react'
 import AppActions from '../actions/app-actions'
 
 export default ( props ) => {
-    console.log("Item: ", props.item.item)
+    console.log("Item: ", props.item)
     let styles = {
-        border: 'solid 3px #ccc',
+        border: 'solid 1px #ccc',
         width: '60%',
         marginTop: '20px',
         marginLeft: '20%',
@@ -17,17 +17,17 @@ export default ( props ) => {
     }
 
     let buttonStyles = {
-        margin: '10px'
+        margin: '5px'
     }
 
-    if ( props && props.item && props.item.item ) {
-        var rows = Object.keys( props.item.item ).map( (key, index) => {
+    if ( props && props.item) {
+        var rows = Object.keys( props.item ).map( (key, index) => {
             return <Row 
                 style={ styles } 
                 key={ index } 
                 index={ index }  
                 field={ key } 
-                value={ props.item.item[key] } />    
+                value={ props.item[key] } />    
         })
         
         return (
@@ -61,10 +61,29 @@ export default ( props ) => {
 }
 
 const Row = ( props ) => {
-    return (
-        <tr className="row">
-            <th className="col-md-4"><b>{ props.field }</b></th>
-            <td className="col-md-8 text-left">{ props.value }</td>
-        </tr>
-    )
+
+    console.log( props.field )
+
+    if ( props.field === 'index' ){
+        return (
+            <tr className="row">
+                <th className="col-md-4"><b>{ props.field.capFirst() }</b></th>
+                <td className="col-md-8 text-left"><b>{ props.value }</b></td>
+            </tr>
+        )
+    } else {
+        return (
+            <tr className="row">
+                <th className="col-md-4"><b>{ props.field }</b></th>
+                <td className="col-md-8 text-left">{ props.value }</td>
+            </tr>
+        )
+    }
+
+
+    
+}
+
+String.prototype.capFirst = function() {
+    return this.charAt(0).toUpperCase() + this.slice(1);
 }

@@ -18,7 +18,8 @@ var _data = null
 var _list = []
 
 const _removeItem = ( item ) => {
-  _list.splice( _list.findIndex( i => i === item ), 1 )
+  _list.splice( _list.findIndex( i => i.index === item.index ), 1 )
+
 }
 
 const _findListItem = ( item ) => {
@@ -26,7 +27,7 @@ const _findListItem = ( item ) => {
 }
 
 const _addItem = ( item ) => {
-    _list.push( Object.assign( {}, item ) )
+    _list.push( item )
 }
 
 const _listTotals = ( total = 0 ) => {
@@ -81,13 +82,13 @@ const AppStore = Object.assign( EventEmitter.prototype, {
                 _requestServerData( payload )
                 break
             case AppConstants.ADD_ITEM_TO_LIST:
-                console.log( "ADD_ITEM_TO_LIST:", payload )
-                _addItem( payload )
+                console.log( "ADD_ITEM_TO_LIST:", payload.item )
+                _addItem( payload.item )
                 console.log("List:", _list)
                 break
             case AppConstants.REMOVE_ITEM_FROM_LIST:
-                console.log( "REMOVE_ITEM_FROM_LIST:", payload )
-                _removeItem( payload )
+                console.log( "REMOVE_ITEM_FROM_LIST:", payload.item )
+                _removeItem( payload.item )
                 break
         }
         AppStore.emitChange()
