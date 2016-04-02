@@ -51,7 +51,7 @@ class AppResults extends React.Component {
         }
 
         let th = {
-            borderBottom: 'solid 1px #ccc',
+            borderBottom: 'solid 2px #ccc',
         }
 
         let buttonStyle = {

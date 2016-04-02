@@ -12,26 +12,28 @@ export default ( props ) => {
         width: '100%',
         margin: 'auto'
     }
-    if (props && props.item && props.item.item) {
-        var items = Object.keys( props.item.item ).map(function (key, index) {
+    if ( props && props.item && props.item.item ) {
+        var items = Object.keys( props.item.item ).map( (key, index) => {
             return <Row 
                 style={ styles } 
-                key={index} 
-                index={index}  
-                field={key} 
-                value={props.item.item[key] } />    
+                key={ index } 
+                index={ index }  
+                field={ key } 
+                value={ props.item.item[key] } />    
         })
-        if ( items ) {
-            return (
-                <table className="table table-hover" style={ styles }>
-                    <tbody>
-                    { items }
-                    </tbody>
-                </table>
-            )
-        } else {
-            return <h4>Error</h4>
-        }
+        
+        return (
+            <table className="table table-hover" style={ styles }>
+                <tbody>
+                { items }
+                </tbody>
+            </table>
+        )
+        
+    } else {
+        return (
+            <h4>Nothing in list yet...</h4>
+        ) 
     }
 }
 
