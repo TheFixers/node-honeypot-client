@@ -4,13 +4,14 @@
  * App list button component
  */
 import React from 'react'
-import AppStore from '../stores/app-store'
+import AppStore from '../../stores/app-store'
 
 export default ( props ) => {
 	
     let buttonStyles = {
-        maxWidth: '150px',
-        minWidth: '150px',
+        marginRight: '10px',
+        maxWidth: '170px',
+        minWidth: '170px',
         height: 'auto',
         marginTop: '18px',
     }
@@ -25,7 +26,7 @@ export default ( props ) => {
             onClick="">
                 <i 
                 className="glyphicon glyphicon-user" 
-                aria-hidden="true" /> My List (<b>{ props.qty } { txt }</b> )
+                aria-hidden="true" /> My List ( <b>{ props.qty } { txt }</b> )
             </button>
         </div>
     )

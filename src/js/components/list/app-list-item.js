@@ -4,7 +4,7 @@
  * App list item component
  */
 import React from 'react'
-import AppActions from '../actions/app-actions'
+import AppActions from '../../actions/app-actions'
 import AppListItemRow from './app-list-item-row'
 
 const AppListItem = ( props ) => {

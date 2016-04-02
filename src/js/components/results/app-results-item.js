@@ -4,7 +4,7 @@
  * App single results item component
  */
 import React from 'react'
-import AppActions from '../actions/app-actions'
+import AppActions from '../../actions/app-actions'
 
 export default ( props ) => {
 	let styles = {

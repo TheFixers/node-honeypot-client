@@ -6,13 +6,13 @@
 
 import React from 'react';
 import ResultsItem from './app-results-item'
-import Pagination from './app-pagination'
-import AppStore from '../stores/app-store'
-import AppActions from '../actions/app-actions'
-import _parseDataItems from '../modules/data-items-parser'
-import SOURCE from '../static/SourceURL'
-import StoreWatchMixin from '../mixins/StoreWatchMixin'
-import AppList from './app-list'
+import Pagination from '../pagination/app-pagination'
+import AppStore from '../../stores/app-store'
+import AppActions from '../../actions/app-actions'
+import _parseDataItems from '../../modules/data-items-parser'
+import SOURCE from '../../static/SourceURL'
+import StoreWatchMixin from '../../mixins/StoreWatchMixin'
+import AppList from '../list/app-list'
 
 let started = false
 

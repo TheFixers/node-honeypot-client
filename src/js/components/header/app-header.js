@@ -4,10 +4,10 @@
  * App header component
  */
 import React from 'react'
-import SearchArea from './app-search'
-import ListButton from './app-list-button'
-import AppStore from '../stores/app-store'
-import StoreWatchMixin from '../mixins/StoreWatchMixin'
+import SearchArea from '../search/app-search'
+import ListButton from '../list/app-list-button'
+import AppStore from '../../stores/app-store'
+import StoreWatchMixin from '../../mixins/StoreWatchMixin'
 
 const getListTotals = () => {
     return { qty: AppStore.getListTotals() } 

@@ -4,7 +4,7 @@
  * App results item detail component shows info when item is clicked
  */
 import React from 'react'
-import AppActions from '../actions/app-actions'
+import AppActions from '../../actions/app-actions'
 
 export default ( props ) => {
 	let styles = {

@@ -4,10 +4,10 @@
  * App list component
  */
 import React from 'react'
-import AppStore from '../stores/app-store'
+import AppStore from '../../stores/app-store'
 import AppListItem from './app-list-item'
-import AppActions from '../actions/app-actions'
-import StoreWatchMixin from '../mixins/StoreWatchMixin'
+import AppActions from '../../actions/app-actions'
+import StoreWatchMixin from '../../mixins/StoreWatchMixin'
 
 
 const getList = () => {

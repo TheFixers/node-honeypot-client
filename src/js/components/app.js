@@ -5,8 +5,8 @@
  */
 
 import React from 'react'
-import Results from './app-results'
-import ResultsItemDetail from './app-results-item-detail'
+import Results from './results/app-results'
+import ResultsItemDetail from './detail/app-results-item-detail'
 import Template from './app-template'
 import { Router, Route, IndexRoute } from 'react-router'
 
