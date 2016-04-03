@@ -27,7 +27,12 @@ const _findListItem = ( item ) => {
 }
 
 const _addItem = ( item ) => {
-    _list.push( Object.assign( {}, item ) )
+    if ( _findListItem( item ) ) {
+        return 
+    } else {
+        _list.push( Object.assign( {}, item ) )
+    }
+    
 }
 
 const _listTotals = ( total = 0 ) => {

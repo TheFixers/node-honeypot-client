@@ -31,7 +31,7 @@ const AppListButton = ( props ) => {
             style={ buttonStyles }>
                 <i 
                 className="glyphicon glyphicon-list" 
-                aria-hidden="true" /><b>{ props.qty } { txt }</b>
+                aria-hidden="true" /> <b> { props.qty } { txt } </b>
             </Link>
         </div>
     )

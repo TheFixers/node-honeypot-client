@@ -40,9 +40,12 @@ const AppResultsItemDetail = ( props ) => {
         
         return (
             <div className="item-detail">
+                
                 <h3 className='text-success text-center' style={ styles }>
                 Item detail
                 </h3>
+
+                <br />
 
                 <table className="table table-hover table-striped">
                     <tbody className="">

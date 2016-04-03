@@ -52,7 +52,7 @@ const AppResults = ( props ) => {
     if ( items ) {
 
         var results = items.map( ( item, index ) => {
-            if ( index < 20 ) // Limi to ten for now...
+            //if ( index < 20 ) // Limi to ten for now...
                 return ( 
                     <ResultsItem 
                       key={ index } 
@@ -97,8 +97,6 @@ const AppResults = ( props ) => {
                 </div>
     
                 { results }
-
-                <AppList />
 
                 <Pagination className="pagination text-center"/>
             </div>

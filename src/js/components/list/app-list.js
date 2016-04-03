@@ -31,14 +31,19 @@ const AppList = ( props ) => {
         )
     })
 
+    let txt = ( items.length === 1 ) ? 'item' : 'items'
+
     return (
         <div className="table text-center">
+            
             <h3 className='text-success text-center' style={ styles }>
-            { items.length } items in list
+            { items.length } { txt } in list
             </h3>
            
             <br />
+
             { items }
+
         </div>
     )
     
