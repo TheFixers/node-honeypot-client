@@ -21,10 +21,10 @@ export default ( url ) => {
                 for ( var item in data ) {
                     if ( data.hasOwnProperty( item ) ) {
                         try {
-                             temp.push( JSON.parse( data[item] ) )
-                         } catch ( err ) {
-        
-                         } 
+                            temp.push( JSON.parse( data[item] ) )
+                        } finally {
+                            continue
+                        }
                     }  
                 }
                 resolve( temp )

@@ -7,7 +7,6 @@ import React from 'react'
 import AppActions from '../../actions/app-actions'
 import AppStore from '../../stores/app-store'
 import StoreWatchMixin from '../../mixins/StoreWatchMixin'
-import _parseDataItems from '../../modules/data-items-parser'
 import AppListItemRow from '../list/app-list-item-row'
 import { Link } from 'react-router'
 
@@ -30,8 +29,7 @@ const AppResultsItemDetail = ( props ) => {
                 index={ index }  
                 field={ key } 
                 value={ props.item[key] } />  
-            }
-              
+            }  
         })
         
         return (

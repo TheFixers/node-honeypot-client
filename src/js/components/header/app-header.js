@@ -6,9 +6,6 @@
 import React from 'react'
 import SearchArea from '../search/app-search'
 import AppListButton from '../list/app-list-button'
-import AppStore from '../../stores/app-store'
-
-
 
 const AppHeader = ( props ) => {
     

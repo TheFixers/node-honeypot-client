@@ -10,7 +10,6 @@ import AppConstants from '../constants/app-constants'
 import AppActions from '../actions/app-actions'
 import _fetchData from '../modules/fetch-data-promise'
 import _parser from '../modules/data-items-parser'
-import SOURCE from '../static/SourceURL'
 
 const CHANGE_EVENT = 'change'
 

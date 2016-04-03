@@ -30,15 +30,11 @@ const AppList = ( props ) => {
 
     return (
         <div className="table">
-            
             <h3 className='list-header text-center'>
             { items.length } { txt } in list
             </h3>
-           
-            <br />
-
+            <br/>
             { items }
-
         </div>
     )
     

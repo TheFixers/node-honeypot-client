@@ -25,10 +25,10 @@ const AppListButton = ( props ) => {
     return (
     	<div className="col-md-1">
             <Link 
-            to="/list" 
-            className="btn btn-info" 
-            type="button" text="Show List" 
-            style={ buttonStyles }>
+                to="/list" 
+                className="btn btn-info" 
+                type="button" text="Show List" 
+                style={ buttonStyles }>
                 List ( <b> { props.qty } { txt } </b> )
             </Link>
         </div>

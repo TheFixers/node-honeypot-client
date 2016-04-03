@@ -11,7 +11,7 @@ import React from 'react'
 import AppStore from '../stores/app-store'
 
 export default ( InnerComponent, stateCB ) => class extends React.Component {
-    
+
     constructor( props ) {
         super( props )
         this.state = stateCB( props )
@@ -31,7 +31,7 @@ export default ( InnerComponent, stateCB ) => class extends React.Component {
     }
 
     render() {
-        return <InnerComponent {...this.state} {...this.props} />
+        return <InnerComponent {...this.state} {...this.props}  />
     }
 }
 
