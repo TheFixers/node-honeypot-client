@@ -21,7 +21,6 @@ coverage
 .lock-wscript
 
 # Compiled binary addons (http://nodejs.org/api/addons.html)
-build/Release
 
 # Dependency directory
 node_modules
@@ -33,5 +32,3 @@ node_modules
 .node_repl_history
 
 # build stuff
-build/
-client/compiled

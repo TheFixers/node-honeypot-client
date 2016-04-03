@@ -1,0 +1,135 @@
+
+h1 {
+	font-family: 'Oswald', sans-serif;
+	text-transform: uppercase;
+}
+h3 {
+    font-family: 'Lato';
+    font-weight: 700;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+h4 {
+    font-family: 'Lato';
+    font-weight: 700
+}
+caption {
+    text-align: center;
+    background: #DFDFDF;
+    color: black;
+}
+table {
+    border: solid 1px #ccc;
+    display: block;
+    border-collapse: collapse; 
+    border-spacing: 0;
+    border-radius: 5px;
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+th, td {
+    padding: 1px;
+    border: solid 1px #ccc;
+}
+th {
+    background: #F1F1F1;
+}
+td {
+    background: #FAFAFA;
+} 
+.btn-secondary:hover {
+    border: solid 2px #777;
+}
+.btn-secondary {
+    width: auto;
+    color: #000;
+}
+.btn-center {
+    margin: 20px;
+    width: auto;
+    clear: both;
+    margin-left: 35%;
+    margin-right: 35%;
+}
+.btn-group-center {
+
+}
+.footer {
+    height: 60px;
+}
+.result p{
+    margin-top: 10px;
+}
+.item:hover { 
+    background: #eee; 
+    transition: background 0.3s;
+    .btn {
+        color: inherit;
+        border: solid 2px #999;
+        transition: border 0.3s;
+
+    }
+    .btn:hover {
+         border: solid 2px #777;
+         transition: border 0.3s;
+    }
+}
+.btn-secondary {
+    border: solid 2px #ccc;    
+}
+.btn-toolbar {
+    
+}
+.highlight {
+    background-color: lightpink;
+}
+.text-success {
+	color: black;
+}
+.search-area{
+
+}
+.results h2{
+	display: block;
+}
+.results h4{
+	display: block;
+}
+.result {
+
+}
+.result p {
+    padding-top: 10px;
+}
+.btn-toolbar {
+    display: table;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.glyphicon-search {
+    margin: 5px;
+}
+.glyphicon {
+    color: black;
+}
+.btn-secondary {
+    background-color: #ddd;
+}
+.item-detail-btn-group, .list-item-btn-group{
+    display: inline;
+}
+.item-detail {
+    padding: 20px;
+}
+.list-item-header {
+    h3 {
+        margin-top: 20px;
+    }
+    
+}
+
+.header {
+    border-bottom: solid 2px #ccc;
+}

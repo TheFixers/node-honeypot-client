@@ -1,25 +1,32 @@
 # node-honeypot-client
-Honeypot Client using NodeJS, NPM, React, Gulp, and custom modules to parse JSON responses from Honeypot Server
+Honeypot Client using NodeJS, NPM, React, Webpack, and custom modules to parse JSON responses from Honeypot Server
+
+## Warning
+* DO NOT PULL THIS INTO MASTER UNTIL I AM DONE!!!
+* Legacy code has been moved to `legacy/` but links have not been changed yet, so the legacy code is broken for now, but intact.
+* Scaffolding and basic app construction for refactor is underway. Please do not touch right now as it's in a critical stage of development, and just being fleshed out right now... Feel free to fire it up though... :)
+
+## This project assumes you have Node and the following global NPM packages installed 
+* `node`
+* `babel`
+* `webpack`
+* `webpack-dev-server`
+
+### Example of installing global NPM packages
+`npm install babel webpack webpack-dev-server -g`
 
 ##Installation
 
-To package, compile, and bundle the application, use the following commands from the root directory...
+Use the following commands from the root directory...
 
 ### Installing node dependencies
 * `npm install` - installs all node dependancies from `package.json`
 
-### Main Gulp commands
-* `gulp build` - build and compile everything
-* `gulp watch` - live building
-* `gulp clean` - clean out the build and client/compiled folders before git commit
+### Running on webpack-dev-server and compiling SCSS to CSS
+* `npm start`
 
-#### Misc Gulp commands
-* `gulp sass`  - compile SASS to CSS
-* `gulp modules` - compile modules
-* `gulp components` - compile components
-* `gulp static` - compile static sources
-* `gulp entry` - compile entry file
-* `gulp compile` - compile
+### Gulp Sass task (included in `npm start` but can be run separately)
+* `gulp sass`
 
 ## Contributions
 Please make sure all commits from this point on are done on branches, which I (@rabbitfighter81) will pull in after checking. This will allow for a smoother workflow moving forward with more than one team member.
