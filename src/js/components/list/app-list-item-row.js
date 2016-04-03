@@ -17,9 +17,6 @@ const AppListItemRow = ( props ) => {
             </tr>
         )
     }
-
-
-    
 }
 
 String.prototype.capFirst = function() {

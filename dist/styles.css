@@ -1,39 +1,55 @@
-@font-face {
-  font-family: 'Glyphicons Halflings';
-  src: url(../fonts/glyphicons-halflings-regular.eot); }
-
 h1 {
   font-family: 'Oswald', sans-serif;
   text-transform: uppercase; }
+
+h3 {
+  font-family: 'Lato';
+  font-weight: 700;
+  margin-top: 10px;
+  margin-bottom: 10px; }
+
+h4 {
+  font-family: 'Lato';
+  font-weight: 700; }
 
 caption {
   text-align: center;
   background: #DFDFDF;
   color: black; }
 
-/* table {
-    border: solid 1px #ccc;
-    display: block;
-    border-collapse: collapse; 
-    border-spacing: 0;
-    border: solid 3px white;
-    border-radius: 5px;
-    width: 100%;
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
+table {
+  border: solid 1px #ccc;
+  display: block;
+  border-collapse: collapse;
+  border-spacing: 0;
+  border-radius: 5px;
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 20px; }
+
 th, td {
-    padding: 1px;
-    border: solid 1px #ccc;
-}
+  padding: 1px;
+  border: solid 1px #ccc; }
+
 th {
-    background: #F1F1F1;
-}
+  background: #F1F1F1; }
+
 td {
-    background: #FAFAFA;
-} */
-button:hover {
+  background: #FAFAFA; }
+
+.btn-secondary:hover {
   border: solid 2px #777; }
+
+.btn-secondary {
+  width: auto;
+  color: #000; }
+
+.btn-center {
+  margin: 20px;
+  width: auto;
+  clear: both;
+  margin-left: 35%;
+  margin-right: 35%; }
 
 .footer {
   height: 60px; }
@@ -90,3 +106,9 @@ button:hover {
 
 .item-detail {
   padding: 20px; }
+
+.list-item-header h3 {
+  margin-top: 20px; }
+
+.header {
+  border-bottom: solid 2px #ccc; }

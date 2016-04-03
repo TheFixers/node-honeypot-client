@@ -21,29 +21,25 @@ const getResultsItem = ( props ) => {
 
 const AppResultsItemDetail = ( props ) => {
 
-    let styles = {
-        marginTop: '10px',
-        marginBottom: '10px'
-    }
-
     if ( props && props.item ) {
         
         var rows = Object.keys( props.item ).map( (key, index) => {
-            return <AppListItemRow 
+            if ( key !== 'id' ) {
+                return <AppListItemRow 
                 key={ index } 
                 index={ index }  
                 field={ key } 
-                value={ props.item[key] } />    
+                value={ props.item[key] } />  
+            }
+              
         })
         
         return (
             <div className="item-detail">
                 
-                <h3 className='text-success text-center' style={ styles }>
+                <h3 className='text-success text-center'>
                 Item detail
                 </h3>
-
-                <br />
 
                 <table className="table table-hover table-striped">
                     <tbody className="">

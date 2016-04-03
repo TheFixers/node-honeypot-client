@@ -17,7 +17,6 @@ import AppList from '../list/app-list'
 let started = false
 
 const getServerData = () => {
-    //console.log( "AppStore.getServerData(): ", AppStore.getServerData() )
     return { data: AppStore.getParsedData() }
 }
 
@@ -41,9 +40,7 @@ const AppResults = ( props ) => {
         marginRight: '35%' 
     }
 
-    // Uses 'data-item-paser.js'
     var items = null
-    var filtered = null
 
     if ( props && props.data ) {
         items =  props.data
@@ -52,7 +49,7 @@ const AppResults = ( props ) => {
     if ( items ) {
 
         var results = items.map( ( item, index ) => {
-            //if ( index < 20 ) // Limi to ten for now...
+
                 return ( 
                     <ResultsItem 
                       key={ index } 
@@ -87,12 +84,7 @@ const AppResults = ( props ) => {
                         <h4><b>Time</b></h4>
                     </div>
                     <div className="col-sm-2 col-md-2">
-                        <div className="col-sm-6 col-md-6">
-                            <h4><b>View</b></h4>
-                        </div>
-                        <div className="col-sm-6 col-md-6">
-                            <h4><b>List</b></h4>
-                        </div>
+                        <h4><b>View / List</b></h4>
                     </div>
                 </div>
     

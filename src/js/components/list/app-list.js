@@ -16,11 +16,6 @@ const getList = () => {
 
 const AppList = ( props ) => {
 
-    let styles = {
-        marginTop: '10px',
-        marginBottom: '10px'
-    } 
-
     var items = props.items.map( ( item, index ) => {
         return ( 
             <AppListItem 
@@ -36,7 +31,7 @@ const AppList = ( props ) => {
     return (
         <div className="table">
             
-            <h3 className='list-header text-center' style={ styles }>
+            <h3 className='list-header text-center'>
             { items.length } { txt } in list
             </h3>
            
