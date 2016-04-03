@@ -53,8 +53,7 @@ const AppResults = ( props ) => {
                       key={ index } 
                       item={ item } 
                       index={ index } 
-                      txt={ index }
-                    /> 
+                      txt={ index } /> 
                 )
         })
 
@@ -93,12 +92,7 @@ const AppResults = ( props ) => {
         )
     } else {
         return (
-            <button 
-              className="col-sm-12 text-center btn btn-info" 
-              onClick={ AppActions.requestDataAsync.bind( null, SOURCE ) } 
-              style={ buttonStyle }>
-            Load Data From Server
-            </button>
+            <h3 className="text-center">Loading...</h3>
         )
     }
 }
