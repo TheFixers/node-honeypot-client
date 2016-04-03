@@ -22,6 +22,8 @@ export default ( props ) => {
 
     /*console.log(props.item.index)*/
 
+    console.log("ID:",  item.id )
+
     return (
         <div className="result text-center">
         	<div className="row item" style={ styles }>
@@ -45,7 +47,9 @@ export default ( props ) => {
                 </div>
                 <div className="col-md-2">
                     <Link 
+
                     to={`/item/${item.id}`} 
+                    
                     className="col-md-6"
                     style={ buttonStyles } 
                     type="button" 

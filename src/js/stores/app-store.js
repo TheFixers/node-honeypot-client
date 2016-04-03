@@ -37,11 +37,13 @@ const _listTotals = ( total = 0 ) => {
     return total
 }
 
-const _findItem = () => {
-    if (_data) {
-        for (let i = 0; i < _data.length; i++) {
-
-    }
+const _findItem = ( id ) => {
+    if ( _data ) {
+        for ( let i = 0; i < _data.length; i++ ) {
+            if ( _data[i].id === id ) {
+                return _data[i]
+            }
+        }
     }
     
 }
@@ -72,26 +74,12 @@ const AppStore = Object.assign( EventEmitter.prototype, {
     },
 
     getServerData() {
+        console.log( typeof _data)
         return _data
     },
 
-    getCatalog(){
-        if (_data) {
-           return _data.map( item => {
-               return Object.assign( {}, item, _data.find( dItem => dItem.id === item.id))
-           }) 
-        } else {
-            return null
-        }
-        
-    },
-
-    getResultsItems() {
-        if (_data) {
-            return _data
-        } else {
-            return []
-        }
+    getItemById( id ) {
+        return _findItem( id )
     },
 
     getList() {

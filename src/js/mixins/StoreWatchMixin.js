@@ -31,7 +31,9 @@ export default ( InnerComponent, stateCB ) => class extends React.Component {
     }
 
     render() {
-        return <InnerComponent { ...this.state } { ...this.props } />
+        console.log("State", this.state)
+        console.log("Props", this.props)
+        return <InnerComponent {...this.state} {...this.props} />
     }
 }
 

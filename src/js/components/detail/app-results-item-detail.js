@@ -7,21 +7,23 @@ import React from 'react'
 import AppActions from '../../actions/app-actions'
 import AppStore from '../../stores/app-store'
 import StoreWatchMixin from '../../mixins/StoreWatchMixin'
+import _parseDataItems from '../../modules/data-items-parser'
+import AppListItemRow from '../list/app-list-item-row'
 import { Link } from 'react-router'
 
-function getResultsItem() {
-	/*if (AppStore.getCatalog()) {
-		let item = AppStore.getCatalog().find( ({ id }) => id === props.params.id )
-		return { item }
-	}*/	
+const getResultsItem = ( props ) => {
+	if ( AppStore.getServerData() ) {
+		let data = _parseDataItems( AppStore.getServerData() )
+        let item = data.find( ({ id }) => id === props.params.item )
+        return {item}	
+	}
 }
 
 const AppResultsItemDetail = ( props ) => {
 
-    if ( props && props.item) {
+    if ( props && props.item ) {
         var rows = Object.keys( props.item ).map( (key, index) => {
             return <AppListItemRow 
-                style={ styles } 
                 key={ index } 
                 index={ index }  
                 field={ key } 
@@ -30,19 +32,17 @@ const AppResultsItemDetail = ( props ) => {
         
         return (
             <div className="">
-                <table className="table table-hover table-striped" style={ styles }>
+                <table className="table table-hover table-striped">
                     <tbody className="">
                         { rows }
                     </tbody>
                 </table>
                 <Link to="/" 
-                    style={ buttonStyles } 
                     type="button" 
                     className="btn btn-secondary">
                 Go back
                 </Link>
                 <button
-                    style={ buttonStyles }
                     type="button"
                     className="btn btn-secondary"
                     onClick={ AppActions.addItemToList.bind( null, props.item ) }>
@@ -53,7 +53,7 @@ const AppResultsItemDetail = ( props ) => {
         
     } else {
         return (
-            <h4 className="text-center">Not functional yet</h4>
+            <h4 className="text-center">No</h4>
         ) 
     }
 }
