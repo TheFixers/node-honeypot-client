@@ -74,20 +74,14 @@ const AppResults = ( props ) => {
                 <br />
 
                 <div className="header row" style={ th }>
-                    <div className="col-sm-1">
+                    <div className="col-sm-2">
                         <h4><b>Index</b></h4>
                     </div>
                     <div className="col-sm-2">
                         <h4><b>Username</b></h4>
                     </div>
-                    <div className="col-sm-1">
-                        <h4><b>Type</b></h4>
-                    </div>
-                    <div className="col-sm-2">
+                    <div className="col-sm-3">
                         <h4><b>IP Address</b></h4>
-                    </div>
-                    <div className="col-sm-1">
-                        <h4><b>Port</b></h4>
                     </div>
                     <div className="col-sm-3">
                         <h4><b>Time</b></h4>
@@ -103,6 +97,8 @@ const AppResults = ( props ) => {
                 </div>
     
                 { results }
+
+                <AppList />
 
                 <Pagination className="pagination text-center"/>
             </div>

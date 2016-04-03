@@ -21,7 +21,21 @@ const getResultsItem = ( props ) => {
 
 const AppResultsItemDetail = ( props ) => {
 
+    let styles = {
+        marginTop: '10px',
+        marginBottom: '10px'
+    }
+
+    let buttonStyle = {
+        margin: '20px',
+        width: '30%',
+        clear: 'both',
+        marginLeft: '35%',
+        marginRight: '35%' 
+    }
+
     if ( props && props.item ) {
+        
         var rows = Object.keys( props.item ).map( (key, index) => {
             return <AppListItemRow 
                 key={ index } 
@@ -31,29 +45,38 @@ const AppResultsItemDetail = ( props ) => {
         })
         
         return (
-            <div className="">
+            <div className="item-detail">
+                <h3 className='text-success text-center' style={ styles }>
+                Item detail
+                </h3>
+
                 <table className="table table-hover table-striped">
                     <tbody className="">
                         { rows }
                     </tbody>
                 </table>
-                <Link to="/" 
-                    type="button" 
-                    className="btn btn-secondary">
-                Go back
-                </Link>
-                <button
-                    type="button"
-                    className="btn btn-secondary"
-                    onClick={ AppActions.addItemToList.bind( null, props.item ) }>
-                Add to List
-                </button>
+                <br />
+                <div className="item-detail-btn-group btn-group" style={ buttonStyle }>
+                    <Link 
+                        to="/"
+                        type="button" 
+                        className="btn btn-secondary">
+                        Go back
+                    </Link>
+                    <button
+                        type="button"
+                        className="btn btn-secondary"
+                        onClick={ AppActions.addItemToList.bind( null, props.item ) }>
+                        Add to List
+                    </button>
+                </div>
+                <br />
             </div>
         )
         
     } else {
         return (
-            <h4 className="text-center">No</h4>
+            <h4 className="text-center"></h4>
         ) 
     }
 }

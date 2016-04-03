@@ -15,23 +15,21 @@ const getListTotals = () => {
 const AppListButton = ( props ) => {
 	
     let buttonStyles = {
-        maxWidth: '170px',
-        minWidth: '170px',
+        maxWidth: '130px',
+        minWidth: '10px',
         height: 'auto',
         marginTop: '18px',
     }
 
     let txt = ( props.qty === 1 ) ? 'item' : 'items'
     return (
-    	<div className="col-md-1">
+    	<div className="">
             <Link 
             to="/list" 
             className="btn btn-info" 
             type="button" text="Show List" 
             style={ buttonStyles }>
-                <i 
-                className="glyphicon glyphicon-user" 
-                aria-hidden="true" /> My List ( <b>{ props.qty } { txt }</b> )
+            List ( <b>{ props.qty } { txt }</b> )
             </Link>
         </div>
     )

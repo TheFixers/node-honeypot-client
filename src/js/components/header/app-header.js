@@ -23,14 +23,14 @@ const AppHeader = ( props ) => {
     
     return (
         <div className="row" style={ {borderBottom: '2px solid #ccc'} }>
-            <div className="col-md-4 text-left">
+            <div className="col-sm-4 text-left">
                 <img src='http://dejanstojanovic.net/media/31519/honey.ico' style={ styles } />
                 <h1>Honeypot Client</h1>
             </div>
-            <div className="col-md-5">
+            <div className="col-sm-6">
                 <SearchArea />
             </div>
-            <div className="col-md-2">
+            <div className="col-sm-2">
                 <AppListButton />
             </div>
             

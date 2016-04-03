@@ -5,15 +5,15 @@ const AppListItemRow = ( props ) => {
     if ( props.field === 'index' ){
         return (
             <tr className="row">
-                <th className="col-md-4"><b>{ props.field.capFirst() }</b></th>
-                <td className="col-md-8 text-left"><b>{ props.value }</b></td>
+                <th className="col-sm-4"><b>{ props.field.capFirst() }</b></th>
+                <td className="col-sm-8 text-left"><b>{ props.value }</b></td>
             </tr>
         )
     } else {
         return (
             <tr className="row">
-                <th className="col-md-4"><b>{ props.field }</b></th>
-                <td className="col-md-8 text-left">{ props.value }</td>
+                <th className="col-sm-4"><b>{ props.field }</b></th>
+                <td className="col-sm-8 text-left">{ props.value }</td>
             </tr>
         )
     }

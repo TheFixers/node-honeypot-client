@@ -37,6 +37,9 @@ td {
 button:hover {
     border: solid 2px #777;
 }
+button{
+    background-color: transparent;
+}
 .footer {
     height: 60px;
 }
@@ -44,13 +47,17 @@ button:hover {
     margin-top: 10px;
 }
 .item:hover { 
-    background: #555; 
-    color: white; 
+    background: #eee; 
     transition: background 0.3s;
-    transition: color 0.3s;
-    border: solid 1px #ccc;
     .btn {
-        color: black;
+        color: inherit;
+        border: solid 2px #999;
+        transition: border 0.3s;
+
+    }
+    .btn:hover {
+         border: solid 2px #777;
+         transition: border 0.3s;
     }
 }
 .btn-secondary {
