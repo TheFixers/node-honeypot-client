@@ -44,6 +44,7 @@ export default function ( items, index = 0 ) {
         _items.push( Object.assign( { 'index': index, 'id': obj.$oid }, obj ) )
         index++
     })
+    console.log("Hi, im eating up a ton of memory...")
     return _items
 }
 

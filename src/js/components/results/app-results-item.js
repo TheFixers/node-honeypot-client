@@ -37,21 +37,19 @@ export default ( props ) => {
                 </div>
                 <div className="col-sm-2 col-md-2">
                     <Link 
-
-                    to={`/item/${item.id}`} 
-                    
-                    className="col-sm-6 col-md-6"
-                    style={ buttonStyles } 
-                    type="button" 
-                    className="btn btn-secondary">
+                        to={`/item/${item.id}`} 
+                        className="col-sm-6 col-md-6"
+                        style={ buttonStyles } 
+                        type="button" 
+                        className="btn btn-secondary">
                         <span className="glyphicon glyphicon-eye-open" aria-hidden="true" />
                     </Link>
                     <button
-                    className="col-sm-6 col-md-6"
-                    style={ buttonStyles }
-                    type="button"
-                    className="btn btn-secondary"
-                    onClick={ AppActions.addItemToList.bind( null, props.item ) }>
+                        className="col-sm-6 col-md-6"
+                        style={ buttonStyles }
+                        type="button"
+                        className="btn btn-secondary"
+                        onClick={ AppActions.addItemToList.bind( null, props.item ) }>
                         <span className="glyphicon glyphicon-plus" aria-hidden="true" />
                     </button>
                 </div>

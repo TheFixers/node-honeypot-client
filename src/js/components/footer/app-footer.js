@@ -15,7 +15,7 @@ export default () => {
         <div className="footer text-center">
             <footer 
                 style={{margin: '20px', borderBottom: '2px solid #ccc'}}>
-                Copyright &copy; 2016 | MIT License 
+                &copy; 2016 RFS | MIT License 
                 <br/>
                 <a href="http://github.com/TheFixers/node-honeypot-client" target="blank">
                     <img 

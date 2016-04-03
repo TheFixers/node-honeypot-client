@@ -9,6 +9,7 @@ import { dispatch, register } from '../dispatchers/app-dispatcher'
 import AppConstants from '../constants/app-constants'
 import AppActions from '../actions/app-actions'
 import _fetchData from '../modules/fetch-data-promise'
+import _parser from '../modules/data-items-parser'
 import SOURCE from '../static/SourceURL'
 
 const CHANGE_EVENT = 'change'
@@ -16,6 +17,8 @@ const CHANGE_EVENT = 'change'
 var _data = null
 
 var _list = []
+
+var _parsed = null
 
 const _removeItem = ( item ) => {
   _list.splice( _list.findIndex( i => i.index === item.index ), 1 )
@@ -32,7 +35,6 @@ const _addItem = ( item ) => {
     } else {
         _list.push( Object.assign( {}, item ) )
     }
-    
 }
 
 const _listTotals = ( total = 0 ) => {
@@ -57,6 +59,7 @@ const _requestServerData = ( obj ) => {
     var serverRequest = _fetchData( obj.url )
     serverRequest.then( ( data ) => {
         _data = data
+        _parsed = _parser( _data )
         AppStore.emitChange()
     })
     .catch( ( err ) => {
@@ -81,6 +84,10 @@ const AppStore = Object.assign( EventEmitter.prototype, {
     getServerData() {
         console.log( typeof _data)
         return _data
+    },
+
+    getParsedData() {
+        return _parsed
     },
 
     getItemById( id ) {

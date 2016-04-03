@@ -34,9 +34,9 @@ const AppList = ( props ) => {
     let txt = ( items.length === 1 ) ? 'item' : 'items'
 
     return (
-        <div className="table text-center">
+        <div className="table">
             
-            <h3 className='text-success text-center' style={ styles }>
+            <h3 className='list-header text-center' style={ styles }>
             { items.length } { txt } in list
             </h3>
            

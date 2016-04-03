@@ -18,7 +18,7 @@ let started = false
 
 const getServerData = () => {
     //console.log( "AppStore.getServerData(): ", AppStore.getServerData() )
-    return { data: AppStore.getServerData() }
+    return { data: AppStore.getParsedData() }
 }
 
 const AppResults = ( props ) => {
@@ -46,7 +46,7 @@ const AppResults = ( props ) => {
     var filtered = null
 
     if ( props && props.data ) {
-        items = _parseDataItems( props.data )
+        items =  props.data
     }
     
     if ( items ) {

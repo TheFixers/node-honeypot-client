@@ -35,9 +35,6 @@ td {
 button:hover {
   border: solid 2px #777; }
 
-button {
-  background-color: transparent; }
-
 .footer {
   height: 60px; }
 
@@ -58,10 +55,6 @@ button {
 .btn-secondary {
   border: solid 2px #ccc; }
 
-.btn-toolbar {
-  display: table;
-  margin: 0 auto; }
-
 .highlight {
   background-color: lightpink; }
 
@@ -78,8 +71,22 @@ button {
   padding-top: 10px; }
 
 .btn-toolbar {
+  display: table;
+  margin: 0 auto;
   margin-top: 20px;
   margin-bottom: 20px; }
 
 .glyphicon-search {
   margin: 5px; }
+
+.glyphicon {
+  color: black; }
+
+.btn-secondary {
+  background-color: #ddd; }
+
+.item-detail-btn-group, .list-item-btn-group {
+  display: inline; }
+
+.item-detail {
+  padding: 20px; }

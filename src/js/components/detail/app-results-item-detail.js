@@ -12,8 +12,8 @@ import AppListItemRow from '../list/app-list-item-row'
 import { Link } from 'react-router'
 
 const getResultsItem = ( props ) => {
-	if ( AppStore.getServerData() ) {
-		let data = _parseDataItems( AppStore.getServerData() )
+	if ( AppStore.getParsedData() ) {
+        let data = AppStore.getParsedData()
         let item = data.find( ({ id }) => id === props.params.item )
         return {item}	
 	}
@@ -25,8 +25,6 @@ const AppResultsItemDetail = ( props ) => {
         marginTop: '10px',
         marginBottom: '10px'
     }
-
-
 
     if ( props && props.item ) {
         
@@ -52,13 +50,12 @@ const AppResultsItemDetail = ( props ) => {
                         { rows }
                     </tbody>
                 </table>
-                <br />
                 <div className="item-detail-btn-group btn-group">
                     <Link 
                         to="/"
                         type="button" 
                         className="btn btn-secondary">
-                        Go back
+                        Return to results
                     </Link>
                     <button
                         type="button"

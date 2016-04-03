@@ -15,8 +15,8 @@ const getListTotals = () => {
 const AppListButton = ( props ) => {
 	
     let buttonStyles = {
-        maxWidth: '100px',
-        minWidth: '100px',
+        maxWidth: '120px',
+        minWidth: '120px',
         height: 'auto',
         marginTop: '18px',
     }
@@ -29,9 +29,7 @@ const AppListButton = ( props ) => {
             className="btn btn-info" 
             type="button" text="Show List" 
             style={ buttonStyles }>
-                <i 
-                className="glyphicon glyphicon-list" 
-                aria-hidden="true" /> <b> { props.qty } { txt } </b>
+                List ( <b> { props.qty } { txt } </b> )
             </Link>
         </div>
     )
