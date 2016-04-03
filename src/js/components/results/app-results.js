@@ -74,23 +74,23 @@ const AppResults = ( props ) => {
                 <br />
 
                 <div className="header row" style={ th }>
-                    <div className="col-sm-2">
+                    <div className="col-sm-2 col-md-2">
                         <h4><b>Index</b></h4>
                     </div>
-                    <div className="col-sm-2">
+                    <div className="col-sm-2 col-md-2">
                         <h4><b>Username</b></h4>
                     </div>
-                    <div className="col-sm-3">
+                    <div className="col-sm-3 col-md-3">
                         <h4><b>IP Address</b></h4>
                     </div>
-                    <div className="col-sm-3">
+                    <div className="col-sm-3 col-md-3">
                         <h4><b>Time</b></h4>
                     </div>
-                    <div className="col-sm-2">
-                        <div className="col-sm-6">
+                    <div className="col-sm-2 col-md-2">
+                        <div className="col-sm-6 col-md-6">
                             <h4><b>View</b></h4>
                         </div>
-                        <div className="col-sm-6">
+                        <div className="col-sm-6 col-md-6">
                             <h4><b>List</b></h4>
                         </div>
                     </div>

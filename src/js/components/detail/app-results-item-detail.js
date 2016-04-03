@@ -26,13 +26,7 @@ const AppResultsItemDetail = ( props ) => {
         marginBottom: '10px'
     }
 
-    let buttonStyle = {
-        margin: '20px',
-        width: '30%',
-        clear: 'both',
-        marginLeft: '35%',
-        marginRight: '35%' 
-    }
+
 
     if ( props && props.item ) {
         
@@ -56,7 +50,7 @@ const AppResultsItemDetail = ( props ) => {
                     </tbody>
                 </table>
                 <br />
-                <div className="item-detail-btn-group btn-group" style={ buttonStyle }>
+                <div className="item-detail-btn-group btn-group">
                     <Link 
                         to="/"
                         type="button" 

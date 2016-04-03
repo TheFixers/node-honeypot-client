@@ -10,11 +10,8 @@ import AppListItemRow from './app-list-item-row'
 const AppListItem = ( props ) => {
     
     let styles = {
-        border: 'solid 1px #ccc',
-        width: '60%',
-        marginTop: '20px',
-        marginLeft: '20%',
-        marginRight: '20%'
+        marginTop: '10px',
+        marginBottom: '10px'
     }
 
     let buttonStyles = {
