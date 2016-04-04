@@ -9,7 +9,6 @@ const ListAPI = {
 
     _removeItem( item ) {
         this._list.splice( this._list.findIndex( i => i.index === item.index ), 1 )
-
     },
 
     _findListItem( item ) {

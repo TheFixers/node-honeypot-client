@@ -4,7 +4,8 @@
   "description": "Honeypot client w/ webpack, ES6, and react-router",
   "main": "index.js",
   "scripts": {
-    "start": "gulp sass && webpack-dev-server"
+    "start": "gulp sass && webpack-dev-server",
+    "build": "gulp sass && webpack"
   },
     "repository": {
     "type": "git",
