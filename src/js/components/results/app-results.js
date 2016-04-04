@@ -11,11 +11,12 @@ import AppStore from '../../stores/app-store'
 import AppActions from '../../actions/app-actions'
 import SOURCE from '../../static/SourceURL'
 import StoreWatchMixin from '../../mixins/StoreWatchMixin'
+import _filter from '../../modules/search-filter'
 
 let started = false
 
 const getServerData = () => {
-    return { data: AppStore.getParsedData() }
+    return { data: AppStore.getParsedData(), search: AppStore.getSearchParams() }
 }
 
 const AppResults = ( props ) => {
@@ -38,6 +39,11 @@ const AppResults = ( props ) => {
         marginRight: '35%' 
     }
 
+    let searchType = props.search.searchType
+    let searchTerm = props.search.term
+
+    console.log( searchType, searchTerm )
+
     var items = null
 
     if ( props && props.data ) {
@@ -48,6 +54,7 @@ const AppResults = ( props ) => {
 
         var results = items.map( ( item, index ) => {
 
+            if ( _filter( item, searchType, searchTerm ) ) {
                 return ( 
                     <ResultsItem 
                       key={ index } 
@@ -55,6 +62,8 @@ const AppResults = ( props ) => {
                       index={ index } 
                       txt={ index } /> 
                 )
+            }
+                
         })
 
         return (

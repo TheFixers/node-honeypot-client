@@ -46,15 +46,27 @@ const AppStore = Object.assign( EventEmitter.prototype, {
         AppStore.emitChange()
     },
 
+    getSearchParams() {
+        return DataAPI._getSearchParams()
+    },
+
     dispatcherIndex: register( function( payload ) {
         switch( payload.actionType ){
             case AppConstants.ADD_ITEM_TO_LIST:
-                console.log( "ADD_ITEM_TO_LIST:", payload.item )
+                //console.log( "ADD_ITEM_TO_LIST:", payload.item )
                 ListAPI._addItem( payload.item )
                 break
             case AppConstants.REMOVE_ITEM_FROM_LIST:
-                console.log( "REMOVE_ITEM_FROM_LIST:", payload.item )
+                //console.log( "REMOVE_ITEM_FROM_LIST:", payload.item )
                 ListAPI._removeItem( payload.item )
+                break
+            case AppConstants.UPDATE_SEARCH_TERM:
+                //console.log( "UPDATE_SEARCH_TERM:", payload.value )
+                DataAPI._updateSearchTerm( payload )
+                break
+            case AppConstants.UPDATE_SEARCH_TYPE:
+                //console.log( "UPDATE_SEARCH_TYPE:", payload )
+                DataAPI._updateSearchType( payload )
                 break
         }
         AppStore.emitChange()

@@ -5,7 +5,6 @@
  */
 
 import jQuery from 'jquery'
-import _dataParser from './data-items-parser'
 
 export default ( url ) => {
     return new Promise( ( resolve, reject ) => {

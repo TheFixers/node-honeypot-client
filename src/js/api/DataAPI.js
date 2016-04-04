@@ -13,6 +13,14 @@ const DataAPI = {
 
     _parsed: null,
 
+    _searchType: null,
+
+    _searchTerm: null,
+
+    _getSearchParams() {
+       return  { type: this._searchType, term: this._searchTerm }
+    },
+
     _findItem( id ) {
         if ( this._data ) {
             for ( let i = 0; i < this._data.length; i++ ) {
@@ -33,10 +41,22 @@ const DataAPI = {
         .catch( ( err ) => {
             console.log( err.message )
         })
+    },
+
+    _updateSearchType( action ) {
+        this._searchType = action.value
+    },
+
+    _updateSearchTerm( action ) {
+        this._searchTerm = action.value
     }
 
 }
 
 DataAPI._requestServerData( SOURCE )
+/*setInterval( () => {
+    DataAPI._requestServerData( SOURCE )
+    console.log("Requesting info from server... Delay of 10 sec...")
+}, 10000)*/
 
 export default DataAPI
