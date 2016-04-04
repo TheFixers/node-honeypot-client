@@ -17,14 +17,15 @@ Use the following commands from the root directory...
 ### Installing node dependencies
 * `npm install` - installs all node dependancies from `package.json`
 
-### Build `bubndle.js`
+### Build
 * `gulp build`
 If you do this, all you have to do is point your browser to `./dist/index.html` to run without `webpack-dev-server`
 
-### Development on `webpack-dev-server`
+### Development
 * `npm start`
 
-### Gulp Sass task (included in `npm start` and `npm build` but can be run separately)
+### Gulp Sass
+(included in `npm start` and `npm build` but can be run separately)
 * `gulp sass`
 
 ## Contributions
