@@ -15,11 +15,10 @@ Honeypot Client using NodeJS, NPM, React, Webpack, and custom modules to parse J
 Use the following commands from the root directory...
 
 ### Installing node dependencies
-* `npm install` - installs all node dependancies from `package.json`
+* `npm install` - Installs all node dependancies from `package.json`
 
 ### Build
-* `gulp build`
-If you do this, all you have to do is point your browser to `./dist/index.html` to run without `webpack-dev-server`
+* `gulp build` - If you do this, all you have to do is point your browser to `./dist/index.html` to run without `webpack-dev-server`
 
 ### Development
 * `npm start`
