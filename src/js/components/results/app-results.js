@@ -39,12 +39,13 @@ const AppResults = ( props ) => {
         marginRight: '35%' 
     }
 
-    let searchType = props.search.searchType
+    let searchType = props.search.type
     let searchTerm = props.search.term
 
     console.log( searchType, searchTerm )
 
     var items = null
+    var matches = 0
 
     if ( props && props.data ) {
         items =  props.data
@@ -54,7 +55,8 @@ const AppResults = ( props ) => {
 
         var results = items.map( ( item, index ) => {
 
-            if ( _filter( item, searchType, searchTerm ) ) {
+            if ( _filter( item, searchType, searchTerm ) && matches < 100 ) {
+                matches++
                 return ( 
                     <ResultsItem 
                       key={ index } 
@@ -71,7 +73,7 @@ const AppResults = ( props ) => {
                 
                 <h3 className='text-success text-center' style={ styles }>
             
-                1-{ results.length } of { results.length } Results
+                { matches } of { matches } Results
                 </h3>
 
                 <br />

@@ -37,6 +37,9 @@ th {
 td {
   background: #FAFAFA; }
 
+option {
+  color: black; }
+
 .btn-secondary:hover {
   border: solid 2px #777; }
 

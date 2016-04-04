@@ -3,18 +3,17 @@
  * Author: JMW <rabbitfighter@cryptolab.net>
  * Search types
  */
-
 export default {
-  ALL:       {name: 'ALL',       index: 0, target: "all",       text: "Show All"}, 
-  TYPE:      {name: 'TYPE',      index: 1, target: 'type',      text: "Plugin Type"},
-  INDEX:     {name: 'INDEX',     index: 2, target: "index",     text: "Index"}, 
-  IP:        {name: 'IP',        index: 3, target: "ip",        text: "IP"}, 
-  ID:        {name: 'ID',        index: 4, target: "id",        text: "ID"}, 
-  USERNAME:  {name: 'USERNAME',  index: 5, target: "username",  text: "Username"},
-  PASSWORDS: {name: 'PASSWORDS', index: 6, target: "passwords", text: "Passwords"}, 
-  DATA:      {name: 'DATA',      index: 7, target: "data",      text: "Data"}, 
-  KEY:       {name: 'KEY',       index: 8, target: "key",       text: "Key"}, 
-  TIME:      {name: 'TIME',      index: 9, target: "time",      text: "Time"}, 
-  PORT:      {name: 'PORT',      index: 10, target: "port",      text: "Port"}, 
-  SOCKET:    {name: 'SOCKET',    index: 11, target: "socket",    text: "Socket"} 
+    ALL:        { index: 0,  display: 'Show all',        field: 'ALL'},
+    INDEX:      { index: 1,  display: 'Index',           field: 'Index' },
+    ID:         { index: 2,  display: 'User ID',         field: '$oid' },
+    IP:         { index: 3,  display: 'IP Adress',       field: 'IP' },
+    TYPE:       { index: 4,  display: 'Connection Type', field: 'TYPE' },
+    PORT:       { index: 5,  display: 'Port',            field: 'Port' },
+    SOCKET:     { index: 6,  display: 'Socket',          field: 'Socket' },
+    USERNAME:   { index: 7,  display: 'Username',        field: 'Username' },
+    PASSWORDS:  { index: 8,  display: 'Passwords',       field: 'Passwords' },
+    CLIENT_URL: { index: 9,  display: 'Client URL',      field: 'clientURL' },
+    KEY:        { index: 10, display: 'Key',             field: 'Key' },
+    TIME:       { index: 11, display: 'Time',            field: 'Time' }
 }

@@ -7,13 +7,16 @@ import React from 'react'
 import AppStore from '../../stores/app-store'
 import AppActions from '../../actions/app-actions'
 import StoreWatchMixin from '../../mixins/StoreWatchMixin'
+import SearchTypes from '../../static/SearchTypes'
+import SearchOption from './app-search-option'
 
 const getSearchParams = () => {
     return { search: AppStore.getSearchParams() }
 }
 
 const updateSearchType = ( event ) => {
-	AppActions.updateSearchType( event.target.value  )
+	let type = event.target.options[event.target.selectedIndex].dataset.field 
+	AppActions.updateSearchType( type )
 }
 
 const updateSearchTerm = ( event ) => {
@@ -36,12 +39,17 @@ const AppSearch = ( props ) => {
 	let type = props.search.type
 	let term = props.search.term 
 	
-	// TODO: (temp) Remove me...
-	if ( type || term ) {
-		console.log( "TYPE:", props.search.type )
-		console.log( "TERM:", props.search.term )
-	}
-	
+	let options = Object.keys(SearchTypes).map( ( item, index ) => {
+		console.log( SearchTypes[item].field)
+		return <option 
+		           key={ index } 
+		           index={ SearchTypes[item].index }
+		           data-field={ SearchTypes[item].field } 
+		           data-display={ SearchTypes[item].display }>
+	           { SearchTypes[item].display } 
+	           </option>
+		 
+	})
 
     return (
     	<div className='search-area text-right'>
@@ -51,16 +59,10 @@ const AppSearch = ( props ) => {
 	    	    style={ styles } 
 	    	    defaultValue="title"
 	    	    onChange={ updateSearchType.bind( this ) }>
-	    		<option value='title' disabled>Search by</option>
-	    		<option>Show All</option>
-	    		<option>Index</option>
-	    		<option>IP Address</option>
-	    		<option>User ID</option>
-	    		<option>Username</option>
-	    		<option>Passwords</option>
-	    		<option>Client URL</option>
-	    		<option>Port</option>
-	    		<option>Socket</option>
+	    		
+	    	    <option value='title' disabled>Search by</option>
+	    	    { options }
+
 	    	</select>
 	    	<input 
 	    	    className='input' 
