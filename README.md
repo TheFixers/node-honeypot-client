@@ -1,11 +1,6 @@
 # node-honeypot-client
 Honeypot Client using NodeJS, NPM, React, Webpack, and custom modules to parse JSON responses from Honeypot Server
 
-## Warning
-* DO NOT PULL THIS INTO MASTER UNTIL I AM DONE!!!
-* Legacy code has been moved to `legacy/` but links have not been changed yet, so the legacy code is broken for now, but intact.
-* Scaffolding and basic app construction for refactor is underway. Please do not touch right now as it's in a critical stage of development, and just being fleshed out right now... Feel free to fire it up though... :)
-
 ## This project assumes you have Node and the following global NPM packages installed 
 * `node`
 * `babel`
@@ -22,10 +17,14 @@ Use the following commands from the root directory...
 ### Installing node dependencies
 * `npm install` - installs all node dependancies from `package.json`
 
-### Running on webpack-dev-server and compiling SCSS to CSS
+### Build `bubndle.js`
+* `gulp build`
+If you do this, all you have to do is point your browser to `./dist/index.html` to run without `webpack-dev-server`
+
+### Development on `webpack-dev-server`
 * `npm start`
 
-### Gulp Sass task (included in `npm start` but can be run separately)
+### Gulp Sass task (included in `npm start` and `npm build` but can be run separately)
 * `gulp sass`
 
 ## Contributions
@@ -41,4 +40,4 @@ Please make sure all commits from this point on are done on branches, which I (@
 
 ## License
 The MIT License (MIT)
-Copyright (c) 2016 Joshua Michael Waggoner
+Copyright (c) 2016 RFS

@@ -11,11 +11,11 @@ import AppListItemRow from '../list/app-list-item-row'
 import { Link } from 'react-router'
 
 const getResultsItem = ( props ) => {
-	if ( AppStore.getParsedData() ) {
+    if ( AppStore.getParsedData() ) {
         let data = AppStore.getParsedData()
         let item = data.find( ({ id }) => id === props.params.item )
-        return {item}	
-	}
+        return {item}   
+    }
 }
 
 const AppResultsItemDetail = ( props ) => {

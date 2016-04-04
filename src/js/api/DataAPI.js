@@ -21,7 +21,6 @@ const DataAPI = {
                 }
             }
         }
-        
     },
 
     _requestServerData( obj ) {
