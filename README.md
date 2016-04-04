@@ -21,7 +21,7 @@ Use the following commands from the root directory...
 * `gulp build` - If you do this, all you have to do is point your browser to `./dist/index.html` to run without `webpack-dev-server`
 
 ### Development
-* `npm start`
+* `npm start` - This will run on `webpack-dev-server' on `localhost:8080`
 
 ### Gulp Sass
 (included in `npm start` and `npm build` but can be run separately)
