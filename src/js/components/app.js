@@ -2,6 +2,7 @@
  * Filename: 'app.js'
  * Author: JMW <rabbitfighter@cryptolab.net>
  * App router
+ * See: See: https://github.com/reactjs/react-router/blob/master/docs/API.md#named-components
  */
 
 import React from 'react'
@@ -17,10 +18,23 @@ import DefaultHeader from './header/app-header-default'
 export default ( props ) => {
     return (
         <Router>
-            <Route path="/" component={ Template} >
-                <IndexRoute components={{ main: Results, widget: SearchHeader }}/>
-                <Route path="list" components={{ main: AppList, widget: DefaultHeader }} />
-                <Route path="item/:item" components={{ main: ResultsItemDetail, widget: DefaultHeader }} />
+            <Route 
+                path="/" 
+                component={ Template} >
+                <IndexRoute 
+                    components={{ 
+                    	main: Results, 
+                    	widget: SearchHeader }}/>
+                <Route 
+                    path="list" 
+                    components={{ 
+                    	main: AppList, 
+                    	widget: DefaultHeader }} />
+                <Route 
+                    path="item/:item" 
+                    components={{ 
+                    	main: ResultsItemDetail, 
+                    	widget: DefaultHeader }} />
             </Route>
         </Router>
     )
