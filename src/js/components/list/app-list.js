@@ -9,7 +9,6 @@ import AppListItem from './app-list-item'
 import AppActions from '../../actions/app-actions'
 import StoreWatchMixin from '../../mixins/StoreWatchMixin'
 
-
 const getList = () => {
     return { items: AppStore.getList() } 
 }

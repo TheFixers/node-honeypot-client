@@ -50,10 +50,6 @@ const AppStore = Object.assign( EventEmitter.prototype, {
         return DataAPI._getSearchParams()
     },
 
-    showSearch() {
-        return DataAPI._showSearch
-    },
-
     dispatcherIndex: register( function( payload ) {
         switch( payload.actionType ){
             case AppConstants.ADD_ITEM_TO_LIST:
@@ -71,10 +67,6 @@ const AppStore = Object.assign( EventEmitter.prototype, {
             case AppConstants.UPDATE_SEARCH_TYPE:
                 //console.log( "UPDATE_SEARCH_TYPE:", payload )
                 DataAPI._updateSearchType( payload )
-                break
-            case AppConstants.SET_SHOW_SEARCH:
-                //console.log( "UPDATE_SEARCH_TYPE:", payload )
-                DataAPI._setShowSearch( payload )
                 break
         }
         AppStore.emitChange()

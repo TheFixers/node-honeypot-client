@@ -3,7 +3,6 @@
  * Author: JMW <rabbitfighter@cryptolab.net>
  * Returns a promise to get data from server using jQuery.
  */
-
 import jQuery from 'jquery'
 
 export default ( url ) => {

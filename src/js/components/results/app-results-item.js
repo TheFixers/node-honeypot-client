@@ -8,7 +8,8 @@ import { Link } from 'react-router'
 import AppActions from '../../actions/app-actions'
 
 export default ( props ) => {
-	let styles = {
+	
+    let styles = {
 		borderBottom: 'solid 1px #ccc',
 	}
 

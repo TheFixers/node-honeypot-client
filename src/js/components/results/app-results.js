@@ -42,8 +42,6 @@ const AppResults = ( props ) => {
     let searchType = props.search.type
     let searchTerm = props.search.term
 
-    console.log( searchType, searchTerm )
-
     var items = null
     var matches = 0
 
@@ -52,9 +50,8 @@ const AppResults = ( props ) => {
     }
     
     if ( items ) {
-
+        
         var results = items.map( ( item, index ) => {
-
             if ( _filtered( item, searchType, searchTerm ) && matches < 2000 ) {
                 matches++
                 return ( 
@@ -64,8 +61,7 @@ const AppResults = ( props ) => {
                       index={ index } 
                       txt={ index } /> 
                 )
-            }
-                
+            }      
         })
 
         return (
