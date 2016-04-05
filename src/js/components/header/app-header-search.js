@@ -7,7 +7,7 @@ import React from 'react'
 import SearchArea from '../search/app-search'
 import AppListButton from '../list/app-list-button'
 
-const AppHeader = ( props ) => {
+const AppHeaderSearch = ( props ) => {
     
     let styles = {
         width: '40px',
@@ -35,4 +35,4 @@ const AppHeader = ( props ) => {
     )
 }
 
-export default AppHeader
+export default AppHeaderSearch
