@@ -8,7 +8,6 @@ import AppStore from '../../stores/app-store'
 import AppActions from '../../actions/app-actions'
 import StoreWatchMixin from '../../mixins/StoreWatchMixin'
 import SearchTypes from '../../static/SearchTypes'
-import SearchOption from './app-search-option'
 
 const getSearchParams = () => {
     return { search: AppStore.getSearchParams() }
@@ -40,18 +39,29 @@ const AppSearch = ( props ) => {
 	let term = props.search.term 
 	
 	let options = Object.keys(SearchTypes).map( ( item, index ) => {
-		console.log( SearchTypes[item].field)
+		let searchItem = SearchTypes[item]
 		return <option 
 		           key={ index } 
-		           index={ SearchTypes[item].index }
-		           data-field={ SearchTypes[item].field } 
-		           data-display={ SearchTypes[item].display }>
-	           { SearchTypes[item].display } 
+		           index={ searchItem.index }
+		           data-field={ searchItem.field } 
+		           data-display={ searchItem.display }>
+	           { searchItem.display } 
 	           </option>
-		 
 	})
 
-    return (
+	let input = null 
+
+	if ( type !== null && type !== 'ALL') {
+		input = <input 
+		    	    className='input' 
+		    	    type="text" 
+		    	    placeholder='Search for...' 
+		    	    style={ styles } 
+		    	    onChange={ updateSearchTerm.bind( this ) }>
+		    	</input>
+	} 
+	
+	return (
     	<div className='search-area text-right'>
     		<i className="glyphicon glyphicon-search"></i> 
 	    	<select 
@@ -59,20 +69,14 @@ const AppSearch = ( props ) => {
 	    	    style={ styles } 
 	    	    defaultValue="title"
 	    	    onChange={ updateSearchType.bind( this ) }>
-	    		
 	    	    <option value='title' disabled>Search by</option>
 	    	    { options }
-
 	    	</select>
-	    	<input 
-	    	    className='input' 
-	    	    type="text" 
-	    	    placeholder='Search for...' 
-	    	    style={ styles } 
-	    	    onChange={ updateSearchTerm.bind( this ) } />
+	    	{ input }
 	    	<br/>
         </div>
     )
+    
 }
 
 export default StoreWatchMixin( AppSearch, getSearchParams )

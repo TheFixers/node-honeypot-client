@@ -11,7 +11,7 @@ import AppStore from '../../stores/app-store'
 import AppActions from '../../actions/app-actions'
 import SOURCE from '../../static/SourceURL'
 import StoreWatchMixin from '../../mixins/StoreWatchMixin'
-import _filter from '../../modules/search-filter'
+import _filtered from '../../modules/search-filter'
 
 let started = false
 
@@ -55,7 +55,7 @@ const AppResults = ( props ) => {
 
         var results = items.map( ( item, index ) => {
 
-            if ( _filter( item, searchType, searchTerm ) && matches < 100 ) {
+            if ( _filtered( item, searchType, searchTerm ) && matches < 2000 ) {
                 matches++
                 return ( 
                     <ResultsItem 

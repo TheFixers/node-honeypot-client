@@ -31,6 +31,12 @@ export default {
 		dispatch({
 			actionType: AppConstants.UPDATE_SEARCH_TERM, value
 		})
-	}
+	},
+
+	setShowSearch( bool ) {
+		dispatch({
+			actionType: AppConstants.SET_SHOW_SEARCH, bool
+		})
+	},
 
 }
