@@ -11,14 +11,16 @@ import Template from './app-template'
 import { Router, Route, IndexRoute } from 'react-router'
 import AppListButton from './list/app-list-button'
 import AppList from './list/app-list'
+import SearchHeader from './header/app-header-search'
+import DefaultHeader from './header/app-header-default'
 
 export default ( props ) => {
     return (
         <Router>
-            <Route path="/" component={ Template }>
-                <IndexRoute component={ Results }/>
-                <Route path="list" component={ AppList } />
-                <Route path="item/:item" component={ ResultsItemDetail } />
+            <Route path="/" component={ Template} >
+                <IndexRoute components={{ main: Results, widget: SearchHeader }}/>
+                <Route path="list" components={{ main: AppList, widget: DefaultHeader }} />
+                <Route path="item/:item" components={{ main: ResultsItemDetail, widget: DefaultHeader }} />
             </Route>
         </Router>
     )

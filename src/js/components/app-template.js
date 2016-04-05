@@ -5,14 +5,16 @@
  */
 
 import React from 'react'
-import Header from './header/app-header'
+import SearchHeader from './header/app-header-search'
 import Footer from './footer/app-footer'
 
 export default ( props ) => {
+	console.log( props.widget )
+	console.log( props.route.path )
     return (
         <div className="container">
-            <Header />
-            { props.children }
+            { props.widget }
+            { props.main }
             <Footer />
         </div>
     )
