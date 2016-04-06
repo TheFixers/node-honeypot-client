@@ -31,6 +31,13 @@ export default {
 		dispatch({
 			actionType: AppConstants.UPDATE_SEARCH_TERM, value
 		})
+	},
+
+	jumpToPage( value ) {
+		dispatch({
+			actionType: AppConstants.JUMP_TO_PAGE, value
+		})
 	}
+
 
 }

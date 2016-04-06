@@ -12,6 +12,7 @@ import _fetchData from '../modules/fetch-data-promise'
 import _parser from '../modules/data-items-parser'
 import ListAPI from '../api/ListAPI'
 import DataAPI from '../api/DataAPI'
+import PaginationAPI from '../api/PaginationAPI'
 
 const CHANGE_EVENT = 'change'
 
@@ -67,6 +68,10 @@ const AppStore = Object.assign( EventEmitter.prototype, {
             case AppConstants.UPDATE_SEARCH_TYPE:
                 //console.log( "UPDATE_SEARCH_TYPE:", payload )
                 DataAPI._updateSearchType( payload )
+                break
+            case AppConstants.JUMP_TO_PAGE:
+                //console.log( "UPDATE_SEARCH_TYPE:", payload )
+                PaginationAPI._jumpToPage( payload )
                 break
         }
         AppStore.emitChange()

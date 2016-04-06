@@ -16,7 +16,11 @@ import _filtered from '../../modules/search-filter'
 let started = false
 
 const getServerData = () => {
-    return { data: AppStore.getParsedData(), search: AppStore.getSearchParams() }
+    return Object.assign({ 
+        data: AppStore.getParsedData(), 
+        search: AppStore.getSearchParams(), 
+        //pagination: AppStore.getPaginationInfo()
+    })
 }
 
 const AppResults = ( props ) => {
@@ -52,7 +56,7 @@ const AppResults = ( props ) => {
     if ( items ) {
         
         var results = items.map( ( item, index ) => {
-            if ( _filtered( item, searchType, searchTerm ) && matches < 2000 ) {
+            if ( _filtered( item, searchType, searchTerm ) && matches < 20 ) {
                 matches++
                 return ( 
                     <ResultsItem 
@@ -94,7 +98,11 @@ const AppResults = ( props ) => {
     
                 { results }
 
-                <Pagination className="pagination text-center"/>
+                <Pagination 
+                    className="pagination text-center"
+                    clientData={props.data}
+                    
+                    />
             </div>
         )
     } else {

@@ -10,7 +10,7 @@ import AppActions from '../../actions/app-actions'
 import StoreWatchMixin from '../../mixins/StoreWatchMixin'
 
 const getList = () => {
-    return { items: AppStore.getList() } 
+    return Object.assign( { items: AppStore.getList() } )
 }
 
 const AppList = ( props ) => {
