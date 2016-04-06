@@ -51,6 +51,18 @@ const AppStore = Object.assign( EventEmitter.prototype, {
         return DataAPI._getSearchParams()
     },
 
+    getPage() {
+        return PaginationAPI._getPage()
+    },
+
+    getPageSize() {
+        return PaginationAPI._getPageSize()
+    },
+
+    getPageOffset() {
+        return PaginationAPI._getPageOffset()
+    },
+
     dispatcherIndex: register( function( payload ) {
         switch( payload.actionType ){
             case AppConstants.ADD_ITEM_TO_LIST:

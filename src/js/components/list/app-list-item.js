@@ -28,7 +28,7 @@ const AppListItem = ( props ) => {
             <div className="list-item">
                 
                 <h3 className='list-item-header text-left'>
-                Item { item.index + 1 }
+                List Item { props.index + 1 }
                 </h3>
 
                 <table className="table table-hover table-striped">

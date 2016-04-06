@@ -21,23 +21,22 @@ export default {
 		})
 	},
 
-	updateSearchType( value ) {
+	updateSearchType( type ) {
 		dispatch({
-			actionType: AppConstants.UPDATE_SEARCH_TYPE, value
+			actionType: AppConstants.UPDATE_SEARCH_TYPE, type
 		})
 	},
 
-	updateSearchTerm( value ) {
+	updateSearchTerm( term ) {
 		dispatch({
-			actionType: AppConstants.UPDATE_SEARCH_TERM, value
+			actionType: AppConstants.UPDATE_SEARCH_TERM, term
 		})
 	},
 
-	jumpToPage( value ) {
+	jumpToPage( index ) {
 		dispatch({
-			actionType: AppConstants.JUMP_TO_PAGE, value
+			actionType: AppConstants.JUMP_TO_PAGE, index
 		})
 	}
-
 
 }

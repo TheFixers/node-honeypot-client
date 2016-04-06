@@ -7,47 +7,34 @@ import React from 'react'
 import StoreWatchMixin from '../../mixins/StoreWatchMixin'
 import AppActions from '../../actions/app-actions'
 
-const _test = ( event ) => {
-  console.log ("Jump to page:", event.target.index )
-}
-
-const getPaginationData = () => {
-    return Object.assign( { currentPage: null } )
-}
-
 const _jumpToPage = ( event ) => {
     AppActions.jumpToPage( event.target.dataset.index )
 }
 
+const _jumpToDesignated = ( event ) => {
+  let value = event.target.value
+    if ( value >= 0 && value <= event.target.dataset.max - 1 ) {
+         AppActions.jumpToPage( Number( event.target.value ) )
+    }
+}
+
 const AppPagination = ( props ) => {
     
-    let numPages = 5
-    
-    let resultsPerPage = 10
-
-    let currentPage = 1
-
-    let page = 1
-
-    
-
-    //numPages = Math.ciel( props.numResults / props.resultsPerPage )
-    
-
+    let numResults = props.numResults
+    let page = props.page
+    let pageSize = props.pageSize
+    let numPages = Math.ceil( numResults / pageSize )
+    let offset = props.offset
 
     let pages = []
-    for ( var i = 1; i < numPages + 1; i++ ) {
+    
+    for ( var i = 0; i < numPages; i++ ) {
         pages.push( Object.assign({
             index: i, 
-            resultsPerPage: resultsPerPage, 
-            page: page
+            display: i + 1
         }))
     }
 
-    for ( var item in pages ) {
-        //console.log(pages[item])
-    }
-  
     return (
         <div 
             className="btn-toolbar" 
@@ -61,9 +48,9 @@ const AppPagination = ( props ) => {
               <button 
                   type="button" 
                   className="btn btn-secondary" 
-                  value='first' 
-                  //onClick={ AppActions.jumpToFirst() }
-                  >
+                  value="0" 
+                  data-max={ numPages }
+                  onClick={ _jumpToDesignated }>
               First 
               </button>
 
@@ -76,9 +63,9 @@ const AppPagination = ( props ) => {
               <button 
                   type="button" 
                   className="btn btn-secondary" 
-                  value='prev' 
-                  //onClick={ AppActions.jumpToPrevious() }
-                  >
+                  value={ page - 1 }
+                  data-max={ numPages } 
+                  onClick={ _jumpToDesignated }>
               Prev
               </button>
 
@@ -98,7 +85,7 @@ const AppPagination = ( props ) => {
                            data-index={ index }
                            type="button"
                            className="btn btn-secondary">
-                      { i }
+                      { item.display }
                       </button>
                   )
               })}
@@ -112,8 +99,9 @@ const AppPagination = ( props ) => {
              <button 
                   type="button" 
                   className="btn btn-secondary" 
-                  value='next' 
-                  onClick={ _test }>
+                  value={ page + 1 }
+                  data-max={ numPages } 
+                  onClick={ _jumpToDesignated }>
               Next
               </button>
 
@@ -122,14 +110,13 @@ const AppPagination = ( props ) => {
               className="btn-group" 
               role="group" 
               aria-label="Last group" 
-              value='last' 
-              onClick={ _test }>
-              
+              value='last'>
               <button 
                   type="button" 
                   className="btn btn-secondary" 
-                  value='last' 
-                  onClick={ _test }>
+                  value={ numPages - 1 }
+                  data-max={ numPages } 
+                  onClick={ _jumpToDesignated }>
               Last
               </button>
 
@@ -138,6 +125,6 @@ const AppPagination = ( props ) => {
     )
 }
 
-export default StoreWatchMixin( AppPagination, getPaginationData )
+export default AppPagination
 
 
