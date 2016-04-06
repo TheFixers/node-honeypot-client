@@ -13,8 +13,6 @@ import SOURCE from '../../static/SourceURL'
 import StoreWatchMixin from '../../mixins/StoreWatchMixin'
 import _filtered from '../../modules/search-filter'
 
-let started = false
-
 const getServerData = () => {
     return Object.assign({ 
         data: AppStore.getParsedData(), 
@@ -27,7 +25,7 @@ const getServerData = () => {
 
 const AppResults = ( props ) => {
 
-    // Styles
+    // TODO: Extract Styles
     let styles = {
         marginTop: '10px',
         marginBottom: '10px'
@@ -49,21 +47,27 @@ const AppResults = ( props ) => {
     let searchTerm = props.search.term
 
     var items = null
-    var matches = 0
+    let matches = 0
 
     if ( props && props.data ) {
         items =  props.data
     }
 
-
-    
     if ( items ) {
-        
-        console.log( "length:", items.length )
+
+        let numResults = items.length
+        let pageSize = props.pageSize
+        let page = props.page
+        let pages = Math.ceil( numResults / pageSize )
+        let offset = props.offset
+        let overflow = numResults % pageSize
+        let isLastPage = ( page * pageSize + overflow === numResults )
+        let cutoff =  ( isLastPage ) ? numResults : ( offset + pageSize )
 
         var results = items.map( ( item, index ) => {
-            if ( _filtered( item, searchType, searchTerm ) && index > props.offset && index <= props.offset + props.pageSize ) {
-                matches++
+            if ( _filtered( item, searchType, searchTerm ) 
+                && index >= offset && index < cutoff ) {
+
                 return ( 
                     <ResultsItem 
                       key={ index } 
@@ -76,17 +80,13 @@ const AppResults = ( props ) => {
 
         return (
             <div className="results text-center">
-                
                 <h3 className='text-success text-center' style={ styles }>
-            
-                { matches } of { matches } Results
+                Showing { offset + 1 }-{ cutoff } of { numResults } Results
                 </h3>
-
                 <br />
-
                 <div className="header row" style={ th }>
                     <div className="col-sm-2 col-md-2">
-                        <h4><b>Index</b></h4>
+                        <h4><b>Item</b></h4>
                     </div>
                     <div className="col-sm-2 col-md-2">
                         <h4><b>Username</b></h4>
@@ -101,16 +101,13 @@ const AppResults = ( props ) => {
                         <h4><b>View / List</b></h4>
                     </div>
                 </div>
-    
                 { results }
-
                 <Pagination 
                     className="pagination text-center"
                     page={ props.page }
                     pageSize={ props.pageSize }
                     numResults={ items.length }
-                    offset= { props.offset }
-                    />
+                    offset= { props.offset } />
             </div>
         )
     } else {

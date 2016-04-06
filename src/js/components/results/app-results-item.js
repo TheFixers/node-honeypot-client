@@ -25,7 +25,7 @@ export default ( props ) => {
         <div className="result text-center">
             <div className="row item" style={ styles }>
                 <div className="col-sm-2 col-md-2">
-                    <p><b>{ txt }</b></p>
+                    <p><b>{ txt + 1 }</b></p>
                 </div>
                 <div className="col-sm-2 col-md-2">
                     <p>{ item.Username }</p>

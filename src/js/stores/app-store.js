@@ -83,7 +83,7 @@ const AppStore = Object.assign( EventEmitter.prototype, {
                 break
             case AppConstants.JUMP_TO_PAGE:
                 //console.log( "UPDATE_SEARCH_TYPE:", payload )
-                PaginationAPI._jumpToPage( payload.index )
+                PaginationAPI._jumpToPage( payload )
                 break
         }
         AppStore.emitChange()
