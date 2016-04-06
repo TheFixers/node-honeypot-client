@@ -9,7 +9,7 @@ import StoreWatchMixin from '../../mixins/StoreWatchMixin'
 import { Link } from 'react-router'
 
 const getListTotals = () => {
-    return { qty: AppStore.getListTotals() } 
+    return Object.assign( { qty: AppStore.getListTotals() } )
 }
 
 const AppListButton = ( props ) => {

@@ -10,7 +10,7 @@ import StoreWatchMixin from '../../mixins/StoreWatchMixin'
 import SearchTypes from '../../static/SearchTypes'
 
 const getSearchParams = () => {
-    return { search: AppStore.getSearchParams() }
+    return Object.assign( { search: AppStore.getSearchParams() } )
 }
 
 const updateSearchType = ( event ) => {
