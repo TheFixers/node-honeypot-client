@@ -19,7 +19,9 @@ const getServerData = () => {
     return Object.assign({ 
         data: AppStore.getParsedData(), 
         search: AppStore.getSearchParams(), 
-        //pagination: AppStore.getPaginationInfo()
+        page: AppStore.getPage(),
+        pageSize: AppStore.getPageSize(),
+        offset: AppStore.getPageOffset()
     })
 }
 
@@ -52,11 +54,15 @@ const AppResults = ( props ) => {
     if ( props && props.data ) {
         items =  props.data
     }
+
+
     
     if ( items ) {
         
+        console.log( "length:", items.length )
+
         var results = items.map( ( item, index ) => {
-            if ( _filtered( item, searchType, searchTerm ) && matches < 20 ) {
+            if ( _filtered( item, searchType, searchTerm ) && index > props.offset && index <= props.offset + props.pageSize ) {
                 matches++
                 return ( 
                     <ResultsItem 
@@ -100,8 +106,10 @@ const AppResults = ( props ) => {
 
                 <Pagination 
                     className="pagination text-center"
-                    clientData={props.data}
-                    
+                    page={ props.page }
+                    pageSize={ props.pageSize }
+                    numResults={ items.length }
+                    offset= { props.offset }
                     />
             </div>
         )

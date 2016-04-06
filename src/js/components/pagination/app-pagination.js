@@ -12,7 +12,7 @@ const _test = ( event ) => {
 }
 
 const getPaginationData = () => {
-    return Object.assign( { currentPage: null } )
+    return Object.assign( { data: null } )
 }
 
 const _jumpToPage = ( event ) => {
@@ -21,26 +21,26 @@ const _jumpToPage = ( event ) => {
 
 const AppPagination = ( props ) => {
     
-    let numPages = 5
+    let numResults = props.numResults
+    let page = props.page
+    let pageSize = props.pageSize
+
+    let numPages = Math.ceil( numResults / pageSize ) || 10
+
+    let offset = props.offset
+
+    console.log( "numResults:", numResults )
+    console.log( "page", page )
+    console.log( "pageSize:", pageSize )
+    console.log( "numPages:", numPages )
+    console.log( "offset", offset )
     
-    let resultsPerPage = 10
-
-    let currentPage = 1
-
-    let page = 1
-
-    
-
-    //numPages = Math.ciel( props.numResults / props.resultsPerPage )
-    
-
-
+  
     let pages = []
-    for ( var i = 1; i < numPages + 1; i++ ) {
+    for ( var i = 0; i < numPages; i++ ) {
         pages.push( Object.assign({
             index: i, 
-            resultsPerPage: resultsPerPage, 
-            page: page
+            display: i + 1
         }))
     }
 
@@ -98,7 +98,7 @@ const AppPagination = ( props ) => {
                            data-index={ index }
                            type="button"
                            className="btn btn-secondary">
-                      { i }
+                      { item.display }
                       </button>
                   )
               })}

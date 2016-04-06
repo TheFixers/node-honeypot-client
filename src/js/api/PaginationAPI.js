@@ -5,7 +5,7 @@
 
 const PaginationAPI = {
 
-	_maxResultsPerPage: 10,
+	_pageSize: 10,
 
 	_totalResults: null,
 
@@ -13,7 +13,7 @@ const PaginationAPI = {
 
 	_previousPage: null,
     
-    _currentPage: null,
+    _currentPage: 0,
 
     _nextPage: null,
 
@@ -21,40 +21,22 @@ const PaginationAPI = {
     	this._currentPage = page
     },
 
-    setMaxResultsPerPage( maxResults ) {
-    	this._maxResultsPerPage = maxResults
-    },
+    
 
-    setTotalResults( totalResults ) {
-    	this._totalResults = numResults
-    },
-
-    setTotalPages( totalPages ) {
-    	this._totalPages = totalPages
-    },
-
-    setCurrentPage( page ) {
-    	this._currentPage = page
-    },
-
-    getTotalPages() {
-        return this._totalPages
-    },
-
-    getCurrentPage() {
+    _getPage() {
         return this._currentPage
     },
 
-    getMaxResultsPerPage() {
-    	return this._maxResultsPerPage
+    _getPageSize() {
+        return this._pageSize
     },
 
-    getTotalResults() {
-    	return this._totalResults
+     _getPageOffset() {
+    	return (this._currentPage !== 0 ) ? this._currentPage * this._pageSize : 0
     },
 
     hasPrevPage() {
-    	return this._currentPage > 1 
+    	return this._currentPage > 0 
     },
 
     hasNextPage() {
@@ -73,16 +55,8 @@ const PaginationAPI = {
         }
     },
 
-    moveToFirst() {
-    	if ( this._currentPage !== 1) {
-    		this._currentPage = 1
-    	}
-    },
-
-    moveToLast() {
-    	if ( this._currentPage !== 1) {
-    		this._currentPage = _totalPages
-    	}
+    _getInfo() {
+    	return Object.assign( { page: 1, pageSize: 10 } )
     }
 }
 

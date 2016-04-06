@@ -51,6 +51,18 @@ const AppStore = Object.assign( EventEmitter.prototype, {
         return DataAPI._getSearchParams()
     },
 
+    getPage() {
+        return PaginationAPI._getPage()
+    },
+
+    getPageSize() {
+        return PaginationAPI._getPageSize()
+    },
+
+    getPageOffset() {
+        return PaginationAPI._getPageOffset()
+    },
+
     dispatcherIndex: register( function( payload ) {
         switch( payload.actionType ){
             case AppConstants.ADD_ITEM_TO_LIST:
@@ -71,7 +83,7 @@ const AppStore = Object.assign( EventEmitter.prototype, {
                 break
             case AppConstants.JUMP_TO_PAGE:
                 //console.log( "UPDATE_SEARCH_TYPE:", payload )
-                PaginationAPI._jumpToPage( payload )
+                PaginationAPI._jumpToPage( payload.index )
                 break
         }
         AppStore.emitChange()
