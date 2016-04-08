@@ -31,11 +31,15 @@ const AppStore = Object.assign( EventEmitter.prototype, {
     },
 
     getServerData() {
-        return DataAPI._data
+        return DataAPI.getData()
     },
 
     getParsedData() {
-        return DataAPI._parsed
+        return DataAPI.getParsed()
+    },
+
+    getFiltered() {
+        return DataAPI.getFiltered()
     },
 
     getList() {
@@ -48,7 +52,7 @@ const AppStore = Object.assign( EventEmitter.prototype, {
     },
 
     getSearchParams() {
-        return DataAPI._getSearchParams()
+        return DataAPI.getSearchParams()
     },
 
     getPage() {
@@ -75,15 +79,19 @@ const AppStore = Object.assign( EventEmitter.prototype, {
                 break
             case AppConstants.UPDATE_SEARCH_TERM:
                 //console.log( "UPDATE_SEARCH_TERM:", payload.value )
-                DataAPI._updateSearchTerm( payload )
+                DataAPI.updateSearchTerm( payload )
                 break
             case AppConstants.UPDATE_SEARCH_TYPE:
                 //console.log( "UPDATE_SEARCH_TYPE:", payload )
-                DataAPI._updateSearchType( payload )
+                DataAPI.updateSearchType( payload )
                 break
             case AppConstants.JUMP_TO_PAGE:
                 //console.log( "UPDATE_SEARCH_TYPE:", payload )
                 PaginationAPI._jumpToPage( payload )
+                break
+            case AppConstants.FILTER_DATA:
+                //console.log( "UPDATE_SEARCH_TYPE:", payload )
+                DataAPI.filterData()
                 break
         }
         AppStore.emitChange()

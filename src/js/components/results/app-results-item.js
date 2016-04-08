@@ -25,7 +25,7 @@ export default ( props ) => {
         <div className="result text-center">
             <div className="row item" style={ styles }>
                 <div className="col-sm-2 col-md-2">
-                    <p><b>{ txt + 1 }</b></p>
+                    <p><b>{ txt }</b></p>
                 </div>
                 <div className="col-sm-2 col-md-2">
                     <p>{ item.Username }</p>
@@ -43,7 +43,9 @@ export default ( props ) => {
                         style={ buttonStyles } 
                         type="button" 
                         className="btn btn-secondary">
-                        <span className="glyphicon glyphicon-eye-open" aria-hidden="true" />
+                        <span 
+                            className="glyphicon glyphicon-eye-open" 
+                            aria-hidden="true" />
                     </Link>
                     <button
                         className="col-sm-6 col-md-6"
@@ -51,7 +53,9 @@ export default ( props ) => {
                         type="button"
                         className="btn btn-secondary"
                         onClick={ AppActions.addItemToList.bind( null, props.item ) }>
-                        <span className="glyphicon glyphicon-plus" aria-hidden="true" />
+                        <span 
+                            className="glyphicon glyphicon-plus" 
+                            aria-hidden="true" />
                     </button>
                 </div>
             </div>

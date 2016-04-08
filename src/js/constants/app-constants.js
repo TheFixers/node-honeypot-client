@@ -8,5 +8,6 @@ export default {
     REMOVE_ITEM_FROM_LIST: 'REMOVE_ITEM_FROM_LIST',  // Removes item from list
     UPDATE_SEARCH_TYPE: 'UPDATE_SEARCH_TYPE',        // Updates te search type
     UPDATE_SEARCH_TERM: 'UPDATE_SEARCH_TERM',   // Updates te search term
-    JUMP_TO_PAGE: 'JUMP_TO_PAGE'
+    JUMP_TO_PAGE: 'JUMP_TO_PAGE',
+    FILTER_DATA: 'FILTER_DATA'
  }

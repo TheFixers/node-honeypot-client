@@ -12,14 +12,13 @@ import AppActions from '../../actions/app-actions'
 import SOURCE from '../../static/SourceURL'
 import StoreWatchMixin from '../../mixins/StoreWatchMixin'
 import _filtered from '../../modules/search-filter'
+//import PaginationAPI from '../../api/PaginationAPI'
 
 const getServerData = () => {
     return Object.assign({ 
         data: AppStore.getParsedData(), 
         search: AppStore.getSearchParams(), 
-        page: AppStore.getPage(),
-        pageSize: AppStore.getPageSize(),
-        offset: AppStore.getPageOffset()
+        filtered: AppStore.getFiltered(),
     })
 }
 
@@ -55,18 +54,18 @@ const AppResults = ( props ) => {
 
     if ( items ) {
 
-        let numResults = items.length
+/*        let numResults = items.length
         let pageSize = props.pageSize
         let page = props.page
         let pages = Math.ceil( numResults / pageSize )
         let offset = props.offset
         let overflow = numResults % pageSize
         let isLastPage = ( page * pageSize + overflow === numResults )
-        let cutoff =  ( isLastPage ) ? numResults : ( offset + pageSize )
+        let cutoff =  ( isLastPage ) ? numResults : ( offset + pageSize )*/
 
         var results = items.map( ( item, index ) => {
             if ( _filtered( item, searchType, searchTerm ) 
-                && index >= offset && index < cutoff ) {
+                /*&& index >= offset && index < cutoff*/ ) {
 
                 return ( 
                     <ResultsItem 
@@ -78,10 +77,12 @@ const AppResults = ( props ) => {
             }      
         })
 
+
+
         return (
             <div className="results text-center">
                 <h3 className='text-success text-center' style={ styles }>
-                Showing { offset + 1 }-{ cutoff } of { numResults } Results
+                {/*Showing { offset }-{ offset + 9 } of*/} { results.length } Results
                 </h3>
                 <br />
                 <div className="header row" style={ th }>
@@ -102,12 +103,12 @@ const AppResults = ( props ) => {
                     </div>
                 </div>
                 { results }
-                <Pagination 
+ {/*               <Pagination 
                     className="pagination text-center"
                     page={ props.page }
                     pageSize={ props.pageSize }
-                    numResults={ items.length }
-                    offset= { props.offset } />
+                    countResults={ results.length }
+                    offset= { props.offset } />*/}
             </div>
         )
     } else {
