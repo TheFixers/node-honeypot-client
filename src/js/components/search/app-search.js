@@ -10,18 +10,22 @@ import StoreWatchMixin from '../../mixins/StoreWatchMixin'
 import SearchTypes from '../../static/SearchTypes'
 
 const getSearchParams = () => {
-    return Object.assign( { search: AppStore.getSearchParams(), data: AppStore.getServerData() } )
+    return Object.assign({ 
+    	search: AppStore.getSearchParams(), 
+    	data: AppStore.getServerData() 
+    })
 }
 
 const updateSearchType = ( event ) => {
 	let type = event.target.options[event.target.selectedIndex].dataset.field 
 	AppActions.updateSearchType( type )
+	AppActions.jumpToPage( 0 )
+	
 }
 
 const updateSearchTerm = ( event ) => {
 	let term = event.target.value
 	AppActions.updateSearchTerm( term )
-	AppActions.filterResults()
 }
 
 const AppSearch = ( props ) => {
@@ -69,7 +73,7 @@ const AppSearch = ( props ) => {
 	    	<select 
 	    	    className='select' 
 	    	    style={ styles } 
-	    	    defaultValue="title"
+	    	    defaultValue="ALL"
 	    	    onChange={ updateSearchType }>
 	    	    <option value='title' disabled>Search by</option>
 	    	    { options }

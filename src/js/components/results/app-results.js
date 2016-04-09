@@ -12,13 +12,15 @@ import AppActions from '../../actions/app-actions'
 import SOURCE from '../../static/SourceURL'
 import StoreWatchMixin from '../../mixins/StoreWatchMixin'
 import _filtered from '../../modules/search-filter'
-//import PaginationAPI from '../../api/PaginationAPI'
+import PaginationAPI from '../../api/PaginationAPI'
 
 const getServerData = () => {
     return Object.assign({ 
         data: AppStore.getParsedData(), 
-        search: AppStore.getSearchParams(), 
-        filtered: AppStore.getFiltered(),
+        search: AppStore.getSearchParams(),
+        currentPage: AppStore.getCurrentPage(),
+        pageSize: AppStore.getPageSize(),
+        offset: AppStore.getOffset()
     })
 }
 
@@ -54,40 +56,50 @@ const AppResults = ( props ) => {
 
     if ( items ) {
 
-/*        let numResults = items.length
+        var results = items.filter( ( item, index ) => {
+            return _filtered( item, searchType, searchTerm )
+        })
+
+        let len = results.length
         let pageSize = props.pageSize
-        let page = props.page
-        let pages = Math.ceil( numResults / pageSize )
+        let currentPage = props.currentPage
         let offset = props.offset
-        let overflow = numResults % pageSize
-        let isLastPage = ( page * pageSize + overflow === numResults )
-        let cutoff =  ( isLastPage ) ? numResults : ( offset + pageSize )*/
 
-        var results = items.map( ( item, index ) => {
-            if ( _filtered( item, searchType, searchTerm ) 
-                /*&& index >= offset && index < cutoff*/ ) {
+        let numPages = Math.ceil( len / pageSize )
 
+        let cutoff = ( currentPage * pageSize < len 
+            && numPages !== 1 
+            && currentPage !== numPages - 1 ) 
+            ? currentPage * pageSize + pageSize - 1
+            : len
+
+        console.log( "Page:", props.currentPage )
+        console.log( "PageSize:", props.pageSize )
+        console.log( "ResultsLength:", len )
+        console.log( "NumPages:", numPages )
+        console.log( "Offset:", offset )
+        console.log( "Cutoff:", cutoff )
+
+        results = results.map( ( item, index ) => {
+            if ( index >= offset && index <= cutoff )
                 return ( 
                     <ResultsItem 
                       key={ index } 
                       item={ item } 
-                      index={ index } 
-                      txt={ index } /> 
+                      index={ item.index } 
+                      txt={ item.index } /> 
                 )
-            }      
         })
-
-
 
         return (
             <div className="results text-center">
                 <h3 className='text-success text-center' style={ styles }>
-                {/*Showing { offset }-{ offset + 9 } of*/} { results.length } Results
+                Showing { offset }-{ cutoff } of { len } Results
                 </h3>
                 <br />
                 <div className="header row" style={ th }>
                     <div className="col-sm-2 col-md-2">
-                        <h4><b>Item</b></h4>
+                        <h4><b>Index</b></h4>
                     </div>
                     <div className="col-sm-2 col-md-2">
                         <h4><b>Username</b></h4>
@@ -103,12 +115,14 @@ const AppResults = ( props ) => {
                     </div>
                 </div>
                 { results }
- {/*               <Pagination 
+                <Pagination 
                     className="pagination text-center"
-                    page={ props.page }
-                    pageSize={ props.pageSize }
-                    countResults={ results.length }
-                    offset= { props.offset } />*/}
+                    currentPage={ currentPage }
+                    pageSize={ pageSize }
+                    numPages={ numPages }
+                    len={ len }
+                    offset= { offset }
+                    cutoff={ cutoff } />
             </div>
         )
     } else {

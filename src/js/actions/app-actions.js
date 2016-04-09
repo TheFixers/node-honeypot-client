@@ -33,12 +33,6 @@ export default {
 		})
 	},
 
-	filterResults() {
-		dispatch({
-			actionType: AppConstants.FILTER_DATA, null
-		})
-	},
-
 	jumpToPage( index ) {
 		dispatch({
 			actionType: AppConstants.JUMP_TO_PAGE, index

@@ -3,24 +3,11 @@
  * Pagination API that contains code for maintaning pagination logic and states
  */
 
-/*const PaginationAPI = {
+const PaginationAPI = {
 
-	pageSize: 10,
+    pageSize: 10,
 
     currentPage: 0,
-
-    countResults: 0,
-
-    countPages: 0,
-
-    offset: this.currentPage * this.pageSize,
-
-    cutoff: (
-        ( this.currentPage * this.pageSize > this.countResults )
-        ? this.countResults
-        : this.currentPage * this.pageSize + this.pageSize
-    ),
-
 
     getPageSize() {
         return this.pageSize
@@ -30,26 +17,14 @@
         return this.currentPage
     },
 
-    getCountResults() {
-        return this.countResults
+    getOffset() {
+        return this.currentPage * this.pageSize
     },
 
-    getCountPages() {
-        return this.countPages
-    },
-
-     getOffset() {
-    	return this.offset
-    },
-
-    getCutoff() {
-        return this.cutoff
-    }, 
-
-    init( countResults ) {
-        this.countResults = countResults
+    jumpToPage( page ) {
+        this.currentPage = page.index
     }
     
 }
 
-export default PaginationAPI*/
+export default PaginationAPI

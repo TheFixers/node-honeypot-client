@@ -5,6 +5,7 @@
 import AppStore from '../stores/app-store'
 import _parser from '../modules/data-items-parser'
 import _fetchData from '../modules/fetch-data-promise'
+import _filtered from '../modules/search-filter'
 import SOURCE from '../static/SourceURL'
 
 const DataAPI = {
@@ -41,10 +42,6 @@ const DataAPI = {
         return this.parsed
     },
 
-    getFiltered() {
-        return this.filtered
-    },
-
     requestServerData( obj ) {
         var serverRequest = _fetchData( obj )
         serverRequest.then( ( data ) => {
@@ -64,12 +61,6 @@ const DataAPI = {
 
     updateSearchTerm( action ) {
         this.searchTerm = action.term
-    },
-
-    filterData() {
-        console.log( "Filtering...", this.searchTerm, this.searchType, this.parsed )
-        /*return _filtered( this.parsed, this.searchTerm, this.searchType )*/
-        return this.parsed
     }
 
 }

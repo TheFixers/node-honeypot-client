@@ -20,11 +20,12 @@ const _jumpToDesignated = ( event ) => {
 
 const AppPagination = ( props ) => {
     
-    let numResults = props.numResults
-    let page = props.page
+    let len = props.len
+    let currentPage = props.currentPage
     let pageSize = props.pageSize
-    let numPages = Math.ceil( numResults / pageSize )
+    let numPages = props.numPages
     let offset = props.offset
+    let cutoff = props.cutoff
 
     let pages = []
     
@@ -63,14 +64,14 @@ const AppPagination = ( props ) => {
               <button 
                   type="button" 
                   className="btn btn-secondary" 
-                  value={ page - 1 }
+                  value={ currentPage - 1 }
                   data-max={ numPages } 
                   onClick={ _jumpToDesignated }>
               Prev
               </button>
 
           </div>
-          <div 
+          {/*<div 
               className="btn-group" 
               role="group" 
               aria-label="Pages group" 
@@ -90,7 +91,7 @@ const AppPagination = ( props ) => {
                   )
               })}
 
-          </div>
+          </div>*/}
           <div 
               className="btn-group" 
               role="group" 
@@ -99,7 +100,7 @@ const AppPagination = ( props ) => {
              <button 
                   type="button" 
                   className="btn btn-secondary" 
-                  value={ page + 1 }
+                  value={ currentPage + 1 }
                   data-max={ numPages } 
                   onClick={ _jumpToDesignated }>
               Next

@@ -55,43 +55,34 @@ const AppStore = Object.assign( EventEmitter.prototype, {
         return DataAPI.getSearchParams()
     },
 
-    getPage() {
-        return PaginationAPI._getPage()
+    getCurrentPage() {
+        return PaginationAPI.getCurrentPage()
     },
 
     getPageSize() {
-        return PaginationAPI._getPageSize()
+        return PaginationAPI.getPageSize()
     },
 
-    getPageOffset() {
-        return PaginationAPI._getPageOffset()
+    getOffset() {
+        return PaginationAPI.getOffset()
     },
 
     dispatcherIndex: register( function( payload ) {
         switch( payload.actionType ){
             case AppConstants.ADD_ITEM_TO_LIST:
-                //console.log( "ADD_ITEM_TO_LIST:", payload.item )
                 ListAPI._addItem( payload.item )
                 break
             case AppConstants.REMOVE_ITEM_FROM_LIST:
-                //console.log( "REMOVE_ITEM_FROM_LIST:", payload.item )
                 ListAPI._removeItem( payload.item )
                 break
             case AppConstants.UPDATE_SEARCH_TERM:
-                //console.log( "UPDATE_SEARCH_TERM:", payload.value )
                 DataAPI.updateSearchTerm( payload )
                 break
             case AppConstants.UPDATE_SEARCH_TYPE:
-                //console.log( "UPDATE_SEARCH_TYPE:", payload )
                 DataAPI.updateSearchType( payload )
                 break
             case AppConstants.JUMP_TO_PAGE:
-                //console.log( "UPDATE_SEARCH_TYPE:", payload )
-                PaginationAPI._jumpToPage( payload )
-                break
-            case AppConstants.FILTER_DATA:
-                //console.log( "UPDATE_SEARCH_TYPE:", payload )
-                DataAPI.filterData()
+                PaginationAPI.jumpToPage( payload )
                 break
         }
         AppStore.emitChange()
