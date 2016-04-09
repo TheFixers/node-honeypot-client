@@ -71,7 +71,7 @@ To develop, from the project's root directory, use the command <code>npm start</
 
 Deployment
 ----------
-To deploy, from the project's root directory, use the command <code>webpack</code>. Also, to compile the sass, use the command <code>gulp sass</code>. These commands will compile all JS dependencies into `bundle.js` and styles.css in the `dist/` folder. From here, just point your browser to `./dist/index.html`. 
+To deploy, from the project's root directory, use the command <code>webpack</code>. Also, to compile the sass, use the command <code>gulp sass</code>. These commands will compile all JS dependencies into `bundle.js` and `styles.css` in the `dist/` folder. From here, just point your browser to `./dist/index.html`. 
 
 Contributions
 -------------
