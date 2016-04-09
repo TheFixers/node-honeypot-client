@@ -5,55 +5,67 @@
 import AppStore from '../stores/app-store'
 import _parser from '../modules/data-items-parser'
 import _fetchData from '../modules/fetch-data-promise'
+import _filtered from '../modules/search-filter'
 import SOURCE from '../static/SourceURL'
 
 const DataAPI = {
     
-    _data: null,
+    data: null,
 
-    _parsed: null,
+    filtered: null,
 
-    _searchType: null,
+    parsed: null,
 
-    _searchTerm: null,
+    searchType: null,
 
-    _getSearchParams() {
-       return  { type: this._searchType, term: this._searchTerm }
+    searchTerm: null,
+
+    getSearchParams() {
+       return  { type: this.searchType, term: this.searchTerm }
     },
 
-    _findItem( id ) {
-        if ( this._data ) {
-            for ( let i = 0; i < this._data.length; i++ ) {
-                if ( this._data[i].id === id ) {
-                    return this._data[i]
+    findItem( id ) {
+        if ( this.data ) {
+            for ( let i = 0; i < this.data.length; i++ ) {
+                if ( this.data[i].id === id ) {
+                    return this.data[i]
                 }
             }
         }
     },
 
-    _requestServerData( obj ) {
+    getData() {
+        return this.data
+    },
+
+    getParsed() {
+        return this.parsed
+    },
+
+    requestServerData( obj ) {
         var serverRequest = _fetchData( obj )
         serverRequest.then( ( data ) => {
-            this._data = data
-            this._parsed = _parser( this._data )
+            this.data = data
+            this.parsed = _parser( this.data )
             AppStore.emitChange()
+
         })
         .catch( ( err ) => {
             console.log( err.message )
         })
     },
 
-    _updateSearchType( action ) {
-        this._searchType = action.value
+    updateSearchType( action ) {
+        this.searchType = action.type
     },
 
-    _updateSearchTerm( action ) {
-        this._searchTerm = action.value
+    updateSearchTerm( action ) {
+        this.searchTerm = action.term
     }
 
 }
 
-DataAPI._requestServerData( SOURCE )
+DataAPI.requestServerData( SOURCE )
 /*setInterval( () => {
     DataAPI._requestServerData( SOURCE )
     console.log("Requesting info from server... Delay of 10 sec...")

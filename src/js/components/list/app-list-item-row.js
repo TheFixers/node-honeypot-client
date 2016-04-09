@@ -6,7 +6,7 @@ const AppListItemRow = ( props ) => {
         return (
             <tr className="row">
                 <th className="col-sm-4"><b>{ props.field.capFirst() }</b></th>
-                <td className="col-sm-8 text-left"><b>{ props.value + 1 }</b></td>
+                <td className="col-sm-8 text-left"><b>{ props.value }</b></td>
             </tr>
         )
     } else {

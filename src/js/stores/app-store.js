@@ -31,11 +31,15 @@ const AppStore = Object.assign( EventEmitter.prototype, {
     },
 
     getServerData() {
-        return DataAPI._data
+        return DataAPI.getData()
     },
 
     getParsedData() {
-        return DataAPI._parsed
+        return DataAPI.getParsed()
+    },
+
+    getFiltered() {
+        return DataAPI.getFiltered()
     },
 
     getList() {
@@ -48,42 +52,37 @@ const AppStore = Object.assign( EventEmitter.prototype, {
     },
 
     getSearchParams() {
-        return DataAPI._getSearchParams()
+        return DataAPI.getSearchParams()
     },
 
-    getPage() {
-        return PaginationAPI._getPage()
+    getCurrentPage() {
+        return PaginationAPI.getCurrentPage()
     },
 
     getPageSize() {
-        return PaginationAPI._getPageSize()
+        return PaginationAPI.getPageSize()
     },
 
-    getPageOffset() {
-        return PaginationAPI._getPageOffset()
+    getOffset() {
+        return PaginationAPI.getOffset()
     },
 
     dispatcherIndex: register( function( payload ) {
         switch( payload.actionType ){
             case AppConstants.ADD_ITEM_TO_LIST:
-                //console.log( "ADD_ITEM_TO_LIST:", payload.item )
                 ListAPI._addItem( payload.item )
                 break
             case AppConstants.REMOVE_ITEM_FROM_LIST:
-                //console.log( "REMOVE_ITEM_FROM_LIST:", payload.item )
                 ListAPI._removeItem( payload.item )
                 break
             case AppConstants.UPDATE_SEARCH_TERM:
-                //console.log( "UPDATE_SEARCH_TERM:", payload.value )
-                DataAPI._updateSearchTerm( payload )
+                DataAPI.updateSearchTerm( payload )
                 break
             case AppConstants.UPDATE_SEARCH_TYPE:
-                //console.log( "UPDATE_SEARCH_TYPE:", payload )
-                DataAPI._updateSearchType( payload )
+                DataAPI.updateSearchType( payload )
                 break
             case AppConstants.JUMP_TO_PAGE:
-                //console.log( "UPDATE_SEARCH_TYPE:", payload )
-                PaginationAPI._jumpToPage( payload )
+                PaginationAPI.jumpToPage( payload )
                 break
         }
         AppStore.emitChange()

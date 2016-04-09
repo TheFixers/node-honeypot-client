@@ -5,24 +5,24 @@
 
 const PaginationAPI = {
 
-	_pageSize: 10,
+    pageSize: 10,
 
-    _currentPage: 0,
+    currentPage: 0,
 
-    _jumpToPage( action ) {
-    	this._currentPage = action.index
+    getPageSize() {
+        return this.pageSize
     },
 
-    _getPage() {
-        return this._currentPage
+    getCurrentPage() {
+        return this.currentPage
     },
 
-    _getPageSize() {
-        return this._pageSize
+    getOffset() {
+        return this.currentPage * this.pageSize
     },
 
-     _getPageOffset() {
-    	return (this._currentPage == 0 ) ? 0 : this._currentPage * this._pageSize
+    jumpToPage( page ) {
+        this.currentPage = page.index
     }
     
 }
