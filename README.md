@@ -1,6 +1,6 @@
 Node Honeypot Client
 =====================
-Honeypot Client using NodeJS, NPM, React, Webpack, and ES6 to parse JSON responses from Honeypot Server 
+ReactJS/FLUX web-client for a Honeypot Server.
 
 
 Navigation
@@ -22,8 +22,8 @@ Requirements
 ------------
 This project assumes you have Node and the following global NPM packages installed:
 <ul>
-<li> Node </l1>
-<li> Babel </li>
+<li> Node + NPM </l1>
+<li> Gulp </li>
 <li> Webpack </li>
 <li> Webpack Dev Server (optional) </li>
 </ul>
@@ -60,8 +60,8 @@ Folder Structure
 Installation
 ------------
 <ul>
-<li> Install Node.js: Click for info <a href='https://nodejs.org/en/download/'>here</a></li>
-<li> Install Global NPM modules: type <code>npm install babel webpack webpack-dev-server -g</code></li>
+<li> Install Node.js and NPM: Click for info <a href='https://nodejs.org/en/download/'>here</a></li>
+<li> Install Global NPM modules: type <code>npm install gulp webpack webpack-dev-server -g</code></li>
 <li> Install dependencies: go to your root project directory and type <code>npm install</code></li>
 </ul>
 
@@ -71,11 +71,11 @@ To develop, from the project's root directory, use the command <code>npm start</
 
 Deployment
 ----------
-To deploy, from the project's root directory, use the command <code>npm build</code>. This will compile all JS and dependencies into `bundle.js` in the `dist/` folder. This will also run the `gulp sass` task. From here, just point your browser to `./dist/index.html`. 
+To deploy, from the project's root directory, use the command <code>webpack</code>. Also, to compile the sass, use the command <code>gulp sass</code>. This will compile all JS and dependencies into `bundle.js` in the `dist/` folder. From here, just point your browser to `./dist/index.html`. 
 
 Contributions
 -------------
-I would love for other people to contribute to this and see what kind of cool functionality we could get going. All work must be done on branches and pull requests can be moderated by admins. :)
+I would love for other people to contribute to this. All work should be done on feature-specific branches and pull requests will be moderated by admins. :)
 
 #### General workflow
 * `git branch <new branch>`
